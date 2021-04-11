@@ -275,7 +275,59 @@ global.call(object);
 
 ----------------------
 
-Constructors
+Constructors: #Blueprint of class
+
+- A function that is called at creation of an object
+- Can be passed multiple paramaters
+
+function Apple (x , y , color, score){
+    this.x = x;
+    this.y = y;
+    this.color = color;
+    this.score = score;
+}
+
+new Apple(10,5,'yellow',5);
+
+- Dont really need a new class, since we are invoking it with 'new'
+    - this creates a new context which is empty, thus a function can serve
+        as a new container for an object attributes
+
+----------------------
+
+Prototypes:
+
+- Need protoype objects to facilitate similar methods for an object
+
+Apple.protoype = {
+    eat() { return this},
+    throw()
+}
+
+- Now each apple have shared Prototypes -> 
+    'this' will move up and down the chain, to retrieve the caller object
+
+-----------------------
+
+Constructors with Prototypes:
+
+- Prototype is basically the extension of the Constructor Function
+Apple.prototype = {
+    // eat() { return "eating the apple" },
+    eat() {return this}, // will return the caller object
+    throw(){ return "throwing the apple" }
+}
+
+- Default _proto_ is another prototype attached to an object to allow it a STEP
+    of functionality for the object. (like get,set,etc...)
+
+- Having similar symbols inside object + prototype -> object symbol will be used
+    So chain is : Object -> Prototype
+
+
+
+
+
 
 
 
