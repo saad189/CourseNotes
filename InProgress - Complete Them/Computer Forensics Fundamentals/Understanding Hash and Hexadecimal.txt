@@ -1,0 +1,29 @@
+A hash file: 
+- algorithm that shows the value of a file
+- Any file, folder or drive can be hashed to a hexadecimal value
+- There are different types of hashes that can be used
+
+What is the purpose of a hash:
+- To show if a file/drive is identical
+	- Make filehash on original and copy drive and match them
+- To find specific file
+	- Example: Matching a file from a USB drive to one on a drive
+- To exclude or include files
+	- Example: Windows system files that are known, don't need to be searched if they are original hash value
+- To find files without having files(known bad files)
+	- Example: Hash list are available that have list of known bad files such as explicit images or malware files.
+		   The hash can be searched without having to have the known bad files
+
+What are common hash types used in computer forensics
+
+- MD5 (Message-Digest)
+	- The MD5 message-digest algorithm is cryptographic hash function that produces 128-bit (16-byte) hash value.
+	  An MD5 hash value is typically expressed as a hexadecimal numbers 32 digits long.
+	  MD5 has been shown to produce "collisions" where two differnt files could have the same hash value but could
+	  be differnt (in content). Though collisiona are rare the more secure SHA-1 and SHA-2 hash algorithms were dev-
+	  eloped.
+- SHA-1   Secure hash algo, desgined by US NSA, Produces 160-bit (20-byte) hash value. SHA-1 hash value is typically expres-
+	  sed as a hexadecimal number, 40 digits long.
+- SHA-2   A set of cryptographic hash functions (SHA-224, SHA-256, SHA-384, SHA-512) designed by NSA, SHA-2 consists of a set
+	  of 4 hash functions : 224,256,384 or 512 bits
+

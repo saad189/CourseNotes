@@ -1,0 +1,32 @@
+What is Computer Forensics:
+- Processing of Collecting, preserving, analysing and documenting digital media evidence of a crime.
+- Goal : to collect digital evidence that can be used in a court of law.
+
+Ways computer can be used in a crime:
+- Computers used in the commision of a crime
+- Computers used to store evidence of a crime (drug, murder) [Casey Anthony trial]
+- Computers used as a means to commit the crime (internet exploitation)
+- Computers used to collaborate existing evidence (GPS, phone)
+
+What computer forensics is not:
+- Don't trust what you see on TV
+- Computer forensics is also not a wild free for all of looking of any crime that may have been committed on the crime
+  It is guided through rules and laws that must be followed to the letter or the warrant
+- e.g: If you have a warrant for one crime, and you uncover evidence of a different one, then you need warrant for that crime
+	before continuing to investigate
+
+
+Computer Forensics Process:
+- Acquiring  - The process of capturing original digital media from a source (Ensuring Write-Corruption, work is done
+	       on the copy, not the original (make 2 copy, better practice)
+
+	     - Ensure copy is same: FileHash
+- Perserving - Preserving the evidence both through preservation of physical media as well as preserving a "paper trail" of
+	       the media
+
+- Analysing  - Inspecting the suspect media for evidence of a crime [Forensics Software is used]
+
+- Reporting  - Producing a report of the digital evidence to show what was found on the drive
+
+
+

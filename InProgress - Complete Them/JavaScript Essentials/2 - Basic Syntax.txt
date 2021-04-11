@@ -1,0 +1,295 @@
+Primitive Types:
+
+null vs undefined:
+- Primitive Types
+
+NaN: Not a Number
+number: integer/decimal (float)
+
+-------------
+Variables, Constants & Assignment:
+
+var name = "";
+JavaScript -> Loosely typed languege
+- Doesnt care about variable type when defining.
+- Meaning that same var can be used for multiple datatypes (much like dynamic in C#)
+
+Symbol Table: (window)
+- boxes -> names
+- Contains the symbols (variables)
+
+--------------
+
+Arithmetic Operator's & BODMAS:
+
+- mdn javascript operator precendence
+- bodmas -> bracket,order (power), div,mul,add,sub [Pedmas]
+
+--------------
+
+Assignment op:
+- "string" + "strr" = "stringstr"
+- "string" + 10 = "string10" -> Polymorphism: String takes precedent
+- s.repeat(numberOfTimes) to repeat a string
+
+--------------
+
+Code Editing and Debugging:
+- Have an Index.html file -> add <script src="file.js"></script>
+	for a separate file
+	#Separation of Concerns
+- <script> //Code </script> can also work for inline code
+- Tip:  <script> should be at the end of body, as Html renders per line 
+	(so it can be blocked by js)
+
+---------------
+
+Functions:
+- symbol for memory
+- Parameter -> var for function declaration
+- Argument -> var for function call
+
+----------------
+
+Objects & Arrays:
+
+Simple Object -> {}
+or var obj = {};
+
+var car = {
+    color: "red",
+    height: 4,
+    length: 10,
+    speed: 220,
+    drive: function () { return "drive"; }
+};
+
+//Js will automatically add index | Iterable
+var shoppingLost = [
+    "Apple", "Orange", "Banana", "Pear"
+]
+
+--------------
+
+Embedding Objects & Arrays:
+- An object can contain properties -> A property can be an embedded Object
+- An array can contain objects, thus any type of property per index
+
+var car = {
+    make: "volvo",
+    speed: 160,
+    engine: {
+        size: 2.0,
+        make: "bmw",
+        fuel: "petrol",
+        pistons: [
+            { maker: "BMW" },
+            { maker: "BMW2" }
+        ]
+    },
+    drive: function () { return "dive"; }
+};
+
+var array = [
+    "string",
+    100,
+    ["embed", 200],
+    { car: "ford" },
+    function () { return "dive"; }
+];
+
+--------------
+
+Member Access:
+
+- window is the warehouse that contains all the symbols
+- window -> console -> to see its symbols
+
+--------------
+
+Computed Member Access:
+
+- Access array by [] operator (Square Brackets)
+- Access function by () operator (bracket)
+- A string key can be used to fetch a certain value var["key"] -> value
+
+var car = {
+    make: "volvo",
+    speed: 160,
+    engine: {
+        size: 2.0,
+        make: "bmw",
+        fuel: "petrol",
+        pistons:[
+            { maker: "BMW" },
+            { maker: "BMW2" }
+        ]
+    },
+    drive: function(){ return "drive"; }
+};
+
+- car["make"] -> bmw
+- car["engine"]["pistons"][1]["maker"] -> "BMW"
+- car["drive"]() -> "drive"
+
+---------------
+
+Member Creation, Assignment & Delegation:
+
+- Creating a new key for a built object:
+	<object>.<new_symbol> = <value>
+	car.model = "v60";
+-* JS allows for on the go member addition, but object needs to be assigned to key (symbol).
+- To delete the symbol:
+	- delete <symbol>
+	- delete car.color (delete is a fucntion, will retrun 'true' on success)
+
+---------------
+
+Array Modification:
+
+- Array[index] = value, will add the new value on the index
+- If array size is x, Array[x+y] will add y indexes and enter value there
+- Array[4] -> Array[20] = 5 -> Array has 4,16 undefined, 5
+- Array.someValue = Value, will work but, will mess up enumerability
+- When array is created, _proto_ object is already attached to it, allowing new useful symbols (methods)
+	- like shift, findIndex, pop
+	- array.unshift("value","",2,function(),{}); // Works like Insert -> returns length of array
+		- Right at the beginning
+	- array.push(val,{},[],200); // Push at the end -> returns length
+- array.splice(begin,numOfElements); Deletes the elements of array from begin location 
+	-> array.splice(2,2) -> returns deleted elements
+- array.splice(begin, numOfElements, val,val,val) -> deletes + adds the following values from location
+	-> can work as REPLACER
+	
+----------------
+
+Callable Objects:
+
+- A function is a callable object
+		-> function name(){	
+			var fullname = "Lawrence Turton";
+			return fullname;
+		}
+
+function namefunc() {
+    var fullname = "Saad Ahmed";
+    function concat(name) {
+        return "MR." + name;
+    }
+    return concat(fullname);
+}
+console.log(namefunc());
+
+- Function passing to function -> Function Embedding:
+
+function callableFunc(functionValue) {
+    return functionValue();
+}
+
+var obj = function () { return "Embed"; };
+console.log(callableFunc(obj));
+
+----------------
+
+Memory Hoisting: (LiftUp)
+
+- Symbols lifted up by JIT, collects all symbols and checks for 
+- First run -> 
+	All symbols hoisted: object symbols taken, not their values
+	Functions as symbols are also hoisted, but their entire context is taken,
+	thus their definition is also loaded
+- Execution run -> now values are checked and if an object is not declared before 
+	calling (other than the function) will be undefined
+//Note Here:
+
+console.log(myName,printName());
+var myName = "Saad";
+function printName(){
+    return "Ahmed";
+}
+
+//returns : undefined "Ahmed"
+
+- the symbols inside function will be treated as objects, 
+	thus will be undefined before being assigned a value
+
+-----------------
+
+Scope & Closures:
+
+- Scope = Access
+- Callable Functions have Execution Stack
+
+function runExpression(){		
+	var a = 10;
+	function add(){
+		var b = 90;
+		return a+b;
+	}
+	return add();
+
+}
+Execution Stack :
+runExpression();
+add();
+// So values of 'a' will remain in memory for the scope of the function
+- Later collected by garbage collector
+
+Outer Execution Environment => (Excecution Stack + Symbols Table)
+
+-------------------
+
+Inferred Globals & Scope:
+
+- Window Object -> most Global scoped object
+- Globally created symbols are globally scoped (and available in Windows)
+- Infer: (Deduce) -> Check from local to global scopes for the symbol referred
+- You can create random object (Clobbering) -> forcing window object extension
+
+--------------------
+
+This Context:
+
+- By default , this -> points to window object
+var object = {
+    prop: this,
+    embed:
+    {
+        method: function(){ return this; }
+    }
+};
+
+- Changing this context -> have a method inside the object and return it
+	- Now 'this' will point to function - 1 layer object [STEP OUT 1]
+	- In case above 'return this' will return 'object'
+
+function global() {
+	return this;
+}
+global.call(object);
+
+- Invoke a function -> function() | function.call( paramater ) | new function() -> new context
+		- new function() will generate new context
+- Note: Invoking a method determines the context : new will generate new scope, simple will use STEP OUT 1
+
+----------------------
+
+Constructors
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

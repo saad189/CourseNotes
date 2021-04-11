@@ -1,0 +1,30 @@
+JavaScript:
+- Mocha -> JavaScript -> JScript -> EcmaScript (ES6 latest)
+---------
+
+Programs of Browser:
+- DOM Parser:
+	- HTML -> Visual Representation on the browser
+- CSS Parser:
+	- CSS -> Render definitions
+- Rendering Engine: DOM + CSS + ...
+
+- JavaScript Engine:  JS -> Machine Code
+	- FireFox -> FireMonkey
+	- Google -> V8
+	- Safari -> Nitro
+	- IE -> Chikara
+
+Client Side: Downloaded Files on the client and Processed
+
+- JIT Compilers: Just In Time Compilers 
+	- js -> machine code
+	- Open for all, anyone can see the net code.
+
+Method -> Function contained within an object
+
+
+API -> Collection of Functions
+
+Embedded API:
+- API has its own Api (like jquery)

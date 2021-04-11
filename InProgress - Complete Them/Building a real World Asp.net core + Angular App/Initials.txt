@@ -1,0 +1,3 @@
+VS Code
+Extensions (Installed): C#, REST Client, MSSQL, Beautify, Angular v2, .NET Core Helper,etc..
+npm install -g yo generator-aspnetcore-spa

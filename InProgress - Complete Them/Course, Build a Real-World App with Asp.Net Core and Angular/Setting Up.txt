@@ -1,0 +1,47 @@
+Real World App with .NetCore and Angular 2 (4+)
+
+InProcess HTTP Servers (Implementations)
+- Kestrel (Cross-Platform) [Good For Internal Use] (Not Secure)
+- WebListener (Windows Only)
+- (IIS on Windows, Apache on Linux)
+
+var host = new WebHostBuilder()
+	.UseKestrel() [The Server]
+	.UseContentRoot(Directory.GetCurrentDirectory()) [The root directory]
+	.UseIISIntegration()
+	.UseStartup<Startup>() [The Start up class]
+	.Build();
+host.Run();
+
+Startup.cs
+- ConfigureServices (IServiceCollection services) [Used for Dependancy Injection]
+  You register services that the controllers ( and your code ) needs
+  e.g. services.AddMvc();
+- services.AddTransient<IRepository, Repository>();
+
+- Configure(IApplicationBuilder app, IHosting....)
+- Configures Request Processing Pipeline
+	Request --> Middleware --> Middleware --> Middleware
+
+Note:: HotModuleReplacement
+- ClientSide files, will recompile and be updated on frontend (only in dev environment)
+
+Middleware Examples:
+- app.UseStaticFiles (like Images, files etc)
+- app.UseMvc ( routes => { templates } )
+
+Environments [set ASPNETCORE_ENVIRONMENT="Development"]
+- Development
+- Staging
+- Production
+
+
+Download dotnetwatch : https://aspnetcore.readthedocs.io/en/stable/tutorials/dotnet-watch.html
+Debug: Shift-Ctrl-D (F5 to start debug)
+
+
+
+
+
+
+
