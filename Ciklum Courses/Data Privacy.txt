@@ -1,0 +1,48 @@
+Privacy: Right to Free from Public Attention
+- Right to have control over your personal data
+- Right to be Free from interference or intrusion
+- Right Not to be Subjected to Unsanctioned invasions of privacy of govenment,
+  corporations and individuals
+- Right to choose what to share or not to share with others about your private
+  life, habbits, acts and relations
+- Right of Data Protection
+----------------------------------------
+
+- Justified by the demand by everyone (of people's data)
+- GDPR
+- A data privacy team in Ciklum
+- 
+
+Extra Rights:
+- Right to be Informed about their Data Use, Access, Rectifiaction,
+  Erasure, Data Processing , Portability, Processing, Auto Design
+----------------------
+
+Violations:
+- Individuals: Inconvenience, Human Diginity + Reputation Loss, Identity Theft, Threat to Individual Wellbeing
+- Company: Fines by regulators, Compensation to Individual, Loss of Rep, Loss of Client, Loss of Public Trust
+
+
+
+MyCiklum->Navigation->Procedures->Securiy and Privacy
+
+Personal Data: Data that can identify someone
+e.g: Name, ID, Address, Asset Info, Images, Sensitive (Race, Political Opinion, Biometric)
+
+Only Collect if absolutely Necessary (and notify individual)
+
+For Clients, Process their data according to their instructions. (Written Only)
+
+-----------
+
+Protect Data Privacy
+
+- Limit Access: No UnAuthorized access, Dont use share by link on g-drive, no Private Messages
+	like Skype, Only use ciklum entrusted channels
+- Limit Use: Delete when no longer needed, Delete if mistakenly taken
+- Communicate: data.privacy@ciklum.com [Data Privacy Team] let them know about data issues
+
+Protect Your Data
+
+
+

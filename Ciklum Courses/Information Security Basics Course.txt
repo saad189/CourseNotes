@@ -1,0 +1,59 @@
+Information Security
+
+Document Types
+Cat, Desc, Example [Types of Document (Label them accordingly)]
+
+- Public, Shouldnt contain company secrets, etc., External Vacany: Marketing Material for public: Internet Web Pages
+- Ciklum Proprietary, Corporate Info (which can be inappropriate and inconvenient), Internal Policies: Internal Commiunications: Contracts Templates: Draft public info
+- Ciklum Confidential, Highly sensitive or Valuable: Proprietary and personal: (Client vendor Info), Project-related info: Salary and Financial Data: Personal Info data: Security Info
+- Ciklum Strictly Confidential, Need-to-know info: Only for explicitly authorized personal, Management data: Sensitive personal data (race, ethnic origin, genetic, health data)
+
+MyCiklum -> Navigation -> Services -> Templates [Labeling Matrix is Here]
+
+Sources of Threats
+
+Negligence/Carelessness (frequent but less damaging)
+- Data Loss (Lost laptop or USB-drive getting into the wrong hands)
+- Destruction (Unintentional Deletion of Data)
+- Disclosure (Confidential Info being sent to wrong person by mistake, Project discussion in public place)
+
+Malicious Intent (Less frequent but harms painfully)
+- Data Theft (Stealing Employee's Bag)
+- Hackers (Skilled Computer expert that uses tech knowledge to steal data and exploit it)
+- Social Engineering (Employee is manipulated to give password(s))
+- Viruses (Malicious software designed to steal, corrupt data or disrupt equipment)
+- Sabotage (Intruder is trying to get access to server room to shutdown the equipment)
+- Ransomware (Blocks access to workstation or data unless ransom is paid. e.g : Petya, BadRabbit, XData, WannaCry)
+
+Security is for everyone 
+- Technology
+- Processes
+- Security TEAM
+- Ciklumers
+
+Information Security Management System
+1. Security Operations (To maintain it on daily basis)
+2. Risk Management (To identify key security threats and prepare to face them)
+3. Incident Management (Responding to S-threat effectively and timely)
+4. Security Awareness (Improve knowledge and develop culture)
+5. Data Protection (To protect intellectual property, personal data, customer data)
+6. Policies and Procedures (Where rules are documented)
+
+Documented Security Processes:
+MyCiklum -> Navigation -> Procedures -> Security and Privacy
+
+Technologies:
+- Physical + Network
+- Server
+- Email
+- Workstation
+
+Ciklumer:
+- Phishing (Report at security@ciklum.com)
+- Strangers (Social Engineering) : Check Browser : Encryption++ : Mobile Security : Physical Threats (Laptop, Bag)
+
+Key TakeAways:
+- Office: Keep stuff locker, safe
+- Computer: Browse wisely, watch attachments, no social engineering plz
+- Accounts: Strong Pass, Dont share (:))
+- Incidents: Suspicious, Disclose to security@ciklum.com

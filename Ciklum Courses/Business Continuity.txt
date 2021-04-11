@@ -1,0 +1,65 @@
+Business Continuity
+
+Questions: 
+- What is Business Continuity Management and why it is Important?
+- How it works in Ciklum
+- What to do in case of emergency
+
+
+------------------------
+
+BCP (Business Continuity Plan)
+Human:
+- High Absenteeism from pandemic
+- Mobilization
+
+Buildings:
+- Fire or Flood
+- Unsafe Workplace
+- Blocking of Building
+- Natural Disasters
+
+IT:
+- Loss of Critical IT System
+- Cyber Attacks
+
+Facilities:
+- Blackout
+- Air Conditioning or Water Disruption
+- Incidents with Elevators, Access Control Systems
+
+Other Incidents:
+- Terrorism
+- Civil Unrest
+- War
+- Raider Seizure
+- Authorities Action
+- Potential Bomb Threat
+
+
+-----------------------------
+
+Business Continuity System:
+Has : HR, Buildings, Utilities, Special Equipment, Specific Documentation, IT Systems
+
+Used to:
+- Minimize Business Impact
+- Minimize Confusion
+- Enable Stable Operations, Planned Return to Normalization
+- Understand what matters
+- Effective Response to Clients
+- Know Which Vendors will help in emergency
+- Appropriate Response to Emergency
+
+-----------------------------
+
+In Case of Emergency: Report to Emergency Team [ciklum_alert@ciklum.com]
+
+Actions: 
+- Inform Line Manager or Team (and Take Appropriate Action)
+
+
+
+
+
+
