@@ -1,0 +1,107 @@
+What's Next:
+
+Windows Store Apps:
+Windows Runtime (WindowsRT)
+
+Windows Desktop Apps:
+Windows Presentation Foundation (WPF)
+Entity Framework
+
+Web Apps:
+ASP.NET MVC
+Entity Framework
+
+# Master 1 -> Not be a jack of all trades
+
+
+------------------------------------------
+
+Learn the Fundamentals : Focus on core
+	- Algo
+	- Data Structures
+	- OOP
+	- Clean Coding
+	- Refactoring
+
+* Applying UML and Patterns by Craig Larman
+* Agile Principles, Patterns and Practices in C#E by Uncle Bob (Robert C Martin)
+* Clean Code by Uncle Bob
+* The Art of Unit Testing
+
+Blogs:
+
+- odetocode.com
+- weblogs.asp.net/scottgu
+
+
+https://programmingwithmosh.com/net/csharp-6-features-that-help-you-write-cleaner-code/
+
+C# 6:
+
+Auto-Property Initializers:
+public class Post 
+{
+    public DateTime DateCreated { get; private set; } = DateTime.Now;
+ 
+    public Collection<Comment> Comments { get; private set; }
+       = new Collection<Comment>();
+}
+
+Dictionary Initializers:
+// Good for Multi-level Values
+
+var dictionary = new Dictionary<string, string>
+{
+     ["LAX"] = "Los Angeles International Airport",
+     ["MEL"] = "Melbourne Tullamarine Airport"
+};
+
+String Interpolation:
+var title = $"{post.Title} ({post.Comments.Count})";
+
+Null-conditional Operator:
+// Prior to C# 6
+var count = 0;
+ 
+if (post != null)
+{
+    if (posts.Tags != null)
+    {
+        count = post.Tags.Count; 
+    }
+}
+ 
+// C# 6
+var count = post?.Tags?.Count;
+
+:: var count = post?.Tags?.Count ?? 0;
+
+
+Expression Bodied Members:
+public class Post  
+{
+    public int DaysOld 
+    {
+         return (DateCreated - DateTime.Today).TotalDays;
+    }
+}
+
+Now changed to :
+
+public class Post  
+{
+    public int DaysOld => (DateCreated - DateTime.Today).TotalDays;
+}
+
+
+Using Static:
+
+using static System.Console;
+public class Program
+{
+    public static void Main()
+    {
+         WriteLine("Hello World");
+    }
+}
+

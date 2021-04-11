@@ -1,0 +1,19 @@
+Programming Languages:
+- Statically Typed Languages : [Type Resolution at Complie Time] : C#, Java
+- Dynamically Typed Languages : [Type Resolution at Run Time] : Ruby, Python, Javascript
+
+C# Initially was static, but after .NET 4 (dynamic capability was added)
+
+CLR : Common Language Runtime -> .net virutal machine -> IntermediateLanguage -> Machine Code
+
+with C# Dynamic Language Runtime -> CLR 
+
+Dynamic type: Resolved at runtime, furthermore their types can be changed too: stirng to int 
+
+Note: var is resolved at compile time, dynamic at runtime. BUT: 
+	    dynamic a = 10;
+            dynamic b = 5;
+            var c = a + b;
+Now var is dynamic.
+
+If at runtime the dynamic time matches a static object, it can be assigned to the static object without any casting

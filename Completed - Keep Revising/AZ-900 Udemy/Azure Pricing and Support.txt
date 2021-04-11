@@ -1,0 +1,191 @@
+Azure Subscription:
+- Subscription is a billing unit
+- Users have access to one or more subscriptions, with different roles
+- All resources consumed by a subscription will be billed to the owner
+- Can be used to organize resources into completely distinct accounts
+- Management Groups: Groups can have subgroups and each group can have multiple subscriptions (Hierachical)
+
+-------------------------------
+
+Planning and Management Costs:
+- Purchase from Microsoft: Pay as you go 
+- Enterprise Agreement: Negotiated minimum spend Annual Custom Prices
+
+Purchase from a Microsoft Partner:
+- Microsoft Cloud Solution Provider (CSP)
+- Azure Free account : azure.microsoft.com/free | 200$ credit for 30 days | 12 months of free services
+- Some services are always free
+
+Factors Affecting Costs:
+- Different services are billed based on different factors
+- Free Services: Resource Groups, VNet, LoadBalancer (Basic), Azure AD (basic), Network security Groups,
+  Free-tier Web Apps (upto 10)
+- Pay per usage (consumption model)
+- Opportunity for cost savings:
+	- E.g Azure Functions:
+		- 1 million executions free per month
+		- 0.2$ per million executions
+		- Cheapest VM is 20$ per month
+	So consider app cost when designing, Can the app desgined as a FunctionBased App, or does it need a server
+
+- Pay per usage Services
+	- Functions
+	- Logic Apps
+	- Storage (pay per GB)
+	- Outbound Bandwidth
+	- Cognitive Services API
+- Pay for Time (per second)
+	- Per second billing means billing stops when the VM is stopped * 
+		(but other things like storage, etc, may still be running)
+- Stability in Pricing
+	- Pay a fixed price per month for computing power or storage capacity
+	- Whether you use it or not
+	- Discounts for 1 year or 3 year commitment in VM (reserved instances)
+	- Multi-tenant or isolated Environment
+- Pay for Bandwidth
+	- First 5GB is free (Outbound)
+	- Inbound is free
+- Bandwidth costs : Each zone has its own pricing for outbound data (per GB)
+- 1 PB of data = $52,000
+- Zone (Geographical Groupiong) 
+	1 : US, EU, Canada, UK, France
+	2 : Australia, Asia , Japan, Korea, India
+	3 : Brazil
+	DE 1 : Germany
+
+- Estimates are hard to make 100% accurate
+
+Configurable Options:
+- Region
+- Tier
+- Subscription Type
+- Support Options
+- Dev/Test Pricing
+
+Export and Share the Estimate
+
+Total Cost of Ownership calculator (TCO): azure.microsoft.com/pricing/tco/calculator
+- The cost of a server is more than just the cost of the hardware
+	- Electriciy
+	- Cooling
+	- Internet Connectivity
+	- Rack space
+	- Setup Labor
+	- Maintenance Labor
+	- Backup
+
+Best Practices for Minimizing Azure Costs:
+- Azure Advisor Cost Tab
+- Auto shutdown on dev/qa resources
+- Utilize cool/archive storage where possible (Hot Store vs Cool Store)
+- Reserved Instances: Save a certain percent of money by reserving VM (by commiting through a contract, and hybrid licenses)
+- Configure alerts when billing exceeds an expected level
+- Use Policy to restrict access to certain expensive resources
+- Auto Scaling Resources
+- Downsize when resources over-provisioned
+- Ensure every resource has an owner (tags) [Set policy so that every resource has a tag, 
+  so we can know why it is being used
+
+Azure Cost Management:
+- Another free tool for checking your spending
+- Budgeting
+- Generate Reports
+
+---------------------------------
+
+Support Options available in Azure:
+
+Levels of Azure Support:
+- Basic- free and included in all plans
+	- Self-help support
+	- Documentation
+	- Azure Advisor Recommendations
+	- Service Health dashboard and Health API
+
+- Developer- non-production environments
+	- Business hours access to support engineers via email
+	- Unlimited Contacts/ Cases
+	- Sev C- Non-business critical
+	- One Day Response time (<8 hours)
+	- General Architectural Guidance
+	- 29$/ month
+
+- Standard - production environments
+	- 24x7 access to support engineers by phone and email
+	- Unlimited contacts / cases
+	- Sev C support (<8 hours), Sev B (<4 hours), and Sev A (<1 hour)
+	- General Architectural Guidance
+	- 100$/ month
+
+- Professional Direct - business critical
+	- 24x7 access to support engineers by phone and email
+	- Unlimited contacts / cases
+	- Sev C support (<8 hours), Sev B (<4 hours), and Sev A (<1 hour)
+	- Architectural guidance on best Practices
+	- Onboarding and Consultations
+	- Delivery Manager
+	- 1000$/ month
+
+- Premier- multiple products, including Azure
+	- 24x7 access to support engineers by phone and email
+	- Unlimited contacts / cases
+	- Sev C support (<8 hours), Sev B (<4 hours), and Sev A (<1 hour, <15 minutes)
+	- Specific architectural support such as design reviews, performance tuning, etc,
+	- Technical Account Manager, Including Service Reviews, Reporting
+	- On demand Training
+	- "Contact us" (for Pricing)
+
+
+- ? -> Help + Support -> Subscriptions
+- ? -> Help + Support -> Ticket Creation
+
+Available Support Channels
+- Ticket
+- Phone
+- Email
+
+Knowledge Center
+- Search engine for FaQ, Specific Questions
+
+------------------------------------------------
+
+Service Level Agreements (SLA):
+- Financial Agreement
+- Guarantees that Microsoft makes
+- 10% credit if the guarantee fails
+- each resource has a SLA
+
+Composite SLA:
+- Multiple SLAs covering a solution
+- Dependancies on the resource SLAs
+	- Azure AD, Premium - 99.9
+	- 2 VM, In Availability Set - 99.95
+	- Azure SQL DB, Basic Tier - 99.99%
+	- Azure Storage, LRS Storage reads - 99.9
+
+Calculating Composite SLA:
+	- Assuming no redundancy, the Composite SLA (for above) solution:
+	- 99.9 * 99.95 * 99.99 * 99.99 = 99.74% SLA
+
+Introducing Redundancy:
+- Assuming storage account is fully replicated in another region, and can fallback to reading from a second location
+- Storage account SLA becomes: 1 - (0.001 * 0.0001) = 99.9999%
+- Updated Composite SLA : 99.84%
+
+------------------------------------------------
+
+Preview Features:
+- Preview features are for "testing" and non production use
+- Could change significantly before it goes live
+- May not go live
+
+Public and Private Preview:
+- Public preview available to everyone
+- Private preview (you need to sign up for it)
+
+General Availability (GA):
+- A preview feature is passed on to Live
+
+Monitor Feature Update:
+- Popup
+- Update Page (like patch notes :D)

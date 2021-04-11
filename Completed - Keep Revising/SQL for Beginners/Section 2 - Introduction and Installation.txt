@@ -1,0 +1,64 @@
+Database:
+Allows us to access and interact with the data
+SQL -> Interacts with DBMS -> Interacts with DB
+
+Structured Query Language
+- Used to communicate with databases
+- e.g Select * from customers;
+
+-----------------------------------------------------
+
+What is MYSQL
+
+MySQL is a relational Database management System. Provides a UI for us to access and interact
+with database. RDMS : MySQL, PostgreSQL, SQL Server, Oracle
+
+-----------------------------------------------------
+
+RDMS:
+Relational Database is a collection of data organised into tables.
+Tables contain columns of data categories, and rows with particular instances of that data
+catagory.
+Tables in relational database can be linked together. (Easy)
+RDBMS is what we use to acces and interact with the relational database.
+
+-----------------------------------------------------
+
+Installation for Windows:
+- dev.mysql.com
+- MYSQL Downloads
+- MySQL on Windows
+- MYSQL installer
+- mysql-installer-community
+- Install the server and the workbench
+- Developer Machine / 3306 (Your choice)
+- MySQL root Password: root(?)
+
+------------------------------------------------------
+
+MySQL WorkBench Overview:
+
+Understood.
+Some Queries:
+Select * from Table1;
+Select * from Table2;
+
+- You can cancel query mid-way (using the red cross button)
+- The Query button with search icon will show what is being done to fetch the query
+
+---------------------------------------------------------
+
+Create Database:
+- Ensure Your user has all the privileges (or add them for the user by logging through root)
+
+show databases;
+CREATE DATABASE Test;
+use test; // Use this database
+show tables;
+drop database test; // Detele db
+
+
+
+
+
+

@@ -1,0 +1,87 @@
+Aggregate Functions:
+- Perform calculations on data within a column and returns one result row
+- Can use GROUP BY clauses to group the results by one (or more) columns
+- Can use a HAVING (similar to where in a select, for filtering)
+- COUNT, SUM, MIN, MAX, AVG
+
+------------------------
+
+COUNT:
+
+select count(*) from customers;
+select COUNT(first_name) from customers;
+- It doesn't count NULL VALUES
+
+-------------------------
+
+SUM:
+
+- Sum values of a column (NUMERIC only)
+- select SUM(no_seats) from rooms;
+
+-------------------------
+
+Min and Max:
+
+- Max and Min values from a column;
+select MAX(length_min) from films;
+select MIN(length_min) from films;
+
+--------------------------
+
+Average:
+
+select AVG(length_min) from films;
+select AVG(length_min) from films where length_min > 120;
+select SUM(length_min)/COUNT(length_min) from films;
+
+
+---------------------------
+
+Excercise:
+
+1. select Count(*) from bookings where customer_id = 10;
+2. select Count(*) from screenings s join films f on s.film_id = f.id where f.name = 'Blade Runner 2049';
+3. select count(distinct(customer_id)) from bookings;
+
+---------------------------
+
+Grouping Data:
+
+select customer_id, Count(id) from bookings 
+group by customer_id;
+
+- select <group_by_column>, Function(column) from bookings group by <group_by_column>
+- number of columns to group by (in select) must also be in group by clause
+
+SELECT f.name, s.start_time, c.first_name, c.last_name, COUNT(b.id) FROM films f
+JOIN screenings s ON f.id = s.film_id
+JOIN bookings b ON s.id = b.screening_id
+JOIN customers c ON b.customer_id = c.id
+GROUP BY f.name, s.start_time, c.first_name, c.last_name
+ORDER BY s.start_time;
+
+---------------------------
+
+Having Clause:
+
+- If you use GROUP BY, you cannot use WHERE
+- USE HAVING clause
+
+select customer_id, screening_id, count(id) from bookings
+group by customer_id, screening_id 
+having customer_id = 10;
+
+Note: the statement in HAVING Clause must be included in group by and select as well.
+---------------------------
+
+Exercise:
+1. select b.customer_id, count(r.id) from reserved_seat r
+join bookings b On r.booking_id = b.id
+group by b.customer_id;
+
+2. select f.name, f.length_min, count(s.film_id) from films f
+join screenings s on s.film_id = f.id
+group by f.name,f.length_min
+having f.length_min > 120;
+

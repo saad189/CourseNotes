@@ -1,0 +1,113 @@
+Vertical scaling, also known as "scaling up", 
+is the process of adding resources to increase the power of an existing server. 
+Some examples of vertical scaling are: adding more CPUs, or adding more memory.
+
+Horizontal scaling, also known as "scaling out", 
+is the process of adding more servers that function together as one unit.
+ For example, you have more than one server processing incoming requests.
+
+Azure Architectural Components:
+
+Regions:
+- 55 Regions 140+ countries [More than AWS]
+- Places where you can get azure services | Not all regions are available to everyone [Government only]
+- China has separate Rules
+
+Availability Zones:
+- One Region is made up of Physical Availability Zone [Multiple Zones = 1 region] (In a few regions)
+
+Resource Groups:
+
+- Azure Hierarchy: ManagementGroups => Subscriptions => ResourceGroups => Resources (VMs, SQL, StreamAnalytics,etc...)
+- Resource Groups can have different features like : Security, specific access, etc..
+
+Azure Resource Manager (ARM):
+- API, allows access to resource manager, cloud, etc..
+- So it can interface with anything
+- Resource Provider Contract -> Leads to multiple resources and their REST points
+
+
+------------------------------
+
+
+Core Azure Products:
+
+Compute: VM (IaaS), VM Scale Sets [For elasticity] (has load balancers, etc), 
+App Service (PaaS), Functions (Serverless), 
+Azure Container Instances : 
+- For packaging and running containerized code on cloud
+- Don't have built in scaling [not elastic, but quick]
+Azure Kubernetes Services  :
+- Same as container, and is elastic
+- Deploy in kuberenets, flexible, crossplatform
+
+Networking:
+
+Virtual Network : Software bound network among VMs
+Load Balancer : Network device to balance traffic across multiple VMs
+VPN Gateway : For private network (VPN gateway for office and azure servers)
+Application Gateway : A type of load balancer, smart, url bound or condition bound load balancer
+Content Delivery Network (CDN) : Servers you don't control, but deliver the content to the users (Distributed Servers)
+				 Static content holders
+				 Consider Usecase: Browser fetches data, it can send concurrent request to multiple CDN 
+				 servers for quick data grab
+
+Storage:
+
+Azure Storage - Blob, File, Table, Queue
+Managed Disk : Virtual Harddisk for VMs
+Backup and Recovery Storage
+
+Databases:
+- Cosmos DB : Fast, Available, Responsive
+- Azure SQL Database | Azure Database for X == Managed DB
+- Azure Database for MySQL
+- Azure Database for PostgreSQL
+- Azure Database Migration Service
+- Azure Synapse Analytics (formely SQL DATA Warehouse)
+You can use original DB but u would need IaaS and manage it on your own
+
+
+Azure Marketplace:
+
+- Services
+- Containerized Images for you to deploy
+- Modules
+
+----------------------------------
+
+
+Core Azure Solutions:
+
+Internet of Things (IoT):
+- Iot Hub : Get data from Iots
+- Iot Central 
+
+Big Data and Analytics:
+- Azure Synapse Analytics (formerly SQL DATA Warehouse)
+- HDInsight - Hadoop Services
+- Azure Databricks : Centralized Services : Pull data from sources, then analyze, create reports 
+		     Contains the entire chain ( tech to business )
+
+Artifical Intelligence (AI) [Cognitive]
+- Azure Machine Learning Service
+- Studio
+
+Serverless:
+- Azure Functions
+- Logic App
+- Event Grid
+
+----------------------------------
+
+Azure Management Tools: (Manage resource, start stop change)
+
+Azure CLI : Bash (Linux)
+PowerShell : Widows
+Azure Portal
+Azure Cloud Shell
+
+
+Azure Advisor:
+- Analyzes your usage, resources
+- Gives suggestions on saving cost and efficieny

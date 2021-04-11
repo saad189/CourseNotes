@@ -1,0 +1,84 @@
+What are Joins:
+
+- Joins allow you to retrieve data from multiple tables in a single select statement, to join two tables
+  there needs to be a related column between them.
+
+Types:
+
+- Inner Join:	Will retrieve data only when there is matching values in both sides
+- Left Join: Will retrieve data from left table and matching rows from the right table
+- Right Join: Will retrieve data from right table and matching rows from the left table
+- Outer (Full) Join: Will retrieve all data from both tables
+
+-----------------------------
+
+Inner Join:
+
+- select products.name, orders.order_time from orders 
+Inner Join products on orders.product_id = products.id
+
+- select <table>.<column>.... from <table>
+Inner Join <table_left> on <table>.<column> = <table>.<column>
+
+- select p.name, o.order_time from orders o 
+join products p on o.product_id = p.id;
+
+- select p.name,p.price, o.order_time from orders o 
+join products p on o.product_id = p.id 
+order by o.order_time;
+
+
+------------------------------
+
+Left_Join:
+
+- Table order matters when writing left or right join
+
+
+update orders set customer_id = null where id =1 ;
+select o.id, c.phone_number, c.last_name, o.order_time from orders o 
+left join customers c on o.customer_id = c.id 
+order by o.order_time
+limit 10;
+
+select o.id, c.phone_number, c.last_name, o.order_time from customers c
+left join orders o on c.id = o.customer_id
+order by o.order_time
+limit 10;
+
+------------------------------
+
+Right_Join:
+select o.id, c.phone_number, c.last_name, o.order_time from customers c
+right join orders o on c.id = o.customer_id
+order by o.order_time
+limit 10;
+
+------------------------------
+
+Joining More than two tables:
+
+select p.name, p.price, c.first_name, c.last_name, o.order_time from products p
+join orders o on p.id = o.product_id
+join customers c on c.id = o.customer_id;
+
+// One Table has to be the link between two non-related tables
+
+
+-----------------------------
+
+Excercise:
+
+1. select o.id, c.phone_number from orders o 
+join customers c on c.id = o.customer_id where o.product_id = 4;
+
+2. select p.name, o.order_time from products p 
+join orders o on p.id = o.product_id
+where p.name = 'Filter' and o.order_time between '2017-01-15' and '2017-02-14';
+
+3. select p.name, p.price, o.order_time from products p 
+join orders o on p.id = o.product_id
+join customers c on c.id = o.customer_id
+where c.gender = 'F' and o.order_time between '2017-01-01' and '2017-01-31';
+
+

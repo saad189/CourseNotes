@@ -1,0 +1,132 @@
+- Data Retrieval using Select
+- Where to filter
+- IN, Between, Like
+- limit row, etc...
+
+----------------------------------
+- select last_name, phone_number from customers;
+- Select * from customers;
+- Select <column_name>,<column_name>.... from <table>;
+
+----------------------------------
+
+Where Clause:
+
+Select <column> from <table> where <condition = true>;
+
+- select * from products where price = 3 
+  and coffee_origin = 'Colombia';
+
+- You can keep adding And/Or with the where clause
+
+-----------------------------------
+
+Unequality Symbol:
+
+where <column> <,>,>=,<=,!= <value>;
+
+-----------------------------------
+
+Null Values:
+
+select * from customers where phone_number IS NULL;
+select * from customers where phone_number IS NOT NULL;
+
+
+------------------------------------
+
+Excercise:
+1. select first_name,phone_number from customers where gender = 'F' and last_name = 'Bluth';
+2. select name from products where price > 3 or coffee_origin = 'SriLanka';
+3. select count(first_name) from customers where gender = 'M' and phone_number IS NULL;
+
+------------------------------------
+
+In, Not In:
+
+select * from customers where last_name in ('Taylor','Bluth','Armstrong'); [Include]
+select * from customers where first_name Not IN ('Katie','George','John'); [Does not Include] (or donot Include?)
+
+------------------------------------
+
+Between:
+select product_id,customer_id,order_time from orders 
+where order_time between '2017-01-01' and '2017-01-07';
+
+- Between <value> and <value>;
+
+------------------------------------
+
+Like:
+select * from customers where last_name like 'W%';
+select * from customer where last_name like '%o%'; (any number of characters before o,
+						    any number of characters after o)
+
+- % any number of characters
+- _ just one character
+
+select * from customers where first_name like '_o_'; (one char before o, one char after o)
+
+-------------------------------------
+
+OrderBy:
+
+select * from products order by price; (ascending by default)/ asc;
+select * from products order by price desc;
+
+select * from orders where customer_id = 1 order by order_time desc;
+
+select * from products order by price, name desc (similar price values will apply second order filter);
+-------------------------------------
+
+Excercise:
+1. select name, price from products where coffee_origin in ('Colombia','Indonesia') order by name;
+2. select * from orders where order_time between '2017-02-01' and '2017-02-28' and customer_id in ('2','4','6','8');
+3. select first_name, phone_number from customers where last_name like '%ar%';
+
+-------------------------------------
+
+Distinct:
+
+select distinct <column_name> from <table>;
+select distinct coffee_origin from products;
+select distinct <column_name>, <column_name>; will create a group of columns (and the apply distinct on them)
+
+--------------------------------------
+
+Limit:
+
+select * from customers limit 5;
+select * from customers order by last_name limit 10 offset 5; (will apply order by) (will ignore first 5 values) 
+
+--------------------------------------
+
+Column Name Alias:
+
+select name as coffee, price, coffee_origin as country from products;
+Applies to result-set only
+
+--------------------------------------
+
+Excercise:
+
+1. select distinct last_name from customers order by last_name;
+
+2. select * from orders where customer_id = 1 and order_time between '2017-02-01' and '2017-02-01' limit 3;
+
+3. select name, price as retail_price, coffee_origin from products;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

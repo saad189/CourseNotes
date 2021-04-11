@@ -1,0 +1,36 @@
+Another Interesting Command:
+
+people.OrderBy(p => p.Age)
+	.ThenByDescending(p => p.Name));
+//Returns IOrderedEnumerable
+
+//This first Orders by age (in ascending), then on matching values, it further
+	sorts on the basis of name (in descending).
+
+Reverse:  string rString = oString.Reverse().ToArray();
+
+GroupBy, returns: IEnumerable<IGrouping<String,Object>> (Has a key, that is used to groupBy)
+e.g: people.GroupBy( p=> p.Age < 30 )); //Returns True and False as Keys
+    IGrouping<Boolean,Object>>
+-------------------------------------
+people.GroupBy(p=> p.Age, p=> p.Name) : IEnumerable<IGrouping<Int32,String>>>
+
+word.Distinct(); // Gets unique elements in a collection/string
+
+word1.Interesect(word2); gets intersection of two collections.(Unique)
+
+word1.Union(word2); gets Intersection, (All)
+
+word1.Except(word2); elements in word1 not in word2 (Unique)
+
+
+numbers.All(x=> x>0) ; returns true/false if all satisfy
+numbers.Any (....) ; Any one has to satisfy. numbers.Any() checks for isEmpty().
+numbers.Contains(value); True/False
+
+#Important:
+numbers.Skip(2); Ignore First 2 elements;
+numbers.Skip(2).Take(6); Skip first 2, take next 6
+numbers.SkipWhile(i => i == 3)); skip the values 3 (till you find a different one, Note: that it only checks values from start, as soon as the condition staifies, it will not check again)
+numbers.TakeWhile, similar to SkipWhile, it will take, till true.
+p

@@ -1,0 +1,107 @@
+- Alter Table: Add, remove Primary Keys, Foreign keys, data types, etc...
+
+-----------------------
+
+Creating a Test Database:
+
+create database test;
+use test;
+create table addresses (
+	id int,
+    house_number int,
+    city varchar(20),
+    postcode varchar(7)
+);
+create table people (
+	id int,
+	first_name varchar(20),
+    last_name varchar(20),
+    address_id int
+);
+create table pets (
+	id int,
+    name varchar(20), 
+    species varchar(20),
+    owner_id int
+    );
+show tables;
+
+-------------------------
+
+Add and Remove Primary Key:
+
+- Alter Table <tablename>
+	Add Primary Key (columnname);
+
+- Alter Table <tablename>
+	Remove Primary Key;
+
+- Adding a primary key changes the Column Null to No
+- Dropping the primary key won't revert the Null to Yes
+- Describe <tablename>
+
+--------------------------
+
+Add or Remove Foreign Key:
+
+- Alter Table <tablename>
+	Add constraint <constraintname>
+	Foreign Key (<columnname>) refereneces <tablename>(<columnname>);
+
+- Alter Table <tablename>
+	Drop Foreign Key <constraintname>;
+    
+- The referenced column has to be a PRIMARY KEY
+    
+
+  Alter table people Add constraint FK_PeopleAddress
+    Foreign Key (address_id) References addresses(id);
+    
+  Alter table people Drop foreign key FK_PeopleAddress;
+
+
+--------------------------
+
+Add Unique Constraint:
+
+- Alter Table <tablename>
+	Add Constraint <constraintname> UNIQUE (<columnname>);
+- Alter Table <tablename>
+	Drop INDEX <constraint>;
+
+- Alter table Pets Add Constraint U_Species UNIQUE (species);
+- Alter table pets Drop INDEX U_Species;
+    
+--------------------------
+
+Change Column Name:
+
+- Alter table <tablename> CHANGE `old_column_name` `new_column_name` <datatype>;
+
+- Alter table Pets CHANGE `species` `animal_type` VARCHAR(20);
+   
+--------------------------
+
+Change Column DataType:
+
+- Alter table <tablename> Modify <columnanme> <datatype>;
+- Alter table addresses modify city Varchar(30);
+- Note: If there is data inside a column that is not compatible with the new type, SQL will not allow you to 
+	change the datatype.
+
+--------------------------
+
+Excersie 1:
+
+   Describe pets;
+    Alter table pets add primary key (id);
+    Alter table pets add constraint FK_PetsPeople
+    foreign key (owner_id) References people(id);
+    
+    Alter table pets CHANGE `name` `first_name` VARCHAR(20);
+    Alter table addresses MODIFY `postcode` CHAR(7);
+    
+    Alter table people add column email Varchar(30);
+    Alter table people add Constraint U_Email UNIQUE (email); 
+    
+    

@@ -1,0 +1,23 @@
+- Anonymous Method
+- No access modifier
+- No name
+- No return statement
+
+Why:
+- For readability
+- Convenience
+
+args => expression
+
+Assign Lambda to a delegate. That is how it is supposed to work
+
+Func<int,int> square = number => number * number;
+
+// () =>
+// x => 
+// (x,y,z) => 
+
+Predicate:
+- A delegate to a method that gets a type T object and returns a boolean on condition
+e.g :  books = books.FindAll(b => b.Price < 10); [where : b => b.Price < 10 is a predicate]
+	Similar to Func(Book book) { return book.Price < 10; }

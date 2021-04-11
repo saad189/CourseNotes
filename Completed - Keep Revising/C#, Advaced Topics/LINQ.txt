@@ -1,0 +1,34 @@
+Language Integrated Query
+Gives you the cabality to query objects
+
+Objects in memory, collections (LINQ to Objects)
+Databases (LINQ to Entities)
+XML (LINQ to XML)
+ADO.NET Data Sets (LINQ to Data Sets)
+
+e.g 
+        var cheapBooks = books.Where(b => b.Price < 10);
+            books.OrderBy(b => b.Title);
+
+You can chain these LINQ extension methods:
+            var cheapBooks = books.Where(b => b.Price < 10)
+                                  .OrderBy(b => b.Title)
+                                  .Select(b => b.Title);
+
+LINQ Query Operators:
+            var cheaperBooks = from b in books where b.Price < 10 orderby b.Title select b.Title;
+
+//More LINQ
+
+SingleOrDefault
+First(predicate)
+Skip
+Take //Note: Chaining Skip and Take can bring intersting results
+
+Get Max Value Object with Simple Linq:
+
+books.OrderByDescending(b => b.Price).First();
+
+or get the MoreLinq libray:
+
+books.MaxBy(b => b.Price);

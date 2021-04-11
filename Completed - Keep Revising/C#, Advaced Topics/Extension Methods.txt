@@ -1,0 +1,31 @@
+Allows to add methods to an existing class without:
+- changing its source code or 
+- creating a new class that inherits from it
+
+
+Cannot Inherit from a sealed class
+
+    //ExtensionforClass + Extensions
+    public static class StringExtensions
+    {
+	// this => string x; x.Shorten(5)
+        public static string Shorten(this String str, int numberOfWords)
+        {
+            if (numberOfWords < 0)
+                throw new ArgumentOutOfRangeException("numberOfWords should be greater than 0");
+            if (numberOfWords == 0)
+                return "";
+            var words = str.Split(' ');
+            if (words.Length <= numberOfWords)
+                return str;
+            // Take is implemented by any IEnumerbale
+            return string.Join(' ', words.Take(numberOfWords));
+        }
+    }
+
+Extension Methods must be in the scope [Same namespace or include the namespace]
+Trick: use System namespace for defining extension methods
+
+Instance methods have priority over static methods
+
+Example of predefined Extension methods : IEnumerable

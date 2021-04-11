@@ -1,0 +1,106 @@
+Normalization:
+
+A process of efficiently organizing data in a database
+- To eliminate redundant data
+- To only store related data in a table
+
+Benefits: 
+- Reduce storage space
+- Reduce insert, update, deletion anomalies
+- Improve query performance
+
+Levels of normalization:
+
+- 1NF
+- 2NF
+- 3NF
+- Boyce and Codd Normal Form (BCNF)
+
+
+---------------------------------------
+
+1st Normal Form (1NF):
+
+- No repeated rows of data
+- Columns only contain a single value
+- Table has a primary key (Multiple columns can forma a primary key)
+
+---------------------------------------
+
+2nd Normal Form (2NF):
+
+- Already in 1NF
+- Every column that is not a primary key of the table is dependent on the
+  whole of the primary key
+- E.g Primary Key : Name + Subject, Grade, Age [Grade needs both columns, age only needs Name]
+	So Age needs a new table [Name, Age]
+
+---------------------------------------
+
+3rd Normal Form (3NF):
+
+- Already in 2NF
+- Every column that is not a primary key is only dependent on the whole of the primary key,
+  and must not depend on any other column
+
+---------------------------------------
+
+Relationships:
+
+- Tables are related through primary and foreign keys
+- One to One Relationship
+- One to Many
+- Many to Many
+
+---------------------------------------
+
+Relationships - One to One:
+
+- Where a key to one table appears no more than once as the key in another table and vice versa
+- Least common type of relationship
+- Products - Product_Details [One product has only on product_detail] 
+- (1 - 0..1)
+
+---------------------------------------
+
+Relationships - One to Many:
+
+- Where a primary key of one table can be in multiple rows of a foreign key column of another table
+- Common
+- Customers - Orders [One customer can have many orders]
+- (1 - 0..M)
+
+---------------------------------------
+
+Relationships - Many to Many:
+
+- Where two tables can have many instances of each other
+- As common as one to one (so not really)
+- Products - Orders [Many products can be in many orders] 
+- (one product can be in many orders | many products can be in one order) (1..M - M..1)
+- Products - Order_Details - Orders
+- Needs an intermediary table (Junction Table) (1 - 1..M) [Junction] (1..M - 1)
+
+---------------------------------------
+
+Constraints:
+
+$ Question: How to add primary key to multipe columns (as they form the new primary key)
+- NOT NULL - A column can't contain any null values
+- UNIQUE - A column can't contain any duplicate value of data
+- PRIMARY KEY - A column that uniquely idenitifies each row of data
+- FOREIGN KEY - A column which is related to a primary key in another table
+
+- CHECK - Controls the values that can be inserted into a column
+- Example : CHECK (ratings BETWEEN 0 AND 100)
+- DEFAULT - If no values in inserted into a column, you can set a default value
+- Example : email DEFAULT 'No Data'
+
+
+
+
+
+
+
+
+

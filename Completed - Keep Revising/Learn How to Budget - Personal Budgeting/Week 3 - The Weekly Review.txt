@@ -1,0 +1,30 @@
+Reconciling with the Bank:
+
+- Make sure that bank transactions match your transactions
+- Use the transaction tracker :
+	R - Reconciled
+	W - Week
+	Payee - who you paid it to
+	Balance c/f - Balance after the transaction
+- After a transaction has been cleared, change the R from N to Y
+
+--------------------------------------
+
+How to do a weekly Review:
+
+- Check the transaction tracker: take the expenses of the week
+- Take it to Budget Sheet, add it to weekly review of budget sheet.
+
+---------------------------------------
+
+Getting Back on Track when something Unexpected Happens:
+
+- On Spend Account: Add 'Unexpected Bill'
+- Limit other Catagories to fill in Unexpected Bill
+- You can also use Emergency Fund
+- Fluid and Maneuverable but also rigid (the Budget)
+----------------------------------------
+
+Task for Week 3:
+- Practice Reconciliation (Actual and Working Balance)
+- Try Sample Budget, what would you do to adjust that budget

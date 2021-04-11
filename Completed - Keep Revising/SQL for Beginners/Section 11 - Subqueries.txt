@@ -1,0 +1,60 @@
+What are subqueries:
+Queries nested within other queries:
+
+select id, start_time from screenings where
+film_id IN ( SELECT id from films where length_min> 120 );
+
+Can be used in SELECT, INSERT, UPDATE or DELETE query
+
+The nested query can be in the where clause or the FROM.
+
+Two types of subquery: 
+- Non-correlated: The inner query can run independently of the outer query
+Inner query runs first, then the outer query uses the result
+- Correlated: The inner query can not run independently of the outer query
+The Inner query runs for every row in the outer query (USED IN SELECT NOT WHERE)
+
+-------------------------------
+
+Question: When to use join and when to use subqueries
+
+-------------------------------
+
+Non-Correlated SubQueries:
+
+select first_name, last_name, email from customers
+WHERE id IN ( select customer_id from bookings where screening_id = 1 );
+
+select MAX(no_seats) FROM 
+(select booking_id, count(seat_id) AS no_seats from reserved_seat
+group by booking_id ) b;
+
+select <column> from <derived_table> 
+derived_table: query generated table (have to give it a name, b in above example)
+[Using ResultSet to fetch a SELECT]
+
+---------------------------------
+
+Correlated Queries:
+
+Runs per row
+Inner query is dependant on the outerquery
+
+select screening_id, customer_id, 
+(Select COUNT(seat_id) from reserved_seat where booking_id = b.id) from bookings b
+order by screening_id;
+
+---------------------------------
+
+Excercise:
+
+1. select name, length_min from films where length_min > (select avg(length_min) from films);
+
+2. select MAX(id), MIN(id) from 
+( select film_id, COUNT(id) as id from screenings 
+group by film_id
+) A;
+
+3. select name, (Select count(s.film_id) from screenings s where s.film_id = f.id) from films f;
+
+

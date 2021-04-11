@@ -1,0 +1,30 @@
+Synchronous Program:
+- Line by Line
+- Program has to wait for a function execution to complete, before moving ahead
+
+Asynchronous Program:
+- Program Execution continues to the next line without waiting for asyn function to complete
+
+Improves responsiveness of your application
+
+Use it when the call will have delays : DbAccess, etc...
+
+Traditional : Multi-threading, Callbacks
+
+New approach Since Net 4.5
+- Async/Await
+
+Task : Encapsulates state of Async operation?
+
+await operator: Not exactly blocking
+- Its not blocking, just a marker for compiler (to let it know its a costly operator)
+- Returns CONTROL back to the caller of the method
+- Stops execution of the current method till the await call is complete
+
+Scale Up vs Scale Out
+
+Scale up: Async ?
+Scale out : add physcial servers
+
+
+

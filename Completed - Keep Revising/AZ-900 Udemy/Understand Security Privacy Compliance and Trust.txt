@@ -1,0 +1,216 @@
+Securing Network Connectivity:
+
+Azure Firewall: (Application Gateway, WAF, L7 LB)
+- Can detect XSS, SQL injections etc..
+- Valid Requests are sent to the next Interface (Load balancer, etc..)
+
+
+Azure DDoS Protection:
+- Always on Monitoring, Automatic Mitigation, L7 Protection, Globally deployed [BASIC]
+- Protection policies for you VNet, (Loggin, telemetry, alerting), Resource cost scale protection [Standard]
+
+
+Network Security Group (NSG):
+In resource manager, create Virtual NET you can apply nsg to it
+Consider Scenario:
+Virtual Network Contains (FrontEnd + Backend)
+- FrontEnd Subnet : Has its own NSG
+- BackEnd Subnet : Has its own NSG
+- In case of Private Net, NSG can block open internet , allowing only gateway pass (VPN)
+
+Inbound NSG rules Protect a Destination IP addresses and Port
+
+ASG (Application Security Group) , can group resource by type (i.e All VMs)
+
+
+User Defined Routes (UDR):
+Force traffic over a route
+Force traffic to go a certain route, like through a Firewall, or over a corportate network
+
+
+Choose an appropriate Azure Security Solution:
+- All virtual network subnets should use NSG
+- It's a strong lock on windows and doors that you don't use
+- DDoS Protection (usually after an attack)
+- Application Gateway with WAF
+- Security through Layers , multiple layers
+
+--------------------------------------
+
+Azure Identity Services:
+
+The Difference between Authentication and Authorization:
+
+Authentication: User has to prove who they are (user id, password)
+Authorization: Ensuring that a User is Permitted to Perform an Action
+No longer admin access , thats old :D 
+
+Azure Active Directory: [Like one password for everything connected to AD]
+- Identity as a Service: IDaaS
+- Microsoft's Preferred Solution for Identity Management
+- Complete Solution for Managing Users, Group, Roles (Assign permissions)
+- Single-Sign on (saad18910@hotmail.com)
+- Synchronize with your corporate AD (Not directly linked to Single Sign on, 
+					but it can be synced with corporate AD | mahm)
+
+Azure Multi-Factor Authentication:
+- First factor in your User Id
+- Second Factor is Password (hopefully its unique)
+- Third (now its multi-factor), usually your phone: sms, Authenticator app, phone call (Still vulnerable to Spoofing)
+
+--------------------------------------
+
+Security tools and Features:
+
+Azure Security:
+Physcial vs Digital Security
+Shared Security Model
+
+Azure AD: Active Directory [Foundational Design]
+MFA (MultiFactor Authentication)
+Role-Based Access Control (RBAC): Authorization for multiple features
+Layered Approach: (Security Layers):
+	- Data (VNET Endpoint), APP (API Management), 
+	- Compute (Limit Remote Desktop Access), Windows Update
+	- Network (NSG, Use of Subnets, Deny All by default)
+	- Perimeter (DDoS, Firewalls)
+	- Identity & Access - Azure AD
+	- Physical (Door Locks, Key Cards)
+
+
+Azure Security Centre Usage Scenarios:
+Unified Security management and advanced protection
+Free and Standart Tier
+
+Key Vault:
+Central, Secure Repository for Your Secrets, Certificates and Keys
+- API Keys, Secrets, Certificates , etc...
+- Authroize key to certain users
+- Create key, Certificates (Import)
+- Administrator with Azure Subscription creates and manages valut and keys: Key Vault -> Uri for Keys -> Azure Developers
+									      -> Usage logging for keys -> Security Admin
+
+Azure Information Protection (AIP):
+- Apply labels to emails and documents
+- Confidential, Super Confidential, Top Secrets
+- E.g Office 365 can restrict certain actions on labelled documents
+
+Azure Advaced Threat Protection:
+- Monitor and Profile user behavior and activities
+- E.G User logging from certain places, and notice irregular behavior
+- Protect user identities and Reduce the Attack surface
+- Identify Suspicious Activities and Advanced Attacks
+- Investigate Alerts and User activities
+
+-----------------------------------------
+
+Azure Governance Methodologies:
+
+Azure Policy:
+- Governance
+- Create Rules across all of your Azure Resources (Resource Groups)
+- Evaluate Compliance to those rules
+Examples:
+	- Require SQL Server 12.0	
+	- Allowed Storage Account SKU [Certain Account Types]
+	- Allowed Locations [Certain Regions]
+	- Allowed Virtual Machine SKU [Certain VM types, cheaper?]
+	- Apply tag and its default Value [billing code]
+	- Not allowed resource types
+- Create custom Policies using JSON definition
+
+Policy Initiatives:
+- A set of policies grouped together
+- Every resource and resource group must have these five tags
+- Grouped together to act as a policy initiative
+
+Role Based Access Control (RBAC):
+- Microsoft Recommended solution
+- Create roles that represent the common tasks of the job
+- Accountant, Developer, Business, Lead
+- Assign granular permissions to these roles
+- Assign users to that role ( People can have mutiple Roles )
+- Do not assign granular permissions to an individual (rather assign permissions to role)
+- Built-In Roles : Reader, Contributor, Owner
+
+Locks:
+- Read Only, Can Not Delete 
+- To prevent accidental deletes and Updates
+- Apply to resource, (A locked resource cannot be deleted)
+- Using RBAC, you can restrict who has access to locks
+
+
+Azure Advisor security Assistance:
+- Recommends (every few hours), Usage, Security, etc..
+
+
+Azure BluePrints:
+- Azure Subscription templates with Roles and Policies already Defined
+
+------------------------------------------
+
+Monitoring and Reporting Options:
+- Azure Monitor [Records Logs, and Metrics (Memory and CPU Utilization)
+	- Insights -> Visualize -> Analyze -> Respond -> Integrate
+- Azure Service Health
+	- Records Issues with Azure Data Centres, and gives feedback of any worldwide issues
+
+Monitor vs Health
+- Azure Monitor collects all the data for you to analyze and create alerts on
+- Specific to your application, you actions
+- Azure Service Health are general alerts across all of Azure
+
+-----------------------------------------
+
+Privacy, Compliance and Data Protection Standards:
+
+Compliance Terms such as GDPR, ISO, NIST:
+- Many Standards worldwide
+- Microsoft claims to be in compliance with many of them
+- Has tools to help you be in compliance with others
+
+General Data Protection Regulation (GDPR):
+- Set of Rules designed to give EU citizens more control over their personal data
+- Affects companies outside of EU that handle EU citizen's data
+- Data has to be collected legally
+- Data has to be protected from Misuse
+- Reporting obligations if data is mishandled
+
+
+ISO (International Organization for Standardization):
+- ISO 9001:2015 is for Quality Management System (QMS)
+- ISO/IEC 20000-1
+
+NIST Cybersecurity Framework (CSF):
+- National Institute of Standards and Technology (NIST)
+- Audited for compliance to security and privacy processes
+
+
+Micorosft Privacy Statement: privacy.microsoft.com
+
+Trust Center:
+- Portal about Standards, Documentation, Privacy Statements
+
+Service Trust Portal: Specific, Compliance Manager, Pen Tests, Azure BluePrints
+
+Compliance Manager:
+- Workflow-Based risk assessment tool to help you manage regulatory compliance
+- Goto Service Trust Portal (Shows score of your compliance)
+
+Azure Government Services:
+- Separate Account
+- For US gov agencies, federal, state, etc..
+- Department of Defence (DoD) has its own portal too
+- Isolated Data centers seperate for Public cloud
+- Different URLs for connection to storage, functions, etc..
+
+Azure Germany Services:
+- Separate Account
+- Data remains in Germany
+- Strictest EU data protection
+- German Data trustee (a person)
+
+Azure China:
+- Seperate Account
+- Isolated from Azure Global
+- Data remains in China

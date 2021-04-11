@@ -1,0 +1,68 @@
+Films over 2 hours long
+1. select * from films where length_min > 120;
+
+---------------
+Film with the most screenings:
+2. select name from films where id = (select film_id from (
+select film_id,max(Counter) from (
+select film_id,count(film_id) as Counter from screenings 
+group by film_id) A ) B) ;
+
+His Answer:
+select f.name, count(s.film_id)  as showings from screenings s
+join films f ON f.id = s.film_id
+group by film_id
+order by showings desc
+LIMIT 1;
+
+------------------
+
+Bookings for Jigsaw
+
+My Answer:
+
+select count(b.screening_id) as booking from bookings b
+join screenings s on s.id = b.screening_id
+join films f on f.id = s.film_id
+where f.name = 'Jigsaw'
+
+His Answer:
+
+SELECT Count(*) from bookings
+where screening_id IN 
+(SELECT id from screenings where film_id = 5);
+
+-------------------
+
+5 customers with the most bookings
+
+select c.*, count(b.customer_id) as Booking_Count from customers c 
+join bookings b on b.customer_id = c.id
+group by c.first_name,c.last_name
+order by Booking_Count desc
+limit 5;
+
+------------------
+
+Film shown the most in 'Chaplin room'
+
+My Answer:
+
+select f.name, count(s.room_id) as CountOf from films f
+join screenings s on s.film_id = f.id
+join rooms r on r.id = s.room_id
+where r.name = 'Chaplin'
+group by f.name
+order by CountOf desc
+limit 1;
+
+His Answer:
+Almost the same
+
+--------------------
+
+How many customers made a booking in 2017 (October)
+
+select count(DISTINCT b.customer_id) as Unique_Customers from bookings b;
+
+--------------------

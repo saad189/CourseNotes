@@ -1,0 +1,28 @@
+Stack Trace: Sequence of Methods called, until the exception was thrown
+
+Exception : parent of all exception
+
+Exception Types: Generic to Specific : System.Exception -> System.ArithmeticExcetion -> System.DivideByZeroException.
+
+when using try {} catch{}. You can catch Multiple exceptions, but order is : Specific to Generic
+
+- After Try, Catch, we have finally {}
+- Usually for cleanup [Dispose]
+
+Better Approach:
+            try
+            {
+                using (var streamReader = new StreamReader(@"C:\file.zip"))
+                {
+                    streamReader.ReadToEnd();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error Occured:", ex);
+            }
+
+ctor x2 tab: CONSTRUCTOR
+
+Create Your Own Exception:
+- When the exception is not of use to the reader, and you want to send a different exception (Your own)

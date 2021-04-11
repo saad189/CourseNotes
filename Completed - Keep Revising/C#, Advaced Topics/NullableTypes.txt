@@ -1,0 +1,19 @@
+Uses:
+- Databse (e.g Customers.Birthday (datetime NULL))
+
+Nullable<DateTime> d == Datetime? d
+
+Members:
+HasValue
+Value
+GetValueOrDefault
+
+Casting => Nullable to Object (X)
+	   Object to Nullable (Y)
+	   Nullable.Value | GetValueOrDefault to Object (Y)
+
+Null Coalescing Operator: ?? [ if left is true, use left else use right ]
+
+DateTime? date = null;
+DateTime date2 = date ?? DateTime.Today;
+

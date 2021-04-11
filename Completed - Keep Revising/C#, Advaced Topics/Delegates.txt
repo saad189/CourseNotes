@@ -1,0 +1,35 @@
+- An object that knows how to call a method (or a group of methods)
+- A reference to a function
+
+ public delegate void PhotoFilterHandler(Photo photo);
+ var processer = new PhotoProcessor();
+            var filters = new PhotoFilters();
+            PhotoProcessor.PhotoFilterHandler filterHandler = filters.ApplyBrightness;
+            filterHandler += filters.ApplyContrast;
+            filterHandler += RemoveRedEyeFilter;
+Delegate is Derived from MultiClass Delegate -> System.Delegate { Method, Target }
+
+
+System.Action<> vs System.Func<> => Action points to a void method, Func points to a
+method that returns a value.
+System.Func<out TResult> or System.Func<in T, out TResult>
+
+        public void Process(string path, Action<Photo> filterHandler)
+        {
+            var photo = Photo.Load(path);
+            filterHandler(photo);
+            photo.Save();
+
+        }
+ 	    Action<Photo> filterHandler = filters.ApplyBrightness;
+            filterHandler += filters.ApplyContrast;
+            filterHandler += RemoveRedEyeFilter;
+            processer.Process("photo.jpg", filterHandler);
+
+Purpose:
+- To achieve flexible and extensible application structure
+- Alternative : Interface
+- Use delegates when : 
+	- An eventing design pattern is used
+	- The caller doesn't need to access other properties or methods on object implementing 
+		the method

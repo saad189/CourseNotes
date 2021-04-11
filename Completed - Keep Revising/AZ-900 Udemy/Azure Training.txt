@@ -1,0 +1,420 @@
+Azure Training : Azure 900
+
+Module 1: Why cloud Services
+- On-demand Self-Service: Consider the need for a dev environment
+	- Just go to the portal and deploy the machine of your choice, easy
+	- One thing to consider the Coorporate account (need admin access)
+- Ubiquitous network Access: Your services on the go from the portal
+- Location transparent resource pooling: Your machines in any part of the world
+	- Region specific and accessible across the world
+- Rapid Elasticity: Scalability and Reductibility automatically (Azure manages this | Automate Scaling == Elasticity)
+	- What I think is : Increase and Reduce automatically
+	- Think about problems that cannot be resolved by just adding more resources
+	- More Resources added [ Scale Up ]
+	- Remove Resources [ Scale Down ]
+	- Remove Instances [ Scale In ]
+	- Create more instances of the Virutal Machine [ Scale Out ]
+- Measured Service | Consumption Based : Payment options, you pay as much as you use ( not how much you buy )
+
+Key Concepts and Terms : 
+- High Availability : No Down-time : Cancels Disaster Recovery? => Active | Active Cluster
+- Scalibility
+- Elasticity
+- Agility
+- Fault Tolerance : Backup? Copy? [Keep working but can have down-time (minutes - days)]
+- Disaster Recovery: Slow but almost like Fault Tolerance [But Secondary Site (Mirror Approach)] => Active | Passive Cluster (Distributed Computing)
+- Global Reach
+- Customer Latency Capabilities
+- Predictive Cost Considerations
+- Security
+--------------------------------------------
+
+Economies of Scale:
+- The ability to do things less expensively and more efficiently when operating at a larger scale
+- Benefits passed on to the customer
+
+
+CapEx vs OpEx:
+
+- Capital Expenditure
+	- Spend on physical infrastructure up front
+	- Deduct the expense from your tax bill over time
+	- High upfront cost, value of investment reduces over time
+- Operational Expenditure:
+	- Spend on services or products as needed
+	- Deduct the expense from your tax bill in the same year
+	- No upfront cost, Pay As You Use
+
+Office <Version> vs Office 365
+
+--------------------------------------------
+
+Consumption Based Model
+--------------------------------------------
+Types of Cloud Models
+
+- Public Cloud : No CapEx , Agility, Consumption-based model
+	- Owned by a cloud services provider or hosting provider
+	- Provides services to multiple organizations and users
+	- Access via a secure network connection
+- Private Cloud: Control, Security
+	- Owned and operated by the organization that uses cloud resources
+	- Oragnizations craete a cloud environment in thier data center
+	- Self-service access to compute resources provided to users within the organization
+	- Organizations responsible for operating the services they provide
+- Hybrid Cloud: Flexibility, Compliance [ with legal requirements ]
+	- Combines Public and Private Clouds to allow application to run in the most appropriate location
+----------------------------------------------
+
+
+Cloud Services: 
+- IAAS (Infrastructre as a Service): Flexibility
+	- Most basic cloud computing services catagory
+	- Build as pay-as-you-go IT infrastructure by renting servers (Azure)
+	- Instant computing infrastructure 
+	- Servers and Storage | Networking firewalls/Security | Datacenter physical plant/building
+	
+- PAAS (Product as a Service): ???????
+- PaaS (Platform as a Service) : Productivity
+	- IaaS + Development tools, dbms, business analytics
+	- Operating System
+	- Environment for building testing and deploying software applications
+	- Helps create applications quickly, without focusing on managing underlying infrastructure
+- SAAS (Software as a Service) : 
+	- Paas + Hosted Application + Apps
+	- Centrally hosted and managed software for end users
+	- Users connect to and use cloud-based apps over the internet
+	- e.g : Office 365, Email, and Calenders
+
+
+---------------------------------------------------------
+
+Cloud computing models and Responsibilities:
+IAAS: Host (Devlop + Runtime, Operating Systems, VMs)
+PAAS: Develop (Data & Access, Applications)
+SAAS: Consume (Data & Access)
+
+----------------------------------------------------------
+
+Core Azure Services: Module 2
+
+Microsoft Azure Regions
+- Every Region has a pair (node)
+- You can search for it (on Azure) to find the pair of a region
+- A region is a group of physical Datacenters [Geographical Area]
+- Consider using the closest region to provide lower latencies (where the service is to be consumed)
+
+
+Azure Special Regions:
+- For applications with specific compliance or legal requirements
+- Azure Government (NA), Azure China 21Vianet, Azure Germany
+- Each region has a pair with another region
+
+- Meets the security and compliance needs of US federal agencies, state and local
+govenments (Separate Instances, physically isolated, Accessible to Screened authorized personal
+
+Azure Germany Services: 
+- Meets strict data protection, access, and control requirments under German Law.
+
+Azure China 21Vianet:
+- Physically separated instance of Azure cloud services, located in China.
+- operated by 21Vianet
+
+------------------------------------------------
+
+Azure Management Tools
+- Azure Portal
+- Azure PowerShell - For Windows
+- Azure CLI - For Linux (but now can be used interchangably) [bash]
+- Azure Cloud Shell [Browser-based environemnt for Powershell & Bash CLI] => The one you used to build IOT Edge Container OS
+=> Rest Clients
+
+Azure Resource Manager <-> Authentication
+- Data Store
+- Web App
+- Virtual Machine
+- Service Management 
+- Other Services
+
+Azure Marketplace:
+- More than 10000 product listings
+- Connects end users with Microsoft partners, ISVs
+
+Azure Resource Manager:
+- Provides management layer in which resource groups and all the resources within it are created, configured, managed, and deleted
+
+With ARM:
+- Create , configure , manage and delete resources and resource groups
+- Organize resources
+- Control Access and Resources
+- Automate using different tools and SDKs
+
+Hierarchy of ARM:
+1. ManagementGroups
+2. Subscriptions
+3. Resource Groups (Logical Grouping)
+4. Resources (all resources donot need to be in the same region)
+
+Note: One resource cannot exist in two resource groups at once (it can be moved)
+
+Core Azure Services and Products:
+
+Availability Zones:
+- Extends the availability sets concept to physically separate locations within an Azure Region
+- More than one datacenters (Power, cooling ,etc..)
+- Must Select more than one (2 atleast for backup => Fall-back) [In the same region]
+- Availability Sets vs Availability Zones
+- Remember types of catagories : Compute=> VM, Kubernetes
+- Database => MySQL , Postegrl SQL
+
+Azure Compute Services - Virtual Machine Services
+- Azure VMs. IaaS to create and use VMs in the cloud
+- VM scale sets: Designed for automatic scaling of identical VMs
+- App Services: Platform as a service (PaaS) offering to build, deploy, and scale enterprise-grade web, mobile, and API apps
+- Containers are a virtualization environment
+	- Azure Container Instances: A paas offering that allows you to upload your containers, which it then will run for you
+	- Azure Kubernetes Service: A container orchestrator service for managing large number of containers
+
+
+Serverless Computing:
+- Servlerless computing is a cloud-hosted execution environment that runs your code but abstracts the underlying hosting environment. 
+	- Azure Functions: Concerned with code running your service, not the underlying platform or infrastructure. Creates Infrastructure based on an event.
+	- Azure Logic Apps: A cloud service that helps you automate and orchestrate tasks, business processes, and workflows when you need to integrate apps, data, systems, services accorss enterprise or organizations
+	- Azure Event Grid: A fully managed, intelligent event routing service that uses a publish-subscribe model for uniform event consumption.
+
+- Event grid is listening -> A-Function -> processes that data -> App does the handi-work
+
+Azure Network Services:
+- Azure Virtual Network: An IaaS that facilitates communication between resources
+- Azure Load Balancer: Iaas component to distribute network requests to multiple back end services
+- VPN Gateway: Paas offering that enables secure communication between virtual and on-premises networks
+- Azure Application Gateway: A layed 7 load-balancing Paas offering
+- Content Delivery Network: A service offering to replicate data to local points of presence for faster access
+
+
+Azure Storage Services - Data Catagories
+
+Structured Data:
+Adhere to a schema, with same data fields or properties
+Storable in relational database tables, with rows and columns
+Examples include, sensor or financial data
+
+Semi-Structured Data:
+Ad hoc schema. Less organized fields and properties than structured data.
+Non-relational or NoSQL data, not storable in tables, rows and columns
+Books, blogs and HTML documents are examples of semi-structured data
+
+Unstructured data
+No designated schema or data structure.
+Non-relational or blob data, with no restrictions on kinds of data blobs contain.
+For example, a blob can hold a PDF, JPG, JSON object or video.
+
+
+Azure Storage is a service that you can use to store files, messages, tables, and other types of information
+
+- Blob storage: No restrictions on the kinds of data it can hold [ Blobs are highly scalable ]
+- Disk storage: Provides disks for virtual machines, applications and other services
+- File storage: Azure Files offer fully-managed file shares in the cloud
+- Archive storage: Storage facility for data that is rarely accessed
+
+Azure database services:
+- Fully managed Paas database services that free up valuable time you'd otherwise spend managing your database
+	- Azure Cosmos DB: globally distributed database service that enables you to elastically and independantly scale throughput and storage
+	- Azure SQL Database: A relational database as a service (DaaS) based on the latest stable version of the Microsoft SQL Server database engine
+	- Azure Database Migration: A fully-managed service designed to enable seamless migrations from multiple database sources to Azure data platforms with minimal downtime
+- Big data and analytics:
+Large volumes of data that becomes increasingly hard to make sense of, or consequently make decisions about. Some big data and analytic services in Azure include:
+	- Azure SQL Data Warehouse: [Azure Synapse]: A cloud-based Enterprise Data Warehouse that leverages massively parallel processing (mpp) to run complex queries quickly across petabytes of data
+	- Azure HDInsights: A fully-managed, open-source analytics service for enterprises. It is a cloud service that makes it easier, faster, and more cost-effective to process massive amounts of data
+	- Azure Data Lake Analytics: An on-demand analytics job service that simplifies big data. Instead of deploying and tuning hardware, you write queries to transform your data and extract valuable insights
+
+Internet of Things: The internet allows any item that online-capable to access valuable information. This ability for devices to garner and then relay information for data analysis is referred to as the Internet of Things (IoT)
+	- Microsoft IoT Central: A fully-managed global IoT software as a service (SaaS) solution that makes it easy to connect, monitor, and manage your IoT assets at scale
+	- Azure IoT Hub: A managed service hosted in the cloud that acts as a central message hub for bidirectional communication between your IoT hub and the devices
+
+Artifical Intelligence: AI => broad range of applications, including ML for future forecasting (trends, outcomes, behavior)
+	- Azure Machine Learning service: Provides a cloud-based environment used to develop, train, test, deploy
+	- Learning Studio
+
+DevOps: DevOps allow you to create build and release pipelines that provide continous integration, delivery, deployment for applications
+	- Azure DevOps services: Provides development collaboration tools including pipelines, Git repositories, Kanban boards, automated and load testing
+	- Azure DevTest Labs: Allows you to quickly create environments in Azure while minimizing waste and controlling cost
+----------------------------------------
+
+Module 3: Security and Compliance
+
+Defense in Depth:
+A layered approach to securing computer systems
+	- Provides multiple levels of protection
+	- Attacks against one layer are isolated form subsequent layers
+Physical Security : Identity & Access : Perimeter : Network : Compute : Application : Data
+
+Azure Firewall
+Stateful, managed, Firewall as a Service (FaaS) that grants/denies server access based on originating IP addresses, to protect network resources.
+
+Azure Firewall features:
+- Applies inbound and outbound traffic filtering rules.
+- Built-in high avalability
+- Unrestricted cloud scalability
+- Uses Azure Monitor logging
+
+Azure Distributed Denial of Service protection
+
+Azure DDos Protection can be enabled on your Azure Virutla Networks 
+- Sanitizes unwanted network traffic, before in impacts service availability
+- Basic: Free and enabled automaitcally
+- Standard: Provides additional mitigation capabilities such as 
+	- Machine Learning beased adaptive tuning
+	- Logging, alerting and telemetry
+
+Network security groups (NSGs)
+Filters network traffic to, and from, Azure resources on Azure Virtual Networks
+
+Network security group features:
+- Set inbound and outbound rules to filter by source and destination IP addresses, port and protocol
+- Add multiple rules, as needed, within subscription limits
+- Azure applies default, baseline, security rules to new NSGs
+- Override default rules with new, higher priority, rules
+
+
+Azure Network Security Solutions:
+- Perimeter Layer: DDos Protection + Firewall
+- Networking Layer: Permitted Traffic to pass between networked resources with Network Security Group| inbound and outbound rules.
+Azure supports combined network security solutions
+
+Shared Responsibility:
+SaaS puts most of the responsiblity to Microsoft
+
+Authentication and Authorization:
+
+Authentication:
+- Identifies the person or service seeking access to a resource
+- Requests legitimate access credentials
+- Basis for Creating Secure Identity and Access control principles
+
+Authorization
+- Determines an Autheticated person's or service's level of access
+- Defines which data they can acces, and what they can do with it
+
+Azure Multi-Factor Authentication
+Provides additional security for your identities by requiring two or more elements for full authentication. These elements fall into three catagories.
+- Something you know, posses, are
+
+Azure Security Center
+A monitoring service that provides threat protection
+Security center also offers recommendations for your resources
+
+Azure Key Vault
+Stores application secrets in a centralized cloud location, to securly control access permissions, and access logging
+
+Use Azure Key Vault for:
+- Secrets management
+- Key Management
+- Certificate Management [SSL, TLS, etc..]
+- Storing secrets backed by hardware security modules (HSMs)
+
+Azure Information Protection (AIP)
+Classifies and protects documents, and emails, by applying labels
+
+AIP labels can be applied:
+- Automatically using rules and conditions defined by administrators
+- Manually, by users
+- By combining automatic and manual methods, guided by recommendations
+
+KeyVault Protects: Keys
+Azure Information Protection Protects Documents
+
+Azure Advanced Threat Protection (Azure ATP)
+
+Cloud-based security solution for identifying, detecting, and investigating advanced threats, compromised identities, and malicious insider actions
+
+Consists of Azure ATP:
+Portal: dedicated portal for monitoring and responding to suspicious activity.
+Sensors: Installed directly onto your domain controllers.
+Cloud Service: Runs on Azure Infrastructure
+
+
+Role-based access control (RBAC)
+Fine-grained access management control over your Azure resource
+- Available to all Azure subscribers, at no additional cost
+- Example uses of Azure RBAC:
+	- Grant specifies access rights to particular users for certain jobs.
+	- You can limit the permission to each person
+
+Azure Policy : Allows limited permissions to the regions, and people?
+Stay compliant with your corporate standards and service level agreements (SLAs) by using policy definitions to enforce rules and effects for your Azure resources.
+
+Policies: Example Policy Definitions
+
+Allowed Storage Account Size |
+
+Initiatives + Policies
+	
+Locks: Protect your Azure resources from accidental deletion or modification.
+Manage Locks at subscription, resource group, or individual resource levels within Azure Portal
+
+Azure Blueprints:
+- Create reusable environments
+
+Azure Advisor: Recommendation, Cost Info
+Note: Security Advise == Security Center, else If recommendation : Azure Advisor
+
+
+Monitoring and Reporting in Azure
+
+Azure Monitor:
+- Collect, Analyze and act on telemetry from cloud and on-premises environments, to maximize your application' availability and performance
+Analyze, Respond, Visualize, Integrate
+
+Azure Service Health: Check it out on Azure Dude
+
+Compliance Terms and Requirements
+
+Microsoft privacy Statement : Openness, honesty , and bla bla bla
+Service Trust Portal: servicetrust.microsoft.com
+
+Module: Privacy and Support
+
+
+Support plans
+Every subscription includes:
+- Free access to billing and subscription support
+- Azure products and services documentation
+- Online self-help documentation
+- Community support forums
+Paid Azure:
+- Developer: Azure use in Trial (Monday to friday, Business Hours): Trial and Non-production environments
+- Standard: Appopriate for Azure use in production environments (on Phone (24/7) response time <=4hr)
+- Professional Direct: Appropriate For Organizations with Business-Critical Dependance on Azure (24/7) someone on phone, Someone on site, response time <= 1hr)
+- Premier: Ideal for Organizations with Substantial Dependence on Microsoft Products, Including Azure
+
+
+Support Ticket:
+- Create a support request
+
+
+Azure resource management
+Subscription Overview
+- You can see your graphs (of resources used)
+- Detailed veiw and export it to csv
+
+Service Level Agreements (SLAs)
+- Performance targets, uptime and connectivity guarantees
+- Performace targets range: Performance target commitments : 99.9 => 99.99
+- Service credits: Percentage of the applicable monthly service fees credited to you if it fails SLA
+
+Composite SLAs:
+- Web App : 99.95
+- SQL Database: 99.9 
+- Composite : 99.94
+
+Service lifecycle in Azure
+
+General Availability
+
+Public Preview
+Private Preview : preview.portal.azure.com
+
+
+
+ 

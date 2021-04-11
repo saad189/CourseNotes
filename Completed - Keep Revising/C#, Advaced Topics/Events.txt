@@ -1,0 +1,64 @@
+- A mechanism for communication between objects
+- Used in building loosely coupled objects
+- Helps extending application
+
+Publisher (Event Sender) -> Subscriber (Event Receiver)
+
+Event Handler: Method called by publisher, when event is raised
+
+Publisher isnt aware of its subscribers
+
+Delegate: Agreement/Contract between publisher and subsrciber | 
+	Determines the signature of the event handler method in subsriber
+
+Invocation steps:
+   // 1- Define a delegate
+   // 2- Define an event based on that delegate
+   // 3- Raise the event
+
+PUBLISHER CLASS:
+    public class VideoEncoder
+    {
+        public void Encode(Video video)
+        {
+            Console.WriteLine($"Encoding Video: {video.Title}");
+            Thread.Sleep(1000);
+            OnVideoEncoded(video);
+        }
+
+        public event EventHandler<VideoEventArgs> VideoEncoded;
+
+        //Event publisher method : protected, virtual, starts-with: On
+
+        protected virtual void OnVideoEncoded(Video video)
+        {
+		VideoEncoded?.Invoke(this, new VideoEventArgs { Video = video });
+
+        }
+    }
+
+SUBSCRIBER CLASS:
+       public class MailService
+        {
+            public void OnVideoEncoded(object source, VideoEventArgs e)
+            {
+                Console.WriteLine("Mail Service: Sending Email..." + e.Video.Title);
+            }
+        }
+
+
+CODE AND REGISTERING:
+
+            var video = new Video() { Title = "Video 1" };
+            var videoEncoder = new VideoEncoder(); // publisher
+            var mailService = new MailService(); // subscriber
+            videoEncoder.VideoEncoded += mailService.OnVideoEncoded; // Subscribed to that event
+            videoEncoder.Encode(video);
+
+
+-----------------------------------
+
+To Send data in Event:
+- Create custom class, implementing EventArgs
+
+ctrl+t : type class name (Resharper trick)

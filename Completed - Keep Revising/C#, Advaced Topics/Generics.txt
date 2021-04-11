@@ -1,0 +1,58 @@
+Object: Parent Class for everyobject (object vs Object)
+Boxed to Unboxed -> Performance penalty (for pure object)
+
+Generic (as a solution)
+Generic<T> so the type has to be created only once at runtime (not boxed and unboxed for every fetch).
+
+System.Collections.Generic
+
+Constraint for generic method : where T: IComparable
+- Dont always need a generic class.
+
+       public T Max<T> (T a, T b) where T : IComparable
+        {
+            return a.CompareTo(b) > 0 ? a : b;
+        }
+
+or 
+
+   public class Utilities<T> where T: IComparable
+    {
+        public T Max (T a, T b)
+        {
+            return a.CompareTo(b) > 0 ? a : b;
+        }
+    }
+
+Constraint Types:
+- IComparable -> Interface
+- Product -> Specific Class
+- struct
+- class
+- new()
+
+
+Note about Value Types:
+- Value types (int, string, float) cannot be null
+
+
+-- Nullable:
+
+ public class Nullable<T> where T : struct 
+    {
+        private object _value;
+        public Nullable ( T value)
+        {
+            _value = value;
+        }
+        public bool HasValue
+        {
+            get { return _value != null; }
+        }
+        public T GetValueorDefault()
+        {
+            return HasValue ? (T)_value : default;
+        }
+    }
+
+- cw + tab x2 = Console.WriteLine();

@@ -1,0 +1,69 @@
+Data Types:
+
+- INT: Whole Number
+- Float(M,D): Decimal numbers (approximate) : e.g float (3,2) | will round
+- Decimal(M,D): Decimal numbers (Precise) | limits by definition and you have to be precise
+- |=> M = Number of Digits, D = Number of Decimals
+
+Non-Numberic:
+
+- CHAR(N): Fixed length
+- VARCHAR(N): Varying length (upto N)
+- ENUM('M','F'): Value from a defined list | here, only 'M' or 'F' will be inserted
+- BOOLEAN: True of False
+
+Date and Time:
+
+- DATE: Date(YYYY-MM-DD)
+- DATETIME: Date and Time (YYYY-MM-DD HH-MM-SS)
+- TIME: Time (HHHH-MM-SS)
+- YEAR: Year (YYYY)
+
+-----------------------------------------------
+
+Primary and Foreing Keys:
+
+Primary Key: 
+- A column or set of columns which uniquely identify a record within a table
+- Must be unique
+- Cannot be null
+- Only one primary key per table
+
+
+Foreign Key:
+- Used to link two tables together
+- A column whose values match the values of another table's primary key column
+- Table with primary key is called the reference (or parent) table
+- Table with foreign key is called the primary   (or child ) table
+- A table can have multiple foreign keys
+
+----------------------------------------------
+
+Creating an example Table:
+Creating the Coffee Store Database:
+
+- Create Database coffee_store;
+- Use coffee_store;
+- Create table products ( id INT auto_increment primary key, name VARCHAR(30), price Decimal(3,2) );
+- Show tables
+- Create table customers ( id INT auto_increment primary key,first_name varchar(30),last_name varchar(30),gender enum('M','F'),phone_number varchar(11) );
+- Create table orders ( id INT auto_increment primary key, product_id int, customer_id int, order_time DATETIME, foreign key (product_id) REFERENCES products (id), foreign key (customer_id) REFERENCES customers (id));
+
+----------------------------------------------
+
+Modifying Tables: Adding and Removing Columns:
+
+- Alter Table products Add Column coffee_origin Varchar(30);
+- Alter table products drop column coffee_origin;
+
+----------------------------------------------
+
+Deleting Tables:
+
+- Drop table test;
+
+---------------------------------------------
+
+Truncating Tables:
+
+- Truncate table test

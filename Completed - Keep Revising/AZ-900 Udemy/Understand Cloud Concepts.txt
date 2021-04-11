@@ -1,0 +1,72 @@
+High Availability:
+- Expressed as a percentage it's ability of a system to respond to users
+- 99.99% Four nines, 4 minutes per month (down time)
+
+Scalability:
+- The ability of a system to handle growth of users or work
+- Graph where Max capacity is exceeded by number of concurrent users, will have a intersection point of app failure
+- Want the ability to grow easily, hence highly scalable, or if its difficult then its not really scalable
+
+Elasticity:
+- The ability of a system to automatically grow and shrink based on application demand
+- Consider efficiency
+
+Agility:
+- The ability to change rapidly based on changes to market or environment
+
+Fault Tolerance:
+- The ability of a system to handle faults like power, networking, or hardware failures
+- Consider copies of servers
+
+Disaster Recovery:
+- The ability of a system to recover from failure within a period of time, and how much data is lost
+- Period of time to recover
+- Amount of data lost/recovered
+
+Economies of Scale:
+- It's cheaper for Microsoft to run a server than you can ever achieve yourself
+- Efficient ways to run servers (by vendors)
+- Thus they can offer cheaper services as compared to your own
+
+Capital Expenditure (CapEx) and Operational Expenditure (OpEx):
+- CapEx is money invested in assets (like computers) that return investment over time
+- Upfront money for later ROI
+- OpEx is money spent every day on operating expenses
+- User Pay per hour (after each month)
+
+Consumption-Based Model:
+- Cost is calculated per usage as opposed to Time-based Model (money per hour/sec, etc..)
+
+-------------------------
+ 
+Paradigms for Hosting Applications : IaaS, Paas, SaaS
+- Infrastructure as a Service:
+	- Virtual Machines, Networking, Load Balancers, Firewalls
+- Platform as a Service:
+	- Upload code packages and have them run, without access to the hardware
+- Software as a Service:
+	- Software is already deployed [e.g SQL server already deployed, MS Word etc]
+	- Access to configuration only
+
+- Traditional IT manges everything: App,Data,Runtime,Middleware,OS,Virtualization,Servers,Storage,Networking
+
+- IaaS:	App,Data,Runtime,Middleware [You manage this, rest is managed by IaaS] Uptil OS IaaS will provide everything
+- PaaS: App,Data [You manage] Uptil Runtime PaaS manages
+- SaaS: You only configure the App, all of it is managed by Azure/Vendor
+
+------------------------
+
+Public, Private and Hybrid Clouds:
+- Public Cloud: 
+	- Computing services offered over the public internet, anyone can sign up
+- Private Cloud:
+	- Computing services offered to only select users; internal or corporate cloud (Company, Sales Process)
+- Hybrid Cloud:
+	- Combination of public and private clouds; scale private infrastructure to the cloud
+	- Mostly running in your environment [Privacy, Control] , but then u need to scale, so you add public cloud services 
+	(Elasticity and Scalability)
+
+Differences:
+Public: straightforward
+Private: your own hardware and a sales process is involved
+Hybrid: Mixture of both
