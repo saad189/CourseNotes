@@ -42,8 +42,8 @@ function Apple(x, y, color, score) {
 
 Apple.prototype = {
     // eat() { return "eating the apple" },
-    eat() {return this},
-    throw(){ return "throwing the apple" }
+    eat() { return this },
+    throw() { return "throwing the apple" }
 }
 
 var first_apple = new Apple(10, 5, 'yellow', 5);
@@ -51,3 +51,15 @@ var second_apple = new Apple(10, 5, 'red', 5);
 var third_apple = new Apple(10, 5, 'blue', 5);
 console.log('First Apple:', first_apple);
 
+var classRegister = ["Saad", "Fahad", "FaSaad"];
+
+for (var i = 0; i < classRegister.length; ++i) {
+    console.log('Name ${i}:', classRegister[i]);
+}
+
+for (var index in classRegister) { //Increment Only
+    console.log(classRegister[index]);
+}
+classRegister.forEach(element => {
+    console.log(element);
+})

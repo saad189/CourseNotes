@@ -1,0 +1,70 @@
+Comparison Operators:
+
+- Of all comparisons : NaN is bad
+- NaN == Nan => false; (!true)
+- 10 + 10 = 20
+- 10 + "10" = "1010" #Polymorphism
+- == also Polymorphism
+- null == undefined = true
+- null === undefined = false;
+- == -> Value | === -> Value + datatype -> prevents polymorphism
+- same can be applied for strings
+    - "hello" > "helloooo" -> false, but not that good of a comparison choice
+- Equality : ==
+- Strict Equality : ===
+
+----------------------
+
+If Statements:
+
+- if (true){ action } else if {second-action} else {default-action};
+- && -> a && (and) b must be true
+- || -> a || (or) b must be true
+
+- && first, || second (Order)
+- mozilla -> Operators precendence
+
+----------------------
+
+For & For In Loop's:
+
+for (var i = 0 ; i < length; ++i){
+    action[i];
+}
+
+var classRegister = ["Saad", "Fahad", "FaSaad"];
+
+for (var i = 0; i < classRegister.length; ++i) {
+    console.log('Name ${i}:', classRegister[i]);
+}
+
+for (var index in classRegister) { //Increment Only
+    console.log(classRegister[index]);
+}
+
+classRegister.forEach(element => {
+    console.log(element);
+})
+
+----------------------
+
+Lets ES6:
+
+- Echma Script Version 6
+- New Things:
+    - let, const
+
+- let respects declaration scope
+    - var attaches symbolname to window object | 
+        doesnt respect conditional context
+        but it does respect scope of function
+    - let does not | respects the scope and is not accessible outside it
+
+if (true)
+{
+    var symbolName = "Value";
+    let symbolTwo = "SecondValue";
+}
+// symbolTwo will not accessible outside this scope
+
+
