@@ -1,0 +1,57 @@
+Understanding the Document Object Model:
+
+- DOM is a representative of HTML nodes
+- document is attached to window Object
+- document contains all the information of the HTML
+    - It also contains the tree structure of HTML (Nodes -> Childnodes)
+    - body -> childNodes [NodeList], URI, and a bunch of functions
+- document.childNodes[1].childNodes[2] is not a convenient way to access
+    dom structure
+- Better to use CSS selectors
+
+----------------
+
+Targeting DOM Elements:
+
+- Adding new elements will change the structure of the document (childNode)
+    locations in the array
+- document is global, just like window
+- To fetch a certain element there are certain functions (methods):
+    - document.getElementbyId()
+    - document.getElementbyName | byClassName | byTagName | byTagNameNS
+        (NameSpaced)
+    - e.g: document.getElementsbyTagName('p') -> will return paragraph elements
+        in an array [p]
+    - document.getElementbyId('hello') -> will print the entire HTML
+    - <p id="hello">hello world</p>
+    - dir ( document.getElementbyId('hello')) -> will get object p#hello
+    
+- Using CSS selectors:
+    - document.querySelectorAll ( '#hello' ) -> returns [p#hello]
+        Will always return array
+    - document.querySelectorAll ('#hello, .pClass')
+- Advanced Query Selector:
+    - document.querySelectorAll('p[data-content="123"], 
+        body > h1.pClass > span')
+    - select paragraph with attribute data-content having the value 123
+    - also select span inside h1.pClass inside body
+
+----------------
+
+Changing Element's Contents:
+
+- Location of script should be at bottom, because it will slow loading
+    if placed first, and also script should be ready after all the elements
+    have loaded, else you will have to program the script to wait for loading elements
+
+- console.dir(domElement) will display the object
+- var pHello = document.getElementById('hello');
+    - now pHello.innerText is simple to access
+- innerText vs innerHTML
+    - innerText will only place text
+    - innerHTML will parse html tags to process the values accordingly
+- outerHTML: will show the exact text as compared to innerHTML which will not show tags
+
+var spanH1 = document.querySelectorAll('h1 span');
+spanH1[0].innerHTML = "new text here!!";
+- Note that spanH1.innerHTML will create new symbol on window (so watch for []);

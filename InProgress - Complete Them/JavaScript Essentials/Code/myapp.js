@@ -1,65 +1,11 @@
-//console.log( this );
+var pHello = document.getElementById('hello');
 
-var object = {
-    prop: this,
-    embed:
-    {
-        method: function () { return this; }
-    }
-};
+pHello.innerText = "new world";
 
-var array = [
-    this,
-    function () { return this; }
-];
+pHello.innerHTML += " order <span>hello world</span>";
 
-function global() {
-    return this;
-}
+pHello.outerHTML = '<h2 id="hello">new world order <span>hello world</span></h2>';
 
-// Normal invokation
-global();
-object.embed.method();
-array[1]();
+var spanH1 = document.querySelectorAll('h1 span');
 
-// Assign context
-global.call(object);
-object.embed.method.call(object);
-array[1].call(object);
-
-// New context
-new global();
-new object.embed.method(object);
-new array[1]();
-
-function Apple(x, y, color, score) {
-    this.x = x;
-    this.y = y;
-    this.color = color;
-    this.score = score;
-}
-
-
-Apple.prototype = {
-    // eat() { return "eating the apple" },
-    eat() { return this },
-    throw() { return "throwing the apple" }
-}
-
-var first_apple = new Apple(10, 5, 'yellow', 5);
-var second_apple = new Apple(10, 5, 'red', 5);
-var third_apple = new Apple(10, 5, 'blue', 5);
-console.log('First Apple:', first_apple);
-
-var classRegister = ["Saad", "Fahad", "FaSaad"];
-
-for (var i = 0; i < classRegister.length; ++i) {
-    console.log('Name ${i}:', classRegister[i]);
-}
-
-for (var index in classRegister) { //Increment Only
-    console.log(classRegister[index]);
-}
-classRegister.forEach(element => {
-    console.log(element);
-})
+spanH1[0].innerHTML = "new text here!!";
