@@ -1,11 +1,24 @@
-var pHello = document.getElementById('hello');
+// let elements = document.getElementsByName('cssProperty');
+// let div = document.getElementById('modify');
 
-pHello.innerText = "new world";
+// function set()
+// {
+//     for( let index = 0; index < elements.length; index++ )
+//     {
+//         let cssProperty = elements[ index ].getAttribute('id');
+//         let cssValue = elements[ index ].value;        
+//         div.style[ cssProperty ] = cssValue;
+//     }
+// }
 
-pHello.innerHTML += " order <span>hello world</span>";
+// document.getElementById('set').addEventListener('click',set);
 
-pHello.outerHTML = '<h2 id="hello">new world order <span>hello world</span></h2>';
 
-var spanH1 = document.querySelectorAll('h1 span');
 
-spanH1[0].innerHTML = "new text here!!";
+
+
+document.getElementById('set').addEventListener('click', function () {
+    for (let index = 0, elements = document.getElementsByName('cssProperty'); index < elements.length; index++) {
+        document.getElementById('modify').style[elements[index].getAttribute('id')] = elements[index].value;
+    }
+});

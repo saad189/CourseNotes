@@ -55,3 +55,84 @@ Changing Element's Contents:
 var spanH1 = document.querySelectorAll('h1 span');
 spanH1[0].innerHTML = "new text here!!";
 - Note that spanH1.innerHTML will create new symbol on window (so watch for []);
+
+----------------
+
+Changing Element's Style:
+
+var el = document.getElementById('style');
+
+// el.style.color = "white";
+// el.style.width = "200px";
+
+// This can also be done:
+
+el.style.cssText = "background : blue; color : white; width:200px; height:100px";
+
+Note: getComputedStyle(element)
+    Returns all the applied styles to an element, highly useful for odd scenarios
+
+JS changes the styles via style attribute, its not computed as compared to css styles and browser defaults
+- Style attributes take precendence over computed CSS
+
+-----------------
+
+Event Handlers:
+
+- Can trigger functions, subroutines, etc...
+- Event -> Trigger -> function
+- check the symbol's methods -> on<action> can be attached to an HTML element
+
+    <select name="cars" onclick="console.log('Clicked on Select')">
+        <option value="volvo">Volvo</option>
+        <option value="saab">Sabro</option>
+        <option value="fiat">Fiat</option>
+        <option value="audi">Audi</option>
+
+    </select>
+
+- Possible to do it in HTML, but not a good practice
+
+var select = document.getElementsByName('cars')[0];
+select.onclick = function (event) {
+    console.log('Kill ThiS THING LIVE!');
+}
+- This function takes an argument of event 
+    - event contains multiple information attributes, including path (Array)
+        - path shows (from 0 to x-index) [currentTag, previous,..., document, window]
+
+- <tag>.on<action> will overwrite any other method of the same name
+- To add multiple functions to the same event, Use: addEventListener
+
+select.addEventListener('click', function (event) {
+    console.log('Inside Event Listener')
+});
+
+- Currently the function is anonymous
+- Referenced Functions on EvenListeners:
+    
+function ClickCallbackFunction(event) {
+    console.log('HELLOO!!');
+};
+select.addEventListener('click', ClickCallbackFunction);
+select.removeEventListener('click', ClickCallbackFunction);
+
+---------------
+
+Create & appendChild & insertBefore Methods:
+
+- create a custom element from JS : var element = document.createElement('div');
+- add the element in a certain location: document.body.appendChild( element );
+    - Furthermore: 
+        var target = document.getElementById('yellow');
+        document.body.insertBefore(element, target);
+
+---------------
+
+Final Project:
+
+ document.getElementById('set').addEventListener('click', function () {
+    for (let index = 0, elements = document.getElementsByName('cssProperty'); index < elements.length; index++) {
+        document.getElementById('modify').style[elements[index].getAttribute('id')] = elements[index].value;
+    }
+});
