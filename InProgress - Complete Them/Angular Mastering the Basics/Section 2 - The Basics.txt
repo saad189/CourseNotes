@@ -1,0 +1,62 @@
+Getting Started:
+- HTML, CSS and JS -> TS
+- Install Node
+- Install Angualr CLI : npm install -g @angular/CLI
+    - check version: ng -v
+- Create new angular project: ng new <app-name>
+- Run the app with available command: ng serve
+
+-----------
+
+Hello World:
+
+- Architecture:
+    1. Module (Modular in Nature)
+        - e.g UserModule, AdminModule
+        - Can be imported and exported
+        - Starts with Route Module -> App Module
+    2. Component (Contained Inside the Module)
+        - Class with @Component Directivee
+        - *********Component*********
+        - *C    
+        - *O
+        - *M
+        - *P
+        - *O*******Component*********
+        - *N
+        - *E
+        - *N
+        - *T
+        - Starts with Root Component (AppComponent)
+        - Other Components will be nested inside root component
+        - Component = HTML + CSS + Class
+    3. Service (Contained inside Module)
+
+- Angular => Module [Component + Service]
+
+- Files inside Angular:
+    - package.json [dependencies] => npm install
+        - scripts => custom commands
+
+    - src/main.ts -> JS entry point
+        - platformBrowserDynamic().bootstrapModule(AppModule)
+            .catch(err => console.error(err));
+        - This will attach the root module (AppModule) to be kickstarted
+            on compilation
+
+    - app.module.ts -> Root module
+        -   bootstrap: [AppComponent]
+        - This kicstarts the root Component
+
+    - app.component.ts -> Root Component
+        - Contains class for code, html for view, 
+            css for visual improvement
+
+----------------------
+
+Components:
+
+
+
+
+

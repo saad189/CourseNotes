@@ -1,0 +1,17 @@
+Key Concepts:
+- URL, HTTP, DOM, etc...
+- HTML : Hypertext Markup Language
+- CSS  : Cascading Stylesheet
+
+Framework: Contains reusable code
+
+WebWorks:
+
+URL: Uniform Resource Locator
+Resources:
+    - Web pages (HTML documents)
+    - Images
+    - Video files
+1. Browser (Client) -> Server
+- HTTPS : HTTP + Encryption
+- Request -> Response

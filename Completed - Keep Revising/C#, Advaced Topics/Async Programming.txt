@@ -3,7 +3,7 @@ Synchronous Program:
 - Program has to wait for a function execution to complete, before moving ahead
 
 Asynchronous Program:
-- Program Execution continues to the next line without waiting for asyn function to complete
+- Program Execution continues to the next line without waiting for async function to complete
 
 Improves responsiveness of your application
 

@@ -1,0 +1,15 @@
+- What and Why:
+	- Framework to build client side applications (SPAs recommended)
+	- Modular Approach (Clear Structure)
+	- Re-usable Code (via components)
+	- Development quicker via routing and stuff
+	- Unit Testable (spec file)
+	- TS (Superset of JS)
+
+Version Changes:
+- Google team decided to do Semantic Versioning
+	- Version 1.2.3 [Major,Minor,Fix(Patch)]
+- Next versions will be backward Compatible
+
+------------------------
+
