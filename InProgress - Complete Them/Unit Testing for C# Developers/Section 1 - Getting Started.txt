@@ -1,0 +1,47 @@
+Automated Testing:
+- Write code to test code
+- Code : Production Code + Test Code
+
+------------------------------
+
+Benefits of Automated Testing:
+- Frequent Tests | Catch bugs before deploying
+- Refactoring | Quality
+
+------------------------------
+
+Types of Tests:
+
+1. Unit Test
+2. Integration Test
+3. End to End Test
+
+Unit Test:
+- Test a unit of the application, without a external dependancies
+
+Integration Test:
+- Tests the application with its external dependancies
+- Longer to execute | Give confidence | Behavior Testing as a whole
+- Testing Two classes is considered an integration test | Even though this may be useless
+	as they are coupled and will have to be edited again and again on every class change
+
+End To End
+- Drives an Application through its UI (Selenium -> End to End Test application)
+- Great confidence | Very slow | Brittle
+
+------------------------------
+
+Test Pyrmaid:
+	Least | somme | Most
+-  Top : E2E | Middle: Integration | Low: Unit 
+- Use Unit Tests to test logic
+- Integration to Dependancy Check
+- E2E for Happy cases
+
+------------------------------
+
+The Tooling:
+
+- Testing Frameworks : NUnit, MSTest, xUnit
+	- Library + Test Runner (Runs + Report)
+- Install ReSharper

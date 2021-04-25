@@ -1,0 +1,82 @@
+Version Control:
+- Use Version Control on every project (Always)
+- Problems: Reverting to Old Files and Working with a Team
+- Git is the latest : Mercurial SCM, Fossil, darcs, CVS, etc...
+
+--------------------------
+Termincal Basics:
+1. Changing Directories:
+	- cd [folder] -> Go to Directory
+	- ls | dir (for windows) -> Short Listing
+	- tab -> Autocomplete
+	- cd.. -> Move up/back a directory
+---
+
+2. Create Directories:
+	- mkdir [dir] -> Create a folder
+	- touch [file] -> Create a file | (For Windows): echo >> [file] (https://stackoverflow.com/questions/30011267/windows-equivalent-of-touch-i-e-the-node-js-way-to-create-an-index-html)
+---
+
+3. Move/Copy/Rename Files:
+	- move [file] [dir]
+	- del [file]
+	- copy [source-file] [destination-file]
+	- rm [file] -> Remove file
+	- rmdir [dir] -> Remove directory (works on windows too)
+	- rm -R [dir] -> Remove directory and contents
+--------------------------
+
+Git Basics:
+- Install Git (from git-scm.com)
+- Enable Repository on a folder (Directory) : git init
+- git status: Gives you the status of your repository
+- git add [file] - starts to track the file/changes
+- git commit -m "message"
+- git log -> Shows you the entire commit history
+- git checkout [first-7-chars-of commit] | go to a specific commit
+- git checkout -b [branchName] -> Autocreates and switches to the new branch
+- git add -A -> Adds all the changes to be tracked for a commit
+
+----------------------------
+
+Setting up GITHUB:
+
+SSH Key: connect without giving username and password
+SHA256:rAKZ2zMHk5Aq2cFzRxzDodxAl0OeyXoYFml9OG+quUw saad18910@hotmail.com
+https://help.github.com/en/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
+Add it on Github.com
+
+---------------------------
+
+Working with Remote Repositories:
+
+Setup a repository.
+- git clone link or SSH
+- git pull
+- git add
+- git commit
+- git push
+
+--------------------------
+
+Git Merge Conflicts
+
+https://medium.com/devslopes-blog/pushing-to-github-bf0baa1b9f84
+
+-------------------------
+
+Version Control With Andoird Studios:
+
+- VCS -> Select Version Control -> Git
+- gitignore.io
+- https://www.toptal.com/developers/gitignore/api/androidstudio
+
+- VCS -> Import Into Version Control -> Share on Github
+- Login, Push, etc..
+- You can merge from VCS as well, etc...
+
+--------------------------
+
+Working with Import and Merge Conflict Resolution:
+
+Double click on file in merge menu, to compare and apply

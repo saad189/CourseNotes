@@ -1,0 +1,420 @@
+Using IntellijDEA for Windows with Kotlin
+
+--------------------
+Variables
+
+Mutability: Whether a variable can be changed or not
+
+var : for mutable
+val : for immutable (like const)
+
+Type Inferences: Type is acquired from the usage
+
+fun main (args: Array<String>){
+    var name = "Saad"
+    var isAwesome = true
+    println ("Is " + name + " awesome? : " + isAwesome)
+
+    var a = 3
+    var b = 6
+    val doubleNum = 123.45 // 64 bit
+    val floatNum = 123.45f // Explicit cast, by using f | 32 bit
+    val longNum = 12346562342312L // Long by using L | 64 bit
+
+    val aDouble = a.toDouble()
+    
+    //You can force type
+    
+    var myString: String = "SaadOneTwo"
+    var myVal: Int = 3
+    var myDouble: Double = 3.2
+}
+
+-----------------------
+Strings with Kotlin
+
+Escaped String: Strings that use escaped characters, like /" /n , etc...
+
+Raw String: """ Start """ will keep their margin and everything
+
+- str.contentEquals (Similar to str.Equals for C#)
+- str.contains(<val>,ignoreCase)
+
+String templates:
+Interpolate string values in a stirng, via using $ and ${}
+
+Code: 
+fun main(args: Array<String>){
+    //Escaped String
+    var str = "May the force be with you."
+    println(str)
+    var str1 = "My dad said the funniest thing he said \"A joke\" "
+    println(str1)
+    //Raw String
+    val rawCrawl = """ |A long time ago,
+        |in a galaxy
+        |far, far, away...
+        |BUMM BUMM BUMMMM """.trimMargin() // for trimMargin, | (pipe) is default argument
+    println(rawCrawl)
+
+    val rawCrawl2 = """ >A long time ago,
+        >in a galaxy
+        >far, far, away...
+        >BUMM BUMM BUMMMM """.trimMargin(">")
+
+    // println(rawCrawl2)
+
+//    for (char in str){
+//        println(char)
+//    }
+    val contentEquals = str.contentEquals("May the force be with you.")
+    println(contentEquals)
+    val contains = str.contains("Force",true)
+    val upperCase = str.toUpperCase()
+    val lowerCase = str.toLowerCase()
+
+    val num = 6
+    val stringNum = num.toString()
+    println(stringNum)
+
+    val subSequence = str.subSequence(4,13)
+    println(subSequence)
+
+    val luke = "Luke Skywalker"
+    val lightSaberColor = "green"
+    val vehicle = "landspeeder"
+
+    //can reference variables in a string via $
+    println("$luke has a $lightSaberColor lightsaber and drives a $vehicle")
+    // need ${} to access variables properties/methods
+    println("Luke's full name $luke has ${luke.length} characters")
+}
+
+------------------------
+
+Numbers and Operators with Kotlin
+
+fun main (args: Array<String>){
+    val a = 12
+    val b = 25.3
+
+    // + - / *
+    println(b + a)
+    println(b - a)
+    println(b / a)
+    println(b * a)
+
+    val b2 = 25
+    println("Integers")
+    println(b2 / a)
+    println(b2 % a) // Modulus
+}
+------------------------
+
+Functions
+
+You can declare functions in a function
+
+code: 
+fun main(args: Array<String>){
+
+    fun forceChoke(){
+        println("You have failed me for the last time Admiral...")
+    }
+    forceChoke()
+
+    fun makeAnEntrance(line: String){
+        println(line)
+    }
+    makeAnEntrance("I find your lack of faith disturbing")
+
+    fun calculateNumberGoodGuys(rebels:Int, ewoks:Int) : Int{
+        val goodGuys = rebels + ewoks
+        return goodGuys
+    }
+    println(calculateNumberGoodGuys(5,2))
+    println("Darth Vader faced off against ${calculateNumberGoodGuys(6,3)} rebel scum")
+    fun vaderIsFeeling(mood: String = "angry"){
+        println(mood)
+    }
+    vaderIsFeeling()
+}
+
+---------------------
+
+Conditional Logic:
+
+Kotlin Variant for Switch : when (x) { <value> -> {code} else -> {code} }
+
+code: 
+fun main(args: Array<String>){
+    val a =3
+    val b =4
+
+    if (a == b){
+        println("A equals B")
+    } else {
+        println("A doesn't equal B")
+    }
+    if (a <= b){
+        println("Hello")
+    }
+    // == != > < >= <=
+
+    val isHungry = false
+    val isBored = true
+    if (isHungry || isBored){
+        println("Let eat Pizza")
+    }
+
+    val x = 1
+
+    when (x){
+        1 -> println("x == 1")
+        2 -> println("x == 2")
+        else -> println("X doesn't equal 1 or 2")
+    }
+}
+----------------------------
+
+
+Collections with Kotlin
+
+- Kotlin takes its collections from java
+
+code: 
+fun main(args: Array<String>){
+    //Mutable : can be changed | Immutable : cannot be changed
+
+    //Immutable
+    val imperials =  listOf("Emperor","DarthVader","Boba Fett","Tarkin")
+    println(imperials)
+    println("Sorted: ${imperials.sorted()}")
+    println("Last: ${imperials.last()}, ContainsEmperor? : ${imperials.contains("Emperor")}")
+
+    //Mutable
+    val rebels = arrayListOf("Leiah","Luke","Han Solo","Mom Mothma")
+    println(rebels.size)
+    rebels.add("Chewbacca")
+    rebels.add(0,"Lando")
+    rebels.remove("Han Solo")
+    println(rebels)
+
+    // Map: Collection of Unordered Key-Value Pairs
+    // Key : Value => Key to Value
+
+    //Immutable
+    val rebelVehiclesMap = mapOf("Solo" to "Millenium Falcom", "Luke" to "LandSpeeder")
+    println(rebelVehiclesMap["Solo"] + " or " + rebelVehiclesMap.getOrDefault("Leiah","This ship doesn't exist"))
+
+    println(rebelVehiclesMap.values + rebelVehiclesMap.keys)
+
+    //Mutable
+    val rebelVehicles = hashMapOf("Solo" to "Millenium Falcom", "Luke" to "LandSpeeder", "Boba Fett" to "Trash")
+    rebelVehicles["Luke"]= "Xwing"
+    rebelVehicles.put("Leiah","Tantive IV")
+    println(rebelVehicles)
+    rebelVehicles.remove("Boba Fett")
+    
+}
+
+-----------------------
+
+Loops
+
+code:
+fun main(args: Array<String>){
+    val rebels = arrayListOf("Leiah","Luke","Han Solo","Mom Mothma")
+    val rebelVehicles = hashMapOf("Solo" to "Millenium Falcom", "Luke" to "LandSpeeder", "Boba Fett" to "Trash")
+
+    for (rebel in rebels){
+        println("Name: $rebel")
+    }
+
+    for ((key,value) in rebelVehicles) {
+        println("$key gets around in their $value")
+    }
+
+    var x = 10
+
+    while (x > 0){
+        println(x)
+        x--
+    }
+    println(x)
+}
+-----------------------
+
+Nullability
+
+code:
+
+fun main(args: Array<String>){
+    var nullableName : String? = "Do I really Exist?"
+
+    //Null Check
+    var length = 0
+    if (nullableName !=null){
+        println(nullableName.length)
+    }
+    // Safe Operator
+    nullableName?.length
+
+    val l = if (nullableName != null) nullableName.length else -1
+    println(nullableName)
+    // Third method in Elvis Operator
+    // compared to ts/js -> nullableName != null ? .length : 1
+    val len = nullableName?.length ?: -1
+
+    // !!
+    nullableName = null
+    // force unwrap, may cause KotlinNullPointerException
+    // println(nullableName!!.length)
+}
+
+---------------------
+
+Classes
+
+- Constructor declared along with class tag
+
+class Car (val make: String,val model: String,var color: String){
+    fun accelerate(){
+        println("vroom vroom")
+    }
+    fun details(){
+        println("This is a $color $make $model")
+    }
+
+}
+
+- Kotlin all classes are final by default (Cannot be inherited from)
+- Add open keyword to change it
+- If a class doesnt have methods, you can remove the curly braces
+- Any overriden method must be open in the parent
+
+code:
+
+//class Car constructor(make: String, model: String){
+//    val make = make
+//    val model = model
+//
+//}
+//class Car (val make: String,val model: String,var color: String){
+//    fun accelerate(){
+//        println("vroom vroom")
+//    }
+//    fun details(){
+//        println("This is a $color $make $model")
+//    }
+//
+//}
+//class Truck(val make: String,val model: String, val towingCapacity: Int){
+//    fun tow() {
+//        println("taking the horses to the rodeo")
+//    }
+//    fun details(){
+//        println("This is a $make $model has a towing capacity of $towingCapacity")
+//    }
+//
+//}
+
+open class Vehicle(val make: String, val model: String){
+    open fun accelerate(){
+        println("Vroom Vroom")
+    }
+    fun park(){
+        println("parking the $model")
+    }
+    fun brake(){
+        println("STOP")
+    }
+}
+class Car(make: String,model: String,var color: String) : Vehicle(make,model) {
+    override fun accelerate() {
+        super.accelerate()
+        println("We are going ludicrous mode!")
+    }
+}
+class Truck(make: String,model: String, var towingCapacity: Int): Vehicle(make,model){
+    fun tow(){
+        println("Headed out to the mountains")
+    }
+}
+fun main(args: Array<String>){
+//    val carD = CarDemo("Corolla","2012")
+//    val car = Car("Toyota","Avalon","Red")
+//    car.accelerate()
+//    car.details()
+//    val truck =Truck("Ford","F-150",towingCapacity = 1000)
+//    truck.tow()
+//    truck.details()
+    val tesla = Car("Tesla","ModelS","Red")
+
+    tesla.accelerate()
+    tesla.brake()
+    tesla.park()
+}
+
+---------------------
+
+Lambda Expressions
+
+- Unit == Void
+
+code:
+
+fun main(args: Array<String>){
+    val printMessage = { message: String -> println(message)}
+    printMessage("Saad")
+    val sumA = {x: Int, y: Int -> x + y }
+    println(sumA(5,2))
+
+    // Another Way:
+    val sumB : (Int,Int) -> Int = {x , y -> x + y}
+
+    println(sumB(sumA(5,2),6))
+
+    fun downloadData(url: String, completion: () -> Unit){
+        // Performed Actions
+        completion()
+    }
+    // call downloadData
+    // Same AS downloadData("val", { } )
+    downloadData("fakeUrl.com") {
+        println("The code in this block, will only run after the completion")
+    }
+    fun downloadCarData(url: String, completion: (Car) -> Unit){
+        val car = Car("Nissan","GTR","Black")
+        completion(car)
+    }
+    // Car Received in the the function, from completion, and on method call, we receive that car and can use it
+    downloadCarData("fakeUrl.com"){
+        car -> println("The car is ${car.color}")
+    }
+    // If only one param:
+    downloadCarData("Hello.com"){
+        println(it.make)
+    }
+
+    fun downloadTruckData(url: String, completion: (Truck?, Boolean) -> Unit) {
+        //Get Results from request
+        val webRequestSuccess = true
+        if (webRequestSuccess) {
+            val truck = Truck("Ford", "Bandook", 5000)
+            completion(truck, webRequestSuccess)
+        } else
+            completion(null, false)
+    }
+    downloadTruckData("HelpMe.com"){
+        truck, success ->
+        if (success) {
+            truck?.tow()
+        }else
+            println("Request Failure")
+    }
+
+}
+
+---------
+

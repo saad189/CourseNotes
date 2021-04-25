@@ -1,0 +1,49 @@
+Contraint Layout:
+- Responsive Layout
+- Activity.xml
+- 2 views: Normal view, BluePrint
+
+- BluePrint: Shows UI location, not actual assets (will not show icons, images)
+
+- Element Constraints: 
+	- Wrap Content
+	- Fixed Size
+	- Match Constraint: Element will expand to fill the available space
+
+- Infer Constraints:
+	- Will add contraints by the current position of elements on the screen (pretty smart)
+	
+- Guidelines: Add Vertical and Horizontal Guidelines, then use them as a referring point for constraints
+
+- Allow us to work with any screen size
+------------------------------
+
+Phone Portrait Layout:
+
+- When adding imagies
+	- scaleType : centerCrop to maintain ratios and fill
+
+- xml example:   app:layout_constraintTop_toBottomOf="@+id/banner"
+
+- Select multiple elements: Perform Horizontal/Vertical Chain, to allow them to be chained equally
+
+------------------------------
+
+Tablet Layout:
+
+- res-> layout -> New layout: Qualifier as Size -> Extra large
+
+-----------------------------
+
+Landscape Layout: res-> layout-> New Layout: Qualifier as Orientation -> Landscape
+
+Custom Drawable:
+- Create new Drawable
+- e.g: Rounded Gradient:
+
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <corners android:radius="10dp"></corners>
+    <gradient android:startColor="#80DF4326"
+        android:endColor="#DF4326" android:angle="45"></gradient>
+</shape>

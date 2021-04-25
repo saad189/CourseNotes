@@ -1,0 +1,7 @@
+Chunking:
+- Chunking small items and processing them
+
+Dual Coding - Brute Force Learning:
+- Use multiple buffers at once
+- Strengthen the Neural Network for that learning thing
+- 

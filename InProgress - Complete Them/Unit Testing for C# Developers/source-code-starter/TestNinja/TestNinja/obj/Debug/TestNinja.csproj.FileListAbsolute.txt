@@ -1,0 +1,13 @@
+/Users/moshfeghhamedani/RiderProjects/TestNinja/TestNinja/bin/Debug/TestNinja.dll
+/Users/moshfeghhamedani/RiderProjects/TestNinja/TestNinja/bin/Debug/TestNinja.pdb
+/Users/moshfeghhamedani/RiderProjects/TestNinja/TestNinja/obj/Debug/TestNinja.csprojResolveAssemblyReference.cache
+/Users/moshfeghhamedani/RiderProjects/TestNinja/TestNinja/obj/Debug/TestNinja.csproj.CoreCompileInputs.cache
+/Users/moshfeghhamedani/RiderProjects/TestNinja/TestNinja/obj/Debug/TestNinja.dll
+/Users/moshfeghhamedani/RiderProjects/TestNinja/TestNinja/obj/Debug/TestNinja.pdb
+/Users/moshfeghhamedani/RiderProjects/TestNinja/TestNinja/bin/Debug/TestNinja.dll.config
+/Users/moshfeghhamedani/RiderProjects/TestNinja/TestNinja/bin/Debug/EntityFramework.dll
+/Users/moshfeghhamedani/RiderProjects/TestNinja/TestNinja/bin/Debug/EntityFramework.SqlServer.dll
+/Users/moshfeghhamedani/RiderProjects/TestNinja/TestNinja/bin/Debug/Newtonsoft.Json.dll
+/Users/moshfeghhamedani/RiderProjects/TestNinja/TestNinja/bin/Debug/EntityFramework.xml
+/Users/moshfeghhamedani/RiderProjects/TestNinja/TestNinja/bin/Debug/EntityFramework.SqlServer.xml
+/Users/moshfeghhamedani/RiderProjects/TestNinja/TestNinja/bin/Debug/Newtonsoft.Json.xml

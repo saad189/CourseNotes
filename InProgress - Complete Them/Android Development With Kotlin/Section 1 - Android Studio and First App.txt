@@ -1,0 +1,32 @@
+Install Android Studio
+Install Java SDK
+Get API for OS with reasonable device Usage (+ latest, e.g : KitKat, Oreo)
+Install Tools from SDK Manager
+
+Structure:
+App -> Manifests : Info about app
+    -> Java : 
+    -> res (Resources) : Drawable, Layout, MipMap, Values
+Gradle Scripts -> Build.Gradle (Module: app) : add external libraries (in dependencies)
+- Sync on changes (Gradle)
+APK: Android package kit
+
+
+Attributes:
+Object/Elements on the screen
+- Sp : Scale Independant Pixels (Texts)
+- Dp : Density Independant pixels (other objects)
+
+In Activity XML:
+- Palatte: Contains all the UI elements that can be added to the screen
+
+Use constraints to make rules for elements to have certain distances from other 
+elements, or parent
+
+-----
+
+You need desnity Independance for proper size, across multiple dpi screens
+
+
+Kotlin:
+- fun <function> { }

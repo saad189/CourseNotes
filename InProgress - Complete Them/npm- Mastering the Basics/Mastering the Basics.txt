@@ -1,0 +1,134 @@
+Introduction:
+
+npm - package manager
+- Share reusable code from developers to each other
+
+npm/node -v -- Version
+npm help
+npm help <command> -- Detailed document
+npm <command> -h --Gives details about command usage
+npm help-search <anythingtext>
+
+---------------------
+
+Package.json -- Dependancy file [along with each package's version]
+- allows to add scripts for runtime help
+
+Create Package: npm init
+	- npm init --yes (for default creation)
+	- npm config set init-author-name "Saad"
+	- npm set init-license "Home"
+	- npm config get init=author-name	
+	- npm config delete init-license -- to delete
+
+-------------------------------
+Installing the local Packages:
+
+npm install <package_name>
+npm install <package_name> --save  // Will save the dependancy
+npm install <package_naem> --save-dev // like 'lodash' for dev environment only
+---------------------
+
+Uninstalling the local Package:
+
+npm uninstall <package_name>
+npm uninstall <package_name> --save //to remove dependancy
+npm unisntall <package_name> --dev-save
+
+-----------------------
+
+Installing Global Package:
+- Global Packages are in Users/Name/AppData/Roaming/npm/node_modules
+- Will not be installed in the current project but globally
+npm install moment -g
+
+Uninstalling Global Package:
+npm uninstall moment -g
+npm remove/uninstall/un/rm moment -g
+
+--------------------------
+Listing Pacakges:
+npm list
+npm --depth <i> // Limit tree depth
+npm list --global true --depth 0 //only package no internal dependancy
+
+--------------------------
+
+npm Version:
+Version : " M.m.p " [Major,Minor,Patch] 
+- Minor: New features, no breakage
+- Major: May break the existing code
+
+npm install <package>@a.b.c
+npm install <package>@a.b //latest patch w
+
+---------------------------
+Installing From Package.json
+
+npm install // will install all dependancies
+- ^ Carrot -> Stick to Major version, latest minor and patch
+- ~ Tilt -> Only latest patch , rest as it is
+- No symbol -> as it is
+- If dependancies include : {"package": "*"}, it will fetch latest
+
+---------------------------
+
+Update Package:
+
+npm update package --save
+npm update --dev--save
+npm update
+npm update -g <package..>
+
+Update NPM : npm install npm@latest -g (as admin)
+
+----------------------------
+npm Prune:
+
+npm prune // removes non-dependancy packages
+----------------------------
+
+Shortcuts:
+
+npm init -y : npm init --yes
+npm i loadash -S : npm install loadash --save
+npm i moment -D : npm install moment --save-dev 
+
+------------------
+Scripts:
+
+Package has scripts
+- can be initiated like this : npm start
+{
+  "name": "npmTestProject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "Saad",
+  "license": "Home"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,70 @@
+Learning Objectives:
+
+- Activity Lifecycle
+- Context
+- Intent
+- Create App Icons
+- Pass Data Activity to Activity
+- Extras
+- Parcelable
+
+-----------------
+
+Welcome Screen Layout
+
+- Google : Hex Value Opacity levels for custom drawable opacity
+
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#64000000"></solid>
+    <stroke android:color="@color/colorAccent" android:width="2dp"></stroke>
+</shape>
+
+-----------------
+
+League Selection Layout
+
+- Any new activity needs to be declared in Manifest
+
+Creating a Toggle Selector:
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true" android:drawable="@drawable/swoosh_button_checked"></item>
+    <item android:state_checked="false" android:drawable="@drawable/swoosh_button"></item>
+</selector>
+---------------------
+
+Intents and Context:
+
+- Check warnings
+- Bundle: Data Objects: {key,value}
+- Intent: Object, lets you intract with another activity or other apps
+	- Explicit: Specify the target class (Use this only inside your app)
+	- Implicit: Actiontype, send to android system, it will ask you to select an app that can repond to that Intent\
+- Context: Information about an application environment
+
+----------------------
+
+Activity LifeCycle:
+- https://developer.android.com/guide/components/images/activity_lifecycle.png
+- OnCreate() [Once] -> onStart() [Now Activity is Visible to User] -> onResume() [App is Running]
+- onPause() [After losing Focus] {Returning to Activity will call onResume()}
+- [Activity no longer Visible] onStop() -> [Activity is finished? or destroyed?] -> onDestroy() [Activity is Shutdown]
+- onStop() -> [User goes back to activity] -> onRestart() -> onStart()
+- onStop() -> [Apps with higher priority need memory] {App Process is Killed} [User navigates to activity] -> onCreat()
+
+---------------------
+
+Activity LifeCycle in Action:
+
+- Learn to read documentation
+- https://developer.android.com/reference/android/util/Log
+
+----------------------
+
+Skill Selection Layout:
+
+- Attributes have onClick Property : Add function to register it with the listener
+
+
+
