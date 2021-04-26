@@ -56,6 +56,70 @@ Hello World:
 
 Components:
 
+Parts:
+1. Template [View -> Html]
+2. Class [Code -> TS][Data & Methods][Logic]
+3. Metadata [Information][Decorator]
+    - @Component({})
+
+- Create component: ng g c <component-name>
+    - Add component into the 'declaration' array of the module
+- Note that if you chanage selector from 'app-<name>' to '.app-<name>'
+    it can be included as a class in a div to generate that component
+    e.g <div class = "app-test"></div>
+- Note that selector: '[app-<name>]' -> <div app-<name>> -> <div app-test></div>
+- Style and template can be written Inline : change templateUrls to template
+
+-----------------
+
+Interporlation: {{variable}}
+
+- class to template -> {{variable}}
+- Interporlation also processes expressions {{2*2}} = 4
+- May generate template parse error
+- cannot directly fetch 'window' object in {{}}, can be bound to local and fetched
+
+------------------
+
+Property Binding:
+
+- HTML attribute vs DOM attribute
+
+- HTML attribute -> <input type="text" value="saad">
+    - accessible in HTML as $0.value -> $0.getAttribute('value');
+
+- Note: changing the value in the text field ->
+    - Changes the DOM property value and not attribute value
+
+Attribute vs Property:
+- Attribute -> HTML | Properties -> DOM (Document Object Model)
+- Attributes initialize DOM properties and then they are done. Attribute
+    values cannot change once they are initialized
+    Property values can change
+
+- Biding is done to the DOM property not HTML attribute
+
+NOTE:
+<input [id]="myId" type = "text" value = "Saad"> #PropertyBinding
+<input id="{{myId}}" type = "text" value = "Saad"> #InterpolationBinding
+
+- Interpolation binding only works for string values
+- PropertyBinding works with any datatype
+
+- <input disabled> will make the input disabled
+- <input disabled = "false"> will not work (still disabled)
+- <input [disabled] ="false"> will enable the input
+
+- Another method: <input bind-disabled = "isDisabled">, will do property 
+    binding
+
+-----------------
+
+Class Binding:
+
+
+
+
 
 
 
