@@ -116,6 +116,71 @@ NOTE:
 -----------------
 
 Class Binding:
+- class = "actual-class"
+- [class] = "someVar" | "actual-class"
+- [class] will over-write normal class binding
+- [class.text-danger] = "hasError" (Single Class)
+
+- Multiple Class application:
+    messageClasses = {
+        "text-success": !this.hasError.
+        "text-danger": this.hasError,
+        "text-special": this.isSpecial
+    }
+    - <div [ngClass] = "messageClasses"></div>
+
+------------------
+
+Style Binding:
+
+- <h2 [style.color]="'orange'">Value</h2>
+- <h2 [style.color]="hasError ? 'red' : 'green'">Binding</h2>
+
+- Multiple Style Application:
+    - titleStyles = {
+        color: "blue",
+        fontStyle: "italic"
+    }
+    - <h2 [ngStyle] = "titleStyles">Values</h2>
+
+-------------------
+
+Binding:
+
+- Data Binding : Class ==> Template
+- Event Binding : Class <== Template
+
+- e.g (click)="methodInComponent(args?)"
+- Info about the event itself:
+    - (click)="method($event)" -> Info about the DOM event sent to method
+- code can be directly written into Event handler statment
+    - (click)="console.log('Hello');"
+
+-------------------
+
+Template Reference Variable:
+
+- Data transfer from view to class
+
+<input #myInput type="text">
+<button (click)="logMessage(myInput.value)">Click</button>
+- Here myInput -> <input type="text"> (HTML attribute)
+
+-------------------
+
+Two Way Binding:
+
+- Template <==> Class
+- Ensure Model and View to be in sync
+- <input [(ngModel)] = "nameVar" type="text">
+    - [()] : Banana in a Box
+- [] -> Property Binding (Class to Template)
+- () -> Event Binding (Tempalte to Class)
+- Note: To run ngModel, import FormsModule into relevant Module
+
+
+
+
 
 
 
