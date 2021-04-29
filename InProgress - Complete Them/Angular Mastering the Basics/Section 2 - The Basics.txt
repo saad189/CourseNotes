@@ -178,6 +178,84 @@ Two Way Binding:
 - () -> Event Binding (Tempalte to Class)
 - Note: To run ngModel, import FormsModule into relevant Module
 
+-------------------
+
+Structural Directives:
+- NgIf, NgFor, NgSwitch
+ 
+ NgIf:
+
+ <h2 *NgIf = "true ; else elseBlock"></h2>
+
+ <ng-template #elseBlock></ng-template>
+
+ NgSwitch:
+
+ <div [NgSwitch]= "color">
+    <div *ngSwitchCase ="'red'"></div>
+    <div *ngSwitchCase ="'blue;"></div>
+    <div *ngSwitchCase ="'black'"></div>
+    <div *ngSwitchCaseDefault></div>
+ </div>
+
+ NgFor:
+
+ <div *NgFor="let item of Items; index as i"> 
+ //first as f, last as l, odd as o, even as o, index as i
+ // They determine true/false based on index value
+ <span> {{item.Name}} {{i}} </span> // i = 0...Items.length
+ </div>
+--------------------
+
+Component Interaction:
+
+- Parent ==> Child (@Input())
+- Child  ==> Parent (@Output())
+
+
+Parent to Child:
+- Parent -> public variable | <app-child [childVarName] = "variable></app-child>
+- Child -> @Input() public childVarName;
+    - Can also be like this: @Input('childVarName') public myVar;
+
+Child to Parent:
+- Child -> @Output() public myVar; myVar.next(someValue)
+- Parent -> <app-child (childEvent)="parentVar=$event"></app-child> |
+    - console.log(parentVar);
+
+--------------------
+
+Pipes:
+
+- transform data
+- Prebuilt Pipes:
+- pipe: arg1:arg2:arg3 -- syntax
+    - String Pipes:
+        - lowercase | uppercase | titlecase
+        - slice: index:limit (slice a string, takes index and limit arg)
+        - json
+
+    - Number Pipes:
+        - number:'Integer.MinDigitalCount-MaxDigitalCount'
+            - 5.67883 | number:'1.2-3' -> 5.678 | 5 -> 5.00
+        - percent -> 0.25 | percent -> 25%
+        - currency -> ($ by default) currency: 'GBP' (Checkout ISO currency codes)
+            - 0.5 | currency : 'GBP' : 'code' -> GBP0.25
+    
+    - Date Pipes:
+        - date:'Format'
+            - dateVar | date:'DD-MM-YYYY'
+            - dateVar | date:'short' -> 12/3/17 9:45pm
+            - dateVar | date:'shortDate' | 'shortTime' | 'medium' / 'long' and its suffixes
+
+- Note that Pipe, only changes the value for the view, not the class
+
+
+--------------------
+
+
+
+
 
 
 

@@ -1,13 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, AfterViewInit {
   title = 'angular-course-app';
+  public name = 'Saad';
+  public message = '';
+
   ngOnInit(): void {
+
+
+  }
+  ngAfterViewInit() {
+    console.log(this.message);
+  }
+
+  playAlgos() {
     // console.log(this.numberToAccountString(undefined));
     // console.log(this.checkEquilibrium(3, [[3, -1, 7], [-5, 2, -4], [2, -1, -3]]));
     // console.log(this.checkPairs(9, 3));

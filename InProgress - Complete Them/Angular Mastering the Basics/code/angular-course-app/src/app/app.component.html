@@ -534,5 +534,5 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 
-<app-test></app-test>
+<app-test (childEvent)="message=$event" [parentData]="name"></app-test>
 <router-outlet></router-outlet>
