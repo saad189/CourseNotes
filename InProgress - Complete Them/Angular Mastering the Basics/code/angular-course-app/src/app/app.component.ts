@@ -88,4 +88,26 @@ export class AppComponent implements OnInit, AfterViewInit {
     return str === a.toString() ? '-1' : str;
   }
 
+
+  func() {
+    var arrOfNeighbors = [];
+    // {1,2,4} , 
+    // {3,2,6}
+    // {4,2,5}
+    //pin 13
+    var variations = [];
+    var Iter = [];
+    for (let i = 0, firstIter = 0; i < arrOfNeighbors.length; ++i, firstIter++) {
+
+      const item = arrOfNeighbors[i][firstIter];
+
+      for (let j = 1, secondIter = 0; j < arrOfNeighbors[i].length; ++j, ++secondIter) {
+        var myItem += arrOfNeighbors[]+ 
+      }
+      variations.push(arrOfNeighbors[j][secondIter] + item+....);
+    }
+
+
+  }
+
 }
