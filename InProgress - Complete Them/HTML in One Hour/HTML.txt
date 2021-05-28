@@ -15,3 +15,56 @@ Resources:
 1. Browser (Client) -> Server
 - HTTPS : HTTP + Encryption
 - Request -> Response
+
+HTML is for structure
+CSS is for Beautifying it
+
+/* Set border radius to half of image width, for round image */
+        /* Image will go to the left side */
+
+Enabling Formatting on Save:
+    Go to settings in Code -> Search 'format on save'
+
+In Dev tools, you can check on top right of the control, to
+see where a certain style has been applied
+
+To Validate your WebPage's HTML:
+
+- validator.w3.org
+
+To Validate your WebPage's CSS:
+
+- http://jigsaw.w3.org/css-validator/
+
+
+Tags:
+
+- &lt; < (less than)
+- &gt; > (greater than)
+- &copy; C
+- &nbsp; glue two words together
+- dev.w3.org, to check for all entities
+
+= view port is visible area on the monitor 
+meta:description -> displays the description on search engine
+
+Linking the WebPage to another external link:
+
+-   <a href="https://google.com" target="_blank">Google</a>
+- target="_blank" ensures new tab
+
+- Jump to Section on Page:
+    - Define id, e.g: id="section-css"
+    - href="#section-css"
+- Free Images:
+    - unsplash.com
+
+
+    img{
+              width: 200px;
+              height: 200px;
+              object-fit: cover;
+        }
+- Using object-fit: cover, will expand the image to fit the container
+    (would have been perfect for youtube video issue in daoProptech)
+

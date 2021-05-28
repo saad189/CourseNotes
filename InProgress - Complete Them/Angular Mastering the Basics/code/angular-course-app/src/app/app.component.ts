@@ -97,15 +97,15 @@ export class AppComponent implements OnInit, AfterViewInit {
     //pin 13
     var variations = [];
     var Iter = [];
-    for (let i = 0, firstIter = 0; i < arrOfNeighbors.length; ++i, firstIter++) {
+    // for (let i = 0, firstIter = 0; i < arrOfNeighbors.length; ++i, firstIter++) {
 
-      const item = arrOfNeighbors[i][firstIter];
+    //   const item = arrOfNeighbors[i][firstIter];
 
-      for (let j = 1, secondIter = 0; j < arrOfNeighbors[i].length; ++j, ++secondIter) {
-        var myItem += arrOfNeighbors[]+ 
-      }
-      variations.push(arrOfNeighbors[j][secondIter] + item+....);
-    }
+    //   for (let j = 1, secondIter = 0; j < arrOfNeighbors[i].length; ++j, ++secondIter) {
+    //     var myItem += arrOfNeighbors[]+ 
+    //   }
+    //   variations.push(arrOfNeighbors[j][secondIter] + item+....);
+    // }
 
 
   }
