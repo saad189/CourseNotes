@@ -1,0 +1,72 @@
+CSS - Styling Language
+- Used for Presentation, many different ways
+
+CSS Syntax:
+
+selector {
+    key-value pair
+    property-1: value;
+    property-2: value;
+    ...
+    property-n: value;
+}
+
+Selectors: (many, Including)
+- Element (h1,div,header,(HTML Element...))
+- Class (created class)
+    -> .class-name { property:value; };
+- Id
+    -> #id {}
+
+Selector Combinations, same level:
+- The element must have both selectors to have the css be applied to it
+- .selector-1.selector-2{
+    property:value;
+}
+- The element must have both selectors (the above format) to be
+    styled
+
+Selector Combinations, hierarchy:
+- selector-1 selector2- {}
+- Parent -> Child relationship
+- Doesn't need to be direct relationship
+
+Everything Selector: * { property: value; }
+
+
+Loading CSS Styles:
+
+1. Inline:
+    - Directly on the element:
+        <h1 style="color:blue"></h1>
+2. Style Element:
+    - Add <style> Bunch of Styles </style>, in the header of HTML
+3. External CSS:
+    - <head> <link rel="stylesheet" href="styles.css"/> </head>
+
+Note: CSS will take the last style has the current one
+
+Selector Preference:
+- Lowest - Highest: Element (least important), Class, Id (most important)
+- Inline styles will overwrite everything else
+
+
+Colors:
+- #FFFFFF (hexadecimal) -> Combinations of FF, FF, FF
+- rgb(225,255,255) (red, yellow, blue)
+- rgba (255, 255, 255, 0.5) (color, color, color, transparency)
+- Same can be achieved with hexa values, just add 2-digit hexa-decimal value for transparency
+- hsl (0,100%,50%) hue, saturation, lightness
+- hsla(0,100%,50%,0.5)
+
+Box Model: (margin (border (padding (content) padding) border) margin)
+
+
+Pixels:
+
+- px, plain Pixels
+- %, pixels per parent width/height
+- em, used for fonts, scaled to font size of parent(e.g 60px font size = 1 em, 0.5 em = 30px)
+- rem, scales from font size of root of document
+- So , em and rem are based on body's font size
+
