@@ -1,0 +1,68 @@
+Strong Typing:
+- Define the type of declared variable/constant
+- Object oriented features
+- Will catch a lot of errors at compile time, 
+    as compared to, at runtime
+- Great tooling?
+- SuperSet of JavaScript
+
+Typescript ---Transpile--> JavaScript
+
+Install Typescript:
+sudo install -g Typescript
+Write Code:
+....
+Transpile, tsc main.ts
+Run: node main.js
+
+To compile + run typescript: tsc main.ts && node main.js
+----------
+
+ES5 (ECMAScript 5): supported by all browsers
+ES6 -> Extended js | ES2017
+
+var vs let:
+
+var is scoped to the nearest function(scope leak)
+let will automatically be deleted outside the scope
+
+Type Assertion: [Only for TS Compiler for Intellisense]
+- Note, this will not change the type of the object -_-
+- (<type>object.method(params...));
+- (object as type).method(params...)
+
+Inline Annotation:
+function doSomething(point : {x:number, y:number});
+
+Function, part of class, is a method
+
+In Typescript, we cannot have more than one constructor
+- To allow for non-parametized constructor, add nullable character
+    to the parameters.
+- constructor(x? : number, y?: number);
+
+By Default, access is public
+TS declaration feature:
+
+constructor(private x?: number, private y?: number) {}
+
+this is same as, old declaration of constructor
+
+Getter and Setter: [get Value() | set Value(value)]
+- Difference between using keywords and normal function:
+    - get X(){ } vs getX(){ }
+    - get X() can be used like a field, in code.
+    -> let Point; Point.X vs Point.getX()
+
+
+Case Practice:
+- camelCase
+
+--------------
+
+Modules:
+- To create modules, export the class
+- Import it in another class
+    - export class Point {}
+    - import { Point } from './point'
+    - Here file is point.ts
