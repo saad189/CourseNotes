@@ -129,7 +129,7 @@ var car = {
 };
 
 - car["make"] -> bmw
-- car["engine"]["pistons"][1]["maker"] -> "BMW"
+- car["engine"]["pistons"][1]["maker"] -> "BMW2"
 - car["drive"]() -> "drive"
 
 ---------------
@@ -323,25 +323,8 @@ Apple.prototype = {
 
 - Having similar symbols inside object + prototype -> object symbol will be used
     So chain is : Object -> Prototype
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
+    
+    
+    
+    

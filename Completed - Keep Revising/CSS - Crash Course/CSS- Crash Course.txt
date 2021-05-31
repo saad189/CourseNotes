@@ -19,7 +19,7 @@ Selectors: (many, Including)
     -> #id {}
 
 Selector Combinations, same level:
-- The element must have both selectors to have the css be applied to it
+- The element must have both (or all) selectors to have the css be applied to it
 - .selector-1.selector-2{
     property:value;
 }
@@ -44,7 +44,7 @@ Loading CSS Styles:
 3. External CSS:
     - <head> <link rel="stylesheet" href="styles.css"/> </head>
 
-Note: CSS will take the last style has the current one
+Note: CSS will take the last style as the current one
 
 Selector Preference:
 - Lowest - Highest: Element (least important), Class, Id (most important)

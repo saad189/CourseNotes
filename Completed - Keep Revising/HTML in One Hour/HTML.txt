@@ -41,7 +41,7 @@ Tags:
 
 - &lt; < (less than)
 - &gt; > (greater than)
-- &copy; C
+- &copy; C (copyright)
 - &nbsp; glue two words together
 - dev.w3.org, to check for all entities
 
@@ -66,5 +66,4 @@ Linking the WebPage to another external link:
               object-fit: cover;
         }
 - Using object-fit: cover, will expand the image to fit the container
-    (would have been perfect for youtube video issue in daoProptech)
 

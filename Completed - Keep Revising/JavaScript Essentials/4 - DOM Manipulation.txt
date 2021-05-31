@@ -136,3 +136,5 @@ Final Project:
         document.getElementById('modify').style[elements[index].getAttribute('id')] = elements[index].value;
     }
 });
+
+
