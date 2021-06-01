@@ -1,0 +1,23 @@
+
+CLI Templates:
+
+SideNav:
+- ng generate @angular/material:material-nav --name=my-nav
+Dashboard:
+- ng generate @angular/material:material-dashboard --name=my-dashboard
+DataTable:
+- ng generate @angular/material:material-table --name=my-table
+
+-----
+
+Angular Elements -> Export Components in other projects
+
+Ivy: Speed + Less Size Engine
+
+
+-------------
+
+Update App to Latest:
+- update.angular.io
+- Will show the required changes (if breaking) to be made to the code
+- Follow the instructions and run the required commands (shown in webpage)

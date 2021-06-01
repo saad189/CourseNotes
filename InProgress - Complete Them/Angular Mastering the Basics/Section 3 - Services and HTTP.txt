@@ -72,4 +72,38 @@ Using a Service:
 
 Http and Observables:
 
-- 
+- Service in FrontEnd will send a GET request and will receive response,
+    which is packaged in an Observable.
+
+Observable: 
+- Sequence of Items that arrive asynchronously over time
+- HTTP call - Single Item - Http response
+- The Process:
+    - GET Request from the Service
+    - Receive Observable, Cast it to requried Object-Array
+    - Subscribe to Observable from component
+    - Assign the Object-Array to Local Variable
+
+RxJS:
+- Reactive Extensions for JavaScript
+- External Library to work with Observables
+
+-----------------
+
+Fetch data using HTTP:
+- Import HttpClientModule
+- this.http.get(url);
+- this.testService.getEmployees().subscribe(data => this.employeeList = data);
+
+-----------------
+
+Http Error Handling:
+
+-  return this.http.get<IEmployee[]>(this.url).pipe(catchError(this.errorHandler));
+  errorHandler(errorValue: HttpErrorResponse) {
+    console.log('Caught Error', errorValue);
+    return Observable.throw(errorValue.headers);
+  }
+
+------------------
+

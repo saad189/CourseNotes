@@ -1,2 +1,9 @@
 <p>test works!</p>
 <p>{{25.678 | number:'1.1-2'}}</p>
+
+<div>
+  <span *ngFor="let employee of employeeList">
+    - {{employee.id}} : {{employee.name}} : {{employee.age}} <br>
+  </span>
+
+</div>
