@@ -1,0 +1,38 @@
+What is Node:
+
+- Runtime Environment for Executing JS
+- Great for Prototyping and Agile Development
+- Superfast and Highly Scalable
+- JavaScript Consistency
+- Clearner and More Consistent Code Base
+- Large EcoSystem of Open-Source Libraries
+- Built on C++
+--------------
+
+Node Architecture:
+- JS Engine taken out of Browser
+- Uses v8 of Google Browser
+
+--------------
+
+Installing Node:
+- Install from Node Website (preferred LTS)
+- node --version (Check Version)
+
+First Program:
+- Write Code
+- Run: node app.js
+- Node does not contain window object
+
+---------------
+
+Notes:
+- Single threaded application, only thread is used to serve all
+    clients
+- Asynch, non-blocking by default, ideal for I/O apps
+- Avoid Node for CPU Intensive tasks, (as it is single thread)
+- Rather than browser objects (like window, etc...), we have Computer objects
+    like File System, Network, OS, etc...
+    
+
+
