@@ -1,0 +1,17 @@
+Modules:
+- Operating System
+- File System
+- Events
+- Http
+
+---------------
+
+Global Objects:
+
+- Objects part of the global scope, e.g. 'console', window
+    - Methods like setTimeout(), clearTimeout(), 
+        setInterval(), clearInterval() 
+    - These are basically objects (symbols) that are assigned
+        to functions
+
+- Part of the window object (in the browser, not Node)
