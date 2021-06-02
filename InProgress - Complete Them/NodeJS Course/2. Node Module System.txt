@@ -6,7 +6,7 @@ Modules:
 
 ---------------
 
-Global Objects:
+Global Objects
 
 - Objects part of the global scope, e.g. 'console', window
     - Methods like setTimeout(), clearTimeout(), 
@@ -15,3 +15,150 @@ Global Objects:
         to functions
 
 - Part of the window object (in the browser, not Node)
+- Variables defined in a file, are not attached to global
+    object, will only be limited (scoped) to the file they are
+    defined in.
+
+--------------
+
+Modules:
+
+- Every file is a MODULE in Node 
+- console.log(module), will show the properties of that module.
+
+--------------
+
+Creating a Module:
+- Create new file
+- Add Implementation
+- Export the functionality
+    - module.exports.<variable> = <internalVariable>
+    - module.exports.log = log
+
+--------------
+
+Loading a Module:
+
+- var localVar = require('filePath')
+- var logger = require('./logger')
+- Best Practice: Make it CONSTANT
+    - const localVar = require('filePath');
+
+Note: Use jshint to check for wierd errors
+    - npm install -g jshint
+
+- Export can be simplified to just send a single functionality
+    - module.exports.log = log => module.exports = log
+    - logger.log(message) => logger(message)
+
+-------------
+
+Module Wrapper Function:
+
+- Every module is wrapped into a function
+    - function (exports, require, module, __filename,__dirname);
+
+-------------
+Note: Check Node Modules/ Functionality: 
+    https://nodejs.org/dist/latest-v16.x/docs/api/
+
+
+Path Module:
+const path = require('path')
+- path.parse(filename);
+
+{
+  root: '/',
+  dir: '/home/saad/Desktop/CourseNotes/InProgress - Complete Them/NodeJS Course/code/first-app',
+  base: 'app.js',
+  ext: '.js',
+  name: 'app'
+}
+
+-------------
+
+OS Module:
+
+- Information of the current Operating System
+- os.freemem, uptime, totalmem, etc...
+
+-------------
+
+File System Module:
+
+Note: Check ESM vs CommonJS
+
+- const fs = require('fs');
+- fs.readdirSync('dir-path'); | Synchronous Method
+- Prefer Async methods in Node
+
+Async Method for readdir:
+    fs.readdir('dir-path',callback)
+    fs.readdir('dir-path', function (err, files){
+        if (err){
+            handleError(err);
+        }
+        else {
+            console.log(files);
+        }
+    });
+
+-------------
+
+Events Module:
+
+- Detects that something has happened in the application
+- Class convention : PascalCase
+
+- EventEmitter = require('events');
+- emitter = new EventEmitter();
+- emitter.emit() -> Emits an emitter
+
+// Registering a Listener:
+emitter.on("messageLogged", function () {
+  console.log("Event has been raised.");
+});
+
+// Emitting an event:
+emitter.emit("messageLogged");
+
+--------------
+
+Event Arguments:
+
+emitter.on('eventName',(args) => { handle })
+emitter.emit('eventName', {args})
+
+--------------
+
+Extending EventEmmiter:
+
+- Create a new class, extend it with EventEmitter();
+- const EventEmitter = require('events')
+- class Logger extends EventEmitter{
+    log(){
+        this.emit('eventName',args);
+    }
+}
+- Another Module:
+    const Logger = require('./logger);
+    const logger = new Logger();
+    logger.on('eventName', callback);
+
+--------------
+
+Http Module:
+
+const http = require('http');
+- Basically an event emitter, among other things
+- const server = http.createServer((req,res) =>{
+    if (req === '/'){
+        res.write('Hello');
+        res.end();
+    }
+})
+- server.listen(4200);
+- For Proper API building, a proper framework is required,
+    ExpressJS is used for this purpose
+-------------
+
