@@ -1,0 +1,177 @@
+LightWeight Framework for buildng APIs
+
+--------------
+
+RESTful Services:
+- Client Server model
+- HTTP protocol
+- Representational State Transfer
+    - GET, PUT, POST, DELETE
+
+Introducing Express:
+
+- npm i express
+- const express = require("express");
+- const app = express();
+- app.get(),put(),delete(),post();
+- Checkout expressjs.com -> API (version) -> Request Object
+
+- app.listen(PORT, () => {
+  console.log(`listening on Port: ${PORT}...`);
+});
+
+--------------
+
+Nodemon:
+
+- npm i -g nodemon
+- run with nodemon:
+    - nodemon index.js
+- Will automatically reload the project, when a file is changed
+
+--------------
+
+Environment Variables:
+- For dealing with multiple environments (Production, Staging, Development)
+- const PORT = process.env.PORT || 4200;
+- process is a global Variable
+- In Terminal, set environment Variable
+    - export PORT=5000
+    - export <variable>=<value>
+
+--------------
+
+Route Parameters:
+
+- color :<variable>
+- access by: req.params
+
+app.get("/api/course/:id", (req, res) => {
+  res.send(`Your ID: ${req.params.id}`);
+});
+
+- Query String:
+
+- questionmark ?<variable>=<value>
+- http://localhost:5000/api/posts/2012/5?sortBy=name
+
+app.get("/api/posts/:year/:month", (req, res) => {
+  res.send({ params: req.params, query: req.query });
+});
+
+{"params":{"year":"2012","month":"5"},"query":{"sortBy":"name"}}
+
+---------------
+
+Handling HTTP GET Requests:
+
+app.get("/api/course/:id", (req, res) => {
+  const course = courses.find((c) => c.id === parseInt(req.params.id));
+  if (!course) res.status(404).send("Course Not Found.");
+  else {
+    res.send(course);
+  }
+});
+
+--------------
+
+Handling HTTP POST Requests:
+
+- Enable Json Middleware
+    - app.use(express.json());
+
+- app.post('api/course',(req,res) => {
+    const course = {
+        id: courses.length +1,
+        name : req.body.name
+    }
+    courses.push(course);
+    res.send(course);
+});
+
+---------------
+
+Calling Endpoints Using Postman:
+
+- Install chrome extension, PostMan
+- POST -> url -> body -> raw -> (Text -> JSON)
+    {
+        "variable": <value>
+    }
+    - send
+
+----------------
+
+Input Validation:
+
+- Method 1: Validate the paramaters and return status code
+
+  if (!req.body.name || req.body.name.length < 3) {
+    res.status(400).send("Name should be atleast 3 characters");
+    return;
+  }
+
+- Method 2: 
+    - npm i joi
+    - const Joi = require('joi');
+
+const schema = Joi.object({ name: Joi.string().min(3).required() });
+const result = schema.validate(req.body);
+if (result.error){
+    res.status(400).send('Error');
+}
+
+----------------
+
+Handling HTTP PUT Requests:
+
+app.put("/api/courses/:id", (req, res) => {
+  // 1. Find Course
+  const course = courses.find((c) => c.id === parseInt(req.params.id));
+  if (!course) res.status(404).send("Course not found");
+
+  // 2. Validate Object
+  const schema = Joi.object({
+    name: Joi.string().min(3).required(),
+  });
+  const result = schema.validate(res.body);
+
+  if (result.error) {
+    res.status(400).send("You suck");
+    return;
+  }
+
+  // 3. Update Course
+  course.name = req.body.name;
+
+  res.send(course);
+});
+
+
+- Object Destructuring:
+    const { <required-property> } = object
+    const { error } = validateCourse(req.body)
+
+
+---------------
+
+HTTP Delete:
+
+Note: Array.prototype.indexOf(value) is good for simple arrays
+        - Needs a value
+      Array.prototype.findInd(callback) is good for callbacks
+        - Needs a predicate
+
+app.delete("/api/courses/:id", (req, res) => {
+  const course = courses.find((c) => c.id === parseInt(req.params.id));
+  if (!course) res.send(404).send("Course not found.");
+
+  const index = courses.findIndex(course);
+  courses.splice(index, 1);
+});
+
+Note: Remember splice? -> Remove object from array at given index, upto 
+    n characters
+
+--------------
+
