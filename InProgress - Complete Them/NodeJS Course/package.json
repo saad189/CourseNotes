@@ -1,7 +1,10 @@
 {
   "dependencies": {
+    "config": "^3.3.6",
     "lion-lib": "^1.1.0",
     "lion-lib-189": "^1.0.0",
+    "morgan": "^1.10.0",
+    "pug": "^3.0.2",
     "underscore": "^1.13.1"
   }
 }

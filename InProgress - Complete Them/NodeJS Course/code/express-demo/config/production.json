@@ -1,0 +1,6 @@
+{
+    "name":"Personal Express App - Development",
+    "mail":{
+        "host":"prod-mail-server"
+    }
+}
