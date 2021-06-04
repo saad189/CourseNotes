@@ -1,0 +1,145 @@
+Middleware:
+
+- A function takes request object, returns response to client
+    or sends request to another function
+- Every route handler is a middleware function
+    (get,put,post,delete)
+- Another example -> app.use(express.json())
+- Basically A pipe where request is passed throught to perform
+certain funtionalities
+
+Request Processing Pipeline:
+
+- Take Request
+- Process
+- Pass Request to Another Middleware (*)
+- Send Response
+
+e.g: request -> json() -> route() -> response
+
+----------------
+
+Creating Custom Middleware:
+
+- app.use(<middleware>);
+- app.use(function(req,res,next){
+    console.log('Logging');
+    next(); // Next middleware
+});
+
+- good convention: 1 middleware 1 module
+
+function log(req, res, next) {
+  console.log("Logging...");
+  next();
+}
+
+module.exports = log;
+
+- const logger = require('./logger');
+- app.use(logger);
+
+--------------
+
+Built-in Middleware:
+
+- Useful middleware already available in express
+- e.g express.urlencoded()
+- express.static('foldername')
+    FileServing
+
+---------------
+
+Third-Party Middleware:
+- expressjs.com/en/resources/middleware.html
+- best practice middleware : helmet [Security]
+    morgan for Logging
+    - install helmet
+    - install morgan
+        - check documentation (logging on console, vs file)
+
+---------------
+
+Environments:
+
+- Production , Development, Staging, etc...
+- process.env.NODE_ENV
+- app.get('env')
+- export NODE_ENV=production
+
+if (app.get("env") === "development") {
+  app.use(morgan("tiny"));
+  console.log("Morgan Enabled...");
+}
+
+---------------
+
+Configuration:
+
+- Storing config settings for different Environments
+- npm i rc or npm i config  (two different packages)
+- Steps:
+    1. Create a config folder >> cd
+    2. Create default.json (default configuration)
+    3. Create development.json
+    4. Create production.json
+    ... (Staging etc...)
+- Note: donot store secrets in the code
+- set secret variables like this:
+    - export app_password=12345
+    - Create file custom-environment-variables.json
+    - set values:
+        {
+            "password":"app_password"
+        }
+    - config.get('password');
+
+--------------
+
+Debugging:
+
+- npm i debug
+
+- const debug = require("debug")("app:startup");
+- const debug = require("debug")("<namespace>");
+
+- set : export DEBUG=app:startup | DEBUG = <namespace>
+- for multiple namesapces: export DEBUG=<namespace>,<namespace>....
+    - or export DEBUG=app:*
+
+- every namespace will be colorcoded
+
+- Set Environment variables on Program Startup:
+    - DEBUG=app:* nodemon index.js
+
+---------------
+
+Templating Engines:
+
+- Sending different types of data to client , e.g. Htmlformat
+- Engine examples: Pug, Mustache, EJS
+- npm i pug
+
+app.set("view engine", "pug"); //Internal Loading
+app.set("views", "./views"); // default templates in view folder
+
+- Create a views folder
+    - add index.pug
+    - create html template (simple no tags)
+
+app.get("/", (req, res) => {
+  res.render("index", { title: "Saad Title", message: "Hello World" });
+});
+
+--------------
+
+Database Integration:
+
+- expressjs.com/en/guide/database-integration.html
+- npm i mongodb or npm i mongoose (superset)
+
+--------------
+
+Structuring Express Applications:
+
+ -  
