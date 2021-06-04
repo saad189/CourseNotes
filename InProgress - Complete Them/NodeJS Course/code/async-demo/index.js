@@ -17,8 +17,21 @@ function getRepository(username) {
 }
 
 console.log("Before");
-getUser(2)
-  .then((result) => getRepository(result))
-  .then((result) => console.log(result));
 
+//   getUser(2)
+//     .then((result) => getRepository(result))
+//     .then((result) => console.log(result));
+
+async function displayData() {
+  try {
+    const user = await getUser(2);
+    console.log(user);
+    const repo = await getRepository(user.gitHubUsername);
+    console.log(repo);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+displayData();
 console.log("After");

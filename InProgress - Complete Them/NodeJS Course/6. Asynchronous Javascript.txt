@@ -111,3 +111,18 @@ Promise.race([promise_1, promise_2]).then((result) => {
 
 Async and Await:
 
+async function displayData() {
+  const user = await getUser(2);
+  console.log(user);
+  const repo = await getRepository(user.gitHubUsername);
+  console.log(repo);
+}
+
+displayData();
+
+- Will internally convert it to Promise callback
+    - just reads synchronously
+- await can only be used in functions with async tag
+
+Note: while using async await, catch is not available,
+    so use try { } catch { }
