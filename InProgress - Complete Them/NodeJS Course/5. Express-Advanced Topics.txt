@@ -142,4 +142,15 @@ Database Integration:
 
 Structuring Express Applications:
 
- -  
+- Routes in a separate folder
+    const express = require("express");
+    const router = express.Router();
+    modules.export = router;
+    (In index.js):
+        - const courses = require('./routes/courses');
+        - app.use('/api/courses',courses);
+
+    - Simplify routes for each object type
+        - e.g app.get('/api/courses) -> app.get('/');
+
+- Middleware in a separte folder
