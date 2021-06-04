@@ -1,0 +1,113 @@
+Example of Async:
+
+setTimeout(() => {
+  console.log("Reading a user from db....");
+}, 2000);
+
+Note: Single Thread only (not concurrent or multi-threaded)
+
+--------------
+
+Patterns for Dealing with Async Code:
+
+- Callbacks
+- Promises
+- async/await
+
+---------------
+
+Callbacks:
+
+function getUser(id, callback) {
+  setTimeout(() => {
+    console.log("Reading a user from db....");
+    callback({ id: id, gitHubUsername: "saad189" });
+  }, 2000);
+}
+getUser(2, (data) => {
+    console.log(data);
+})
+
+---------------
+
+Callback Hell:
+
+- Deeply nested structure, can be difficult to understand
+ # Christmas Tree Problem
+
+---------------
+
+Named Functions to Rescue:
+
+- Flatten the hierarchy by using named functions as compared to
+    anonymous
+
+---------------
+
+Promises:
+
+- Object that holds the eventual result of an asynchronous operation
+- [Pending] ---async operation---> [Fulfilled] (will contain value)
+    or                        ---> [Rejected] (error)
+
+const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      console.log("Calculated");
+      resolve(1); //--> send value to consumer
+    }, 2000);
+
+  //if failed:
+  reject(new Error("error occured"));
+});
+
+promise
+  .then((result) => {
+    console.log("Result : ", result);
+  })
+  .catch((error) => {
+    console.log(error.message);
+  });
+
+--------------
+
+Replacing Callbacks with Promises:
+
+--------------
+
+Creating Settled Promises:
+
+const promise = Promise.resolve({ id: 1 });
+promise.then((res) => console.log(res));
+
+Note:
+const promise = Promise.reject(new Error('error occured'));
+promise.catch((error) => console.log(res));
+
+- will generate call stact
+- Promise.reject('error occured');
+    will only display the message
+
+--------------
+
+Running Promises in Parallel:
+
+Promise.all([promise_1, promise_2]).then((result) => {
+  console.log(result);
+});
+
+- awaits the entire array of Promises
+- if catch is available and a promise fails, the entire promise
+    set is considered to be failed
+
+- If race is required:
+
+Promise.race([promise_1, promise_2]).then((result) => {
+  console.log("One of them completed and it was:", result);
+});
+
+- Any promise completes, 'then' is executed
+
+---------------
+
+Async and Await:
+
