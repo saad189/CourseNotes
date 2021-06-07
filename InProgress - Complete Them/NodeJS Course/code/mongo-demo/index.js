@@ -1,36 +1,12 @@
-
-- Document database, NoSQL database
-- MongoDB
-
--------
-
-Installing MongoDB:
-
-- Install MongoDB
-- Install MongoDB Compass
-    - Connect to localhost
-
---------------
-
-Connecting to MongoDB:
-
-- Install Mongoose
-
 const mongoose = require("mongoose");
 const db = mongoose
   .connect("mongodb://localhost/playground")
+  .then(() => console.log("Connected to MongoDB..."))
+  .catch((err) => console.log("Could not connect to DB", err));
+// String for the environment
+// Will automatically create the mentioned db
 
---------------
-
-Schemas:
-
-- Database: database
-- Table: collection
-- Row/Record: Document
-
-- Mongoose Schema -> Shape of Documents is defined here
-
-new mongoose.Schema({
+const courseSchema = new mongoose.Schema({
   name: String,
   author: String,
   tags: [String],
@@ -38,39 +14,12 @@ new mongoose.Schema({
   isPublished: Boolean,
 });
 
-Schema Types:
-- String
-- Number
-- Date
-- Buffer
-- Boolean
-- ObjectID
-- Array
-
-
---------------
-
-Models:
-
 // Schema to Model
 // (collection, document)
 // Pascal Case -> Class
 const Course = mongoose.model("Course", courseSchema);
 
 // camelCase -> Object
-
-const course = new Course({
-  name: "Node.js Course",
-  author: "Most",
-  tags: ["node", "backend"],
-  isPublished: true,
-});
-
---------------
-
-Saving a Document:
-
-- document.save();
 
 async function createCourse() {
   const course = new Course({
@@ -84,11 +33,7 @@ async function createCourse() {
   console.log(result);
 }
 
-createCourse();
-
---------------
-
-Querying Documents:
+// createCourse();
 
 async function getCourses() {
   const courses = await Course.find({
@@ -100,37 +45,14 @@ async function getCourses() {
   console.log(courses);
 }
 
-getCourses();
+// getCourses();
 
-
---------------
-
-Comparison Query Operators:
-
-- MongoDB operators, available in mongoose
-- eq (equal)
-- ne (not equal)
-- gt (greater than)
-- gte (greater than or equal to)
-- lt 
-- lte 
-- in
-- nin (not in)
-
-
-async function getQueriedCourses() {
+async function getComparisonQueriedCourses() {
   const course = await Course.find({
     price: { $in: [10, 15, 20] },
   });
 }
 
----------------
-
-Logic Query Operators:
-
-- or
-- and
-
 async function getLogicQueriedCourses() {
   const course = await Course.find()
     .or([{ author: "/^Mos/" }, { isPublished: true }])
@@ -138,37 +60,14 @@ async function getLogicQueriedCourses() {
   console.log(course);
 }
 
----------------
+// getLogicQueriedCourses();
 
-Regular Expressions:
-
-async function getLogicQueriedCourses() {
-  const course = await Course.find()
-    .or([{ author: "/^Mos/" }, { isPublished: true }])
-    .select({ name: 1 });
-  console.log(course);
+async function getCount() {
+  const count = await Course.find().count();
+  console.log(count);
 }
 
-- /pattern/
-- Starts With: /^Pattern/
-- Ends With: /Pattern$/
-- Case Insensitive: /Pattern$/i
-- Contains: /.*Pattern.*/
-
-- JavaScript Regular Expressions
-
-----------------
-
-Counting:
-
-- count();
-
-----------------
-
-Pagination:
-
-- skip();
-- limit();
+// getCount();
 
 async function getPaginatedCourses() {
   const pageNumber = 2;
@@ -181,9 +80,7 @@ async function getPaginatedCourses() {
     .limit(pazeSize); //Assuming page starts from 1
 }
 
-----------------
-
-Updating a Document - Query First:
+// getPaginatedCourses();
 
 async function updateCourse(id) {
   // Approach : Query first
@@ -212,23 +109,10 @@ async function updateCourse(id) {
   console.log(result);
 }
 
-updateCourse("60bdb5e9ad1f1f39872075d4");
+// updateCourse("60bdb5e9ad1f1f39872075d4");
 
-
---------------
-
-Updating Document - Update First:
-
-- Good for business rules
-- check mongodb update operators
-    - inc
-    - min
-    - max
-    - mul
-    - and so on...
-
-- async function updateFirstCourse(id) {
-  const result = await Course.updateMany(
+async function updateFirstCourse(id) {
+  const result = await Course.findByIdAndUpdate(
     {
       _id: id,
     },
@@ -237,14 +121,20 @@ Updating Document - Update First:
         author: "Mosh",
         isPublished: false,
       },
-    }
-  );
+    },
+    { new: true }
+  ); // { new : true } to get updated document
   console.log(result);
 }
 
-updateFirstCourse("60bdb5e9ad1f1f39872075d4");
+//updateFirstCourse("60bdb5e9ad1f1f39872075d4");
 
-------------
+async function removeCourse(id) {
+  const result = await Course.deleteOne({
+    _id: id,
+  });
+  const course = await Course.findByIdAndRemove(id);
+  console.log(result, course);
+}
 
-Removing Documents:
-
+removeCourse("60bdb5e9ad1f1f39872075d4");
