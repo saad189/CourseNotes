@@ -1,0 +1,105 @@
+Validation:
+
+name : {type: String , required: true}
+- Mongoose level validation, not MongoDB level
+- MongoDB level validation also exists (only on database level)
+
+- Use both joi (API level), and Mongoose for validation
+
+----------------
+
+Built-in Validators:
+
+  const courseSchema = new mongoose.Schema({
+    name: { type: String, required: true },
+    author: String,
+    tags: [String],
+    date: { type: Date, default: Date.now },
+    isPublished: Boolean,
+    price: {
+      type: Number,
+      required: function () {
+        return this.isPublished;
+      },
+    },
+  });
+
+- Here price, is required only if isPublished is true
+
+const courseSchema = new mongoose.Schema({
+  name: { type: String, required: true, minlength: 5, maxlength: 255 },
+  catagory: {
+    type: String,
+    enum: ["web", "mobile", "network"],
+    required: true,
+  },
+  author: String,
+  tags: [String],
+  date: { type: Date, default: Date.now },
+  isPublished: Boolean,
+  price: {
+    type: Number,
+    required: function () {
+      return this.isPublished;
+    },
+    min: 0,
+    max: 10000,
+  },
+});
+
+
+-----------------
+
+Custom Validators:
+
+  tags: {
+    type: Array,
+    validate: {
+      validator: function (v) {
+        return v?.length > 0;
+      },
+      message: "A course should have atleast one tag.",
+    },
+  },
+
+  - validate -> validator (fn) + message
+
+
+Async Validators:
+
+  validate: {
+      isAsync: true,
+      validator: function (v, callback) {
+        setTimeout(() => {
+          const result = v?.length > 0;
+          callback(result);
+        }, 2000);
+      },
+      message: "A course should have atleast one tag.",
+    },
+
+--------------
+
+Validation Errors:
+
+ValidationError {
+  validator: [Function],
+  message: '',
+  type: '',
+  path:'',
+  value:''
+}
+
+--------------
+
+SchemaType Options:
+
+- for string -> lowercase, uppercase, trim (removes paddings)
+- for number ->  get: (v) => Math.round(v), | will round a double value in db
+                 set: (v) => Math.round(v),
+             -> can work for any type
+
+--------------
+
+
+
