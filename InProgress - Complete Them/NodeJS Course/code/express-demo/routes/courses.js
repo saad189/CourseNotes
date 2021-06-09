@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
-
+const isAuthorized = require("../middleware/auth");
+const isAdmin = require("../middleware/admin");
 //Data:
 const courses = [
   {
@@ -17,7 +18,7 @@ const courses = [
   },
 ];
 
-router.get("/", (req, res) => {
+router.get("/", isAuthorized, (req, res) => {
   res.send(courses);
 });
 
@@ -53,7 +54,7 @@ router.put("/:id", (req, res) => {
   res.send(course);
 });
 
-router.delete("/:id", (req, res) => {
+router.delete("/:id", [isAuthorized, isAdmin], (req, res) => {
   const course = courses.find((c) => c.id === parseInt(req.params.id));
   if (!course) return res.send(404).send("Course not found.");
 

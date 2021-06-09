@@ -1,0 +1,229 @@
+Modelling Relationships:
+
+- Using References (Normalization)'
+
+let author = {
+  name: "Saad",
+};
+let course = {
+  author: "id",  
+};
+
+- Using Embedded Documents (Denormalization)
+
+
+let course = {
+  author: {
+    name: "Saad",
+  },
+};
+ 
+
+let author = {
+  name: "Saad",
+  // 50 other properties
+};
+
+let course = {
+  author: {
+    id: "ref to author document",
+    name: "Saad",
+  },
+};
+#SnapShot of Product
+
+- Trade off between query performance vs consistency
+    - Normalization === consistency
+    - Denormalization === performance
+    - Hybrid === bit of both
+
+-------------
+
+Referencing Documents:
+
+const Author = mongoose.model(
+  "Author",
+  new mongoose.Schema({
+    name: String,
+    bio: String,
+    website: String,
+  })
+);
+
+const Course = mongoose.model(
+  "Course",
+  new mongoose.Schema({
+    name: String,
+    author: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Author",
+    },
+  })
+);
+
+
+createCourse(name,authorId);
+
+
+--------------
+
+Population:
+
+- .populate('reference collection','required property -exclude_prop')
+  const courses = await Course.find()
+  .populate("author",'name -_id')
+  .select("name author");
+
+- Will return attached data of author with the course
+- populate can be added for more collections for the same call
+
+.populate('author')
+.populate('catagory')
+
+--------------
+
+Embedding Documents:
+
+const authorSchema = new mongoose.Schema({
+  name: String,
+  bio: String,
+  website: String,
+});
+
+const Author = mongoose.model("Author", authorSchema);
+
+const Course = mongoose.model(
+  "Course",
+  new mongoose.Schema({
+    name: String,
+    author: authorSchema,
+  })
+);
+
+- SubDocuments can only be saved in the context of their parents,
+  not on their own
+
+
+  Ways to Update:
+
+async function updateAuthor(courseId) {
+  const course = await Course.updateOne({_id: courseId},{
+      $set:{
+          'author.name':'Fahad Nasir'
+      }
+  });
+  course.save();
+}
+
+or 
+
+async function updateAuthor(courseId){
+  const course = await Course.findbyId(courseId);
+  course.author.name = "Saad Ahmed";
+  course.save();
+}
+
+$unset {
+  'author':'null'
+}
+
+- The subdocument itself can have validations (either when attached)
+  or to its individual properties
+
+---------------
+
+Using an Array of Sub-documents:
+
+const Course = mongoose.model(
+  "Course",
+  new mongoose.Schema({
+    name: String,
+    authors: [authorSchema],
+  })
+);
+
+createCourse("Node Course", [
+  new Author({ name: "Saad" }),
+  new Author({ name: "John" }),
+]);
+
+async function addAuthor(courseId, author) {
+  const course = await Course.findById(courseId);
+  course.authors.push(author);
+  course.save();
+}
+
+async function removeAuthor(courseId, authorId) {
+  const course = await Course.findById(courseId);
+  const author = course.authors.id(authorId);
+  author.remove();
+  course.save();
+}
+
+-------------
+
+Transactions:
+
+- Group of Operations, to be performed as a unit
+  #ACID
+- Mongo has Two Phase Commits (Check Google)
+- Concept of Transtion (via two phase commits):
+    - npm i fawn 
+
+const Fawn = require('fawn');
+
+Fawn.init(mongoose);
+
+  // new Fawn.Task.save('collectionName',Object).chainTasks().run()
+  try {
+    new Fawn.Task().save("courses", course).run();
+  } catch (ex) {
+    console.log(ex.error.message);
+  }
+
+- Fawn itself creats an intermediate collection for the two phase commits
+
+
+------------
+
+ObjectID:
+
+// id_ 5a724935ab399893322a6a
+
+Size: 12 bytes
+  - 4 bytes: timestamp (does not require : createdAt)
+    - sorting for createdAt is sort by id
+  - 3 bytes: machine identifier
+  - 2 bytes: process identifier
+  - 3 bytes: counter (actual ID)
+
+Wierd fact: If 16M (2 ^ (8 * 3)) documents are created at same
+  time by same machine on the same process, counter will overflow
+
+- Driver (generates ID) -> MongoDB is given this ID
+  - allows scalability
+  - Mongoose -> MongoDB_Driver -> MongoDB
+
+const id = new mongoose.Types.ObjectId();
+// Created in memory, not mongodb
+console.log(id, id.getTimestamp());
+
+-------------
+
+Validating ObjectIDs:
+
+const isValid = mongoose.Types.ObjectId.isValid("61afesdssljk123re");
+
+- Special Joi Package to validate objectId:
+  - npm i joi-objectid
+  - Joi.objectId = require('joi-objectid).(Joi)
+
+  const Schema = {
+    customerId: Joi.objectId().required(),
+    movieId: Joi.objectId().required()
+  }
+
+  Auto handling (special validator)
+
+-------------
+

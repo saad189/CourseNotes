@@ -1,3 +1,4 @@
 {
-    "name":"Saad Express JS app"
+    "name":"Saad Express JS app",
+    "jwtPrivateKey":""
 }

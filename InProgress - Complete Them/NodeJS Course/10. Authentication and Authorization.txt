@@ -1,0 +1,301 @@
+Authentication:
+
+- Process of Identifying it is a correct user
+
+Authorization:
+
+- User has the required permission to access a certain resource
+
+Steps:
+1. Register : POST /api/users
+2. LogIn: POST /api/login
+    - Command (Request)
+3. 
+
+user : { name, email: {type: String, unique: true}, password}
+
+-----------
+
+Create User Model:
+
+const Joi = require("joi");
+const mongoose = require("mongoose");
+
+const userSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+  },
+  emai: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: { type: String, required: true, minlength: 8, maxlength: 1024 },
+});
+
+const User = mongoose.model("User", userSchema);
+
+function validateUser(user) {
+  const schema = {
+    name: Joi.string().min(5).max(50).required(),
+    email: Joi.string().min(5).max(50).required().email(),
+    password: Joi.string().min(8).max(255).required(),
+  };
+  return Joi.valiate(user, schema);
+}
+
+exports.User = User;
+exports.validate = validateUser;
+
+
+---------
+
+Regitering Users:
+
+- Create users route
+- Register it with main (index.js)
+- Make get and post methods
+
+router.get("/", async (req, res) => {
+  const users = await User.find().sort("name");
+  res.send(users);
+});
+
+router.post("/", async (req, res) => {
+  const { error } = validate(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+
+  let user = await User.findOne({ email: req.body.email });
+  if (user) return res.status(400).send("User already exists!");
+
+  user = new User({
+    name: req.body.name,
+    email: req.body.email,
+    password: req.body.password,
+  });
+  user = await user.save();
+
+  res.send(user);
+});
+
+--------------
+
+Using Lodash:
+
+- npm i lodash
+- For all wierd algos for objects and arrays
+
+- e.g: const user = new User(_.pick(req.body,['name','email','password]));
+
+- For password complexity:
+    - npm i joi-password-complexity
+
+
+------------
+
+Hashing Password:
+
+- npm i bcrypt
+- Hashing Idea:
+    1234 --> abscF2s
+    - BadUser can still compare hashes to determine original
+        password
+    - We need a random salt, a random string added to password
+        to make undeterminable hash
+    const bcrypt = require("bcrypt");
+    const salt = await bcrypt.genSalt(10);
+    $2b$10$quubtRn4cc2kU0eGu5DN7.
+
+---------------
+
+Authenticating Users:
+
+- Create auth route
+- Validate email and password
+- search for email --> User
+    if found:
+        Compare password: 
+        const isValidPassword = bcrypt
+                .compare(req.body.password, user.password);
+
+---------------
+
+Testing the Authentication:
+
+- Postman , create collection , save call for future
+
+---------------
+
+JSON Web Tokens:
+
+- User logins, is returned a JWT (JSON Web Token)
+    so they donot have to login again for the timespan of that
+      Token
+
+- the token can be stored in localstorage
+
+- jwt.io
+
+- Decoded view of JWT:
+  - Header {alg, typ}
+  - Payload {CustomObject}
+  - Verify Signature [Content + Private Key (from server)]
+
+--------------
+
+Generating Authentication Tokens:
+
+- libraries available on jwt.io
+  - npm i jsonwebtoken
+
+const jwt = require("jsonwebtoken");
+
+const token = jwt.sign(
+    _.pick(user, ["_id", "email", "name"]),
+    "jwtPrivateKey"
+  );
+  res.send(token);
+
+
+---------------
+
+Storing Secrets in Environment Variables:
+
+  const token = jwt.sign(
+    _.pick(user, ["_id", "email", "name"]),
+    config.get("jwtPrivateKey")
+  );
+
+In custom-evnrionment-variables:
+  "jwtPrivateKey":"app_key"
+
+On Ubuntu:
+  - export app_key=mycustomkey
+On Windows:
+  - set app_key=mycustomkey
+
+----------------
+
+Setting Response Headers:
+
+  user = _.pick(user, ["_id", "name", "email"]);
+  const token = jwt.sign(
+    _.pick(user, ["_id", "email", "name"]),
+    config.get("jwtPrivateKey")
+  );
+  res.header("x-auth-token", token).send(user);
+
+  - Create a token, assign it to key value pairs in res.header
+  - Client side can use this to login
+
+-----------------
+
+Encapsulating Logic in Mongoose Models:
+
+- Information Expert Principle - Perform decision and actions,
+  if the object has the required information.
+
+- Schema object in mongodb has .methods for adding methods to it
+
+userSchema.methods.generateAuthToken = function () {
+  return jwt.sign(
+    _.pick(this, ["_id", "email", "name"]),
+    config.get("jwtPrivateKey")
+  );
+};
+
+-----------------
+
+Authorization Middleware:
+
+const token = req.header('x-auth-token');
+res.status(401).send('Authorization failed');
+
+- Add this in middleware and call that middleware, on locations that
+  require Authorization check
+
+const jwt = require("jsonwebtoken");
+const config = require("config");
+
+module.exports = function auth(req, res, next) {
+  const token = req.header("x-auth-token");
+  if (!token)
+    return res.status(401).send("Authorization failed, No token provided");
+
+  try {
+    const decodedPayload = jwt.verify(token, config.get("jwtPrivateKey"));
+    req.user = decodedPayload;
+    next();
+  } catch (ex) {
+    res.status(400).send("Invalid Token.");
+  }
+};
+
+- On verify, payload of the token is returned (basically the user data);
+
+--------------
+
+Protecting Routes:
+
+const authenticate = require("../middleware/auth");
+- route, middleware, (req,res)
+
+router.get("/", authenticate, (req, res) => {
+  res.send(courses);
+});
+
+--------------
+
+Getting the Current User:
+
+router.get("/me", isAuthorized, async (req, res) => {
+  //isAuthorized will give req.user the user data
+  let user = await User.findById(req.user._id).select("-password");
+  res.send(user);
+});
+
+--------------
+
+Logging Out Users:
+
+- Log out on client side
+  - #delete the token
+  - donot store the token on database
+
+- Always use https
+
+--------------
+
+Role-based Authorization:
+
+- Add a role key in schema | and add that key in Signature
+
+module.exports = function (req, res, next) {
+  //401 unauthorized
+  //403 forbidden
+  if (!req.user.isAdmin) return res.status(403).send("Access denied");
+
+  next();
+};
+
+router.delete("/:id", [isAuthorized, isAdmin], (req, res) => {
+  const course = courses.find((c) => c.id === parseInt(req.params.id));
+  if (!course) return res.send(404).send("Course not found.");
+
+  const index = courses.indexOf(course);
+  courses.splice(index, 1);
+  res.send(course);
+});
+
+
+-------------
+
+Testing the Authorization:
+
+
+- Later on, the schema can have roles, and operations arrays
+  and so on
+
+-------------
+
