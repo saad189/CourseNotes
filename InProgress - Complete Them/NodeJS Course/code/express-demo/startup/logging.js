@@ -3,7 +3,6 @@ const morgan = require("morgan");
 require("winston-mongodb");
 require("express-async-errors");
 
-const logger = require("../middleware/logger");
 const startupDebugger = require("debug")("app:startup");
 const dbDebugger = require("debug")("app:db");
 

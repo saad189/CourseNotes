@@ -5,6 +5,7 @@ module.exports = function () {
   console.log("Application Name: ", config.get("name"));
   console.log("Mail Server: ", config.get("mail.host"));
   console.log("Password:", config.get("mail.password"));
+
   if (!config.get("jwtPrivateKey")) {
     console.log(
       "FATAL ERROR: jwtPrivateKey is not defined",

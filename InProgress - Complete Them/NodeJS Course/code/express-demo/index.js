@@ -1,7 +1,6 @@
 //Imports:
 
 const express = require("express");
-
 const app = express();
 
 const DBSTRING = "mongodb://localhost/playground";
