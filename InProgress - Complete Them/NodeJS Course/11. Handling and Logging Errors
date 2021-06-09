@@ -1,0 +1,133 @@
+Handling Errors:
+
+- Send a friendly error
+- Log the exception
+
+-----------------
+
+Handling Rejected Promises:
+
+- Add try catch block and catch the exception
+    - send response of 500
+
+------------------
+
+Express Error Middleware:
+
+// Error Handler:
+
+app.use(function (err, req, res, next) {
+  res.status(500).send("Something failed");
+});
+
+- After every app.use()
+
+router.get("/", async (req, res, next) => {
+  try {
+    const users = await User.find().sort("name");
+    res.send(users);
+  } catch (ex) {
+    //Log the exception as well.
+    next(ex);
+  }
+});
+
+- Since it is the last Middleware
+
+- Can be separated into a separate module
+
+-------------
+
+Removing Try Catch Blocks:
+
+function asyncMiddleware(handler) {
+  return async (req, res, next) => {
+    try {
+      await handler(req, res);
+    } catch (ex) {
+      next(ex);
+    }
+  };
+}
+router.get(
+  "/",
+  asyncMiddleware(async (req, res, next) => {
+    const users = await User.find().sort("name");
+    res.send(users);
+  })
+);
+
+- The idea is that, since we are calling the function with a certain argument
+    - we are returning that argument with a certian functionality, (the called thing itself is a function);
+
+--------------
+
+Express Async Errors:
+
+- npm i express-async-errors
+require("express-async-errors");
+- Will no longer require difficult error Handling
+
+--------------
+
+Logging Errors:
+
+- npm i winston
+
+- Transport:
+    - Console
+    - File
+    - Http
+    
+    - MongoDB
+    - CouchDB
+    - Redis
+    - Loggly
+
+
+winston.log("error", "Something failed tbh");
+ 
+- Transport -> file:
+
+winston.add(new winston.transports.File({ filename: "logfile.log" }));
+
+--------------
+
+Logging to MongoDB:
+
+- npm i winston-mongodb
+- winston.add(new winston.transports.MongoDB({ db: DBSTRING, level: "info" }));
+
+--------------
+
+Uncaught Exceptions:
+
+- Winston only catches errors in the context of express
+    not the process (or node) errors
+
+process.on("uncaughtException", (ex) => {
+  console.log("UnCaught Exception");
+  winston.log("error", ex.message, ex);
+});
+
+---------------
+
+Unhandled Promise Rejections:
+
+- If a promise is rejected, node will stop (in the future)
+
+process.on("unhandledRejection", (ex) => {
+  console.log("UnHandled Rejection");
+  winston.log("error", ex.message, ex);
+});
+
+Winston can also handle this
+
+---------------
+
+Extracting the Routes:
+
+- Separating Portions
+
+
+

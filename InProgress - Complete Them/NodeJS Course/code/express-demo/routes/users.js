@@ -6,10 +6,15 @@ const mongoose = require("mongoose");
 const isAuthorized = require("../middleware/auth");
 const { User, validate } = require("../modals/User");
 
-router.get("/", async (req, res) => {
-  const users = await User.find().sort("name");
-  res.send(users);
-});
+const asyncMiddleware = require("../middleware/asynchandler");
+router.get(
+  "/",
+  asyncMiddleware(async (req, res, next) => {
+    throw new Error("Could not sleep");
+    const users = await User.find().sort("name");
+    res.send(users);
+  })
+);
 
 router.get("/me", isAuthorized, async (req, res) => {
   //isAuthorized will give req.user the user data
