@@ -6,9 +6,8 @@ module.exports = function (DBSTRING) {
     .connect(DBSTRING, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useUnifiedTopology: true,
     })
-    .then(() => winston.info("Connected to MongoDB..."))
+    .then(() => winston.info(`Connected to ${DBSTRING}...`))
     .catch((err) => {
       winston.info(err.message);
     });

@@ -18,7 +18,7 @@ const courses = [
   },
 ];
 
-router.get("/", isAuthorized, (req, res) => {
+router.get("/", (req, res) => {
   res.send(courses);
 });
 

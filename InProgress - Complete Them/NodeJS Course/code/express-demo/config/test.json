@@ -1,0 +1,7 @@
+{
+    "jwtPrivateKey":"1234",
+    "db":"mongodb://localhost/playground_tests",
+    "mail":{
+        "host":""
+    }
+}

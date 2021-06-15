@@ -1,0 +1,220 @@
+Preparing the App:
+
+- in package.json :
+    - "test" : "jest --watchAll --verbose"
+- add test.json -> db etc
+- Note all variables that are required, must either be defined in default, or in test
+
+-----------------
+
+First Integration Test:
+
+- npm i supertest --save-dev
+
+const request = require("supertest");
+let server;
+
+describe("/api/courses", () => {
+  beforeEach(() => {
+    server = require("../../index");
+  });
+  afterEach(() => {
+    server.close();
+  });
+  describe("GET /", () => {
+    it("should return all courses", async () => {
+      const response = await request(server).get("/api/courses");
+      expect(response.status).toBe(200);
+    });
+  });
+});
+
+---------------
+
+Populating the Test DB:
+
+- use beforeEach and afterEach to clearout db
+  - await User.remove({}); | await mongooseObject.remove({}) to delete
+   expect(response.body.some((U) => U.name === "usernumber2")).toBeTruthy();
+
+---------------
+
+Testing Routes with Parameters:
+
+      const response = await request(server).get("/api/users/" + user._id);
+      expect(response.status).toBe(200);
+      expect(response.body).toHaveProperty("name", user.name);
+
+---------------
+
+Validating ObjectIDs:
+
+- In Route handler, add validation for ObjectId, else 404 wont work -> will 
+  shift to 500 as server failure
+
+   if (!mongoose.Types.ObjectId.isValid(req.params.id))
+    return res.status(404).send("Invalid ID");
+
+---------------
+
+Refactoring with Confidence:
+
+- Create Validating Middleware
+
+const mongoose = require("mongoose");
+
+module.exports = function (req, res, next) {
+  if (!mongoose.Types.ObjectId.isValid(req.params.id))
+    return res.status(404).send("Invalid ID");
+  console.log("Hello");
+  next();
+};
+
+
+---------------
+
+Testing the Authorization:
+
+Add middleware, test status code toBe(401);
+
+----------------
+
+Testing the Invalid Inputs:
+
+  it("should return 400 if password is less than 8 characters", async () => {
+      const token = new User().generateAuthToken();
+
+      const response = await request(server)
+        .post("/api/users/create")
+        .set("x-auth-token", token)
+        .send({ name: "user1", email: "user@gmail.com", password: "22234" });
+
+      expect(response.status).toBe(400);
+    });
+
+----------------
+
+Testing the Happy Path:
+
+-  const result = User.find({ email: "user189@gmail.com" });
+      expect(response.status).toBe(200);
+      expect(result).not.toBeNull();
+   
+---------------
+
+
+Writing Clean Tests:
+
+// Define the happy path, in each test, change one parameter 
+that clearly aligns with the name of the test.
+
+
+describe("POST /", () => {
+    let token;
+    let name;
+    let email;
+    let password;
+
+    const exec = async () => {
+      return await request(server)
+        .post("/api/users/create")
+        .set("x-auth-token", token)
+        .send({
+          name,
+          email,
+          password,
+        });
+    };
+
+    beforeEach(() => {
+      token = new User().generateAuthToken();
+      name = "Saad Ahmed";
+      email = "user189@gmail.com";
+      password = "12345678";
+    });
+
+    it("should return 401 if client is not logged in", async () => {
+      token = "";
+      const response = await exec();
+      expect(response.status).toBe(401);
+    });
+
+    it("should return 400 if password is less than 8 characters", async () => {
+      password = "1234";
+      const response = await exec();
+      expect(response.status).toBe(400);
+    });
+
+    it("should return 400 if name is more than 50 characters", async () => {
+      name = new Array(52).join("a");
+      const response = await exec();
+      expect(response.status).toBe(400);
+    });
+
+    it("should save the user if it is valid", async () => {
+      const response = await exec();
+
+      const result = User.find({ email: "user189@gmail.com" });
+      expect(response.status).toBe(200);
+      expect(result).not.toBeNull();
+    });
+
+    it("should return User if it is valid", async () => {
+      const response = await exec();
+
+      expect(response.status).toBe(200);
+      expect(response.body).toHaveProperty("_id");
+      expect(response.body).toHaveProperty("email", "user189@gmail.com");
+    });
+  });
+
+
+  - Most of the repeating code is sent to a custom function
+  - Repeating values are intialized in beforeEach(()=>{})
+  - Variables are defined in the suite (as undefined)
+  - Non-common values are assigned in the test itself
+
+  --------------
+
+Unit Testing the Auth Middleware:
+
+Note: Any method not being tested by the Unit test, must be mocked,
+  so must the object.
+
+- jest.fn().mockReturnValue(value);
+
+
+  it("should populate req.user with the payload of a valid JWT", () => {
+    const user = {
+      _id: mongoose.Types.ObjectId().toHexString(),
+      isAdmin: true,
+    };
+    const token = new User(user).generateAuthToken();
+    // Mock Object
+    const req = {
+      header: jest.fn().mockReturnValue(token),
+    };
+    const res = {};
+    const next = jest.fn();
+    auth(req, res, next);
+
+    expect(req.user).toMatchObject(user);
+  });
+
+
+---------------
+
+Code Coverage:
+
+- package.json -> scripts -> test -> 
+  "test": "jest --watchAll --verbose --coverage"
+
+- check coverage folder (index.html)
+- exclude it from git
+
+
+
+
+
+
+

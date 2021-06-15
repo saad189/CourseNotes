@@ -1,6 +1,6 @@
 const winston = require("winston");
 const morgan = require("morgan");
-require("winston-mongodb");
+// require("winston-mongodb");
 require("express-async-errors");
 
 const startupDebugger = require("debug")("app:startup");
@@ -11,7 +11,7 @@ module.exports = function (DBSTRING, app) {
     new winston.transports.Console({ colorize: true, prettyPrint: true })
   );
   winston.add(new winston.transports.File({ filename: "logfile.log" }));
-  winston.add(new winston.transports.MongoDB({ db: DBSTRING, level: "info" }));
+  // winston.add(new winston.transports.MongoDB({ db: DBSTRING, level: "info" }));
 
   console.log("NODE_ENV:", process.env.NODE_ENV); // can be undefined
   console.log("app_ENV:", app.get("env"));

@@ -1,4 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
+import { IEmployee } from '../Models/employee';
+import { TestService } from '../test.service';
 
 
 @Component({
@@ -8,13 +10,14 @@ import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class TestComponent implements OnInit {
   @Input() public parentData;
-
+  public employeeList: IEmployee[];
   @Output() public childEvent = new EventEmitter();
-  constructor() { }
+
+  constructor(private testService: TestService) { }
 
   ngOnInit() {
     console.log(this.parentData);
-
+    this.testService.getEmployees().subscribe(data => this.employeeList = data);
     this.childEvent.next('Hi Saad');
   }
 

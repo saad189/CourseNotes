@@ -7,7 +7,7 @@ module.exports = function (err, req, res, next) {
   //debug
   //silly
 
-  winston.log("error", "Something failed tbh");
+  winston.log("error", "Something failed tbh", err);
   winston.error(err);
   res.status(500).send("Something failed");
 };

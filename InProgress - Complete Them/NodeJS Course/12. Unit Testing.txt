@@ -1,0 +1,237 @@
+What is Automated Testing:
+
+- Writing code to test the code and running those tests in an automated fashion
+- Automated tests are repeatable | good for enterprise applications
+
+
+-----------------------
+
+Benefits of Automated Testing:
+
+- Frequent Testing
+- Catch bugs before deploying
+
+Refactoring: changing the structure of the code without
+        changing its behavior
+    
+- Without Automated tests, Refactoring can be a hassle
+- Focus on the quality
+
+-----------------------
+
+Types of Tests:
+
+1. Unit
+    - Test a unit of the application, without its external dependencies
+    - Cheap to write
+    - Execute Fast
+    - Not really reliable for the whole app
+
+2. Integration
+    - Tests the application with its external dependencies
+    - Take longer to execute
+    - Confidence in health of the application
+    - Bad definition (Testing two classes together)
+
+3. End to End
+    - Drives an application throught its UI
+    - e.g. Selenium (Program)
+    - Greatest Confidence
+    - Very Slow
+    - Very Brittle (a small change, can break the test)
+
+----------------------
+
+Test Pyramid:
+
+- Write all types of tests
+    (Least) E2E 
+            (Medium) Integration 
+                    (Most) Unit
+        
+1. E2E -> Happy paths
+2. Integration -> Good for DB
+3. Unit -> Favor them for algorithm checks
+
+-----------------------
+
+Tooling:
+
+- A library and a TestRunner (to the run the tests)
+- Framework [Jasmine, Mocha, Jest]
+- Plugins (Needed with Mocha) -> Chai, Sinon
+- Jest is superset of Jasmine (Developed by Facebook)
+
+-----------------------
+
+Writing Your First Unit Test:
+
+- npm i jest --save-dev 
+- package.json -> script -> test : "jest"
+
+- Create Test folder
+    - <file>.test.js
+    - test('message',() => {});
+    - npm test
+
+-----------------------
+
+Testing Numbers:
+
+- Number of Unit Tests >= Number of Execution Paths
+- Search Jest Matchers
+    (e.g.):
+        - toBeNull
+        - toBeUndefined
+        - toBeDefined
+        - toBeTruthy
+        - toBeFalsy
+        - toEqual
+        - toBeGreaterThan
+        - toBeLessThanOrEqual
+        - for floating: toBeCloseTo
+
+
+test("absolute - should return 0 if input is 0", () => {
+  const result = lib.absolute(0);
+  expect(result).toBe(0);
+});
+
+-----------------------
+
+Grouping Tests:
+
+- Tests are first-class citizens in the source code
+
+- Use describe function (that takes callback)
+    - replace main text with describe name
+    - replace test with it
+
+    const lib = require("../lib");
+
+describe("absolute", () => {
+  it("should return positive number, if input is positive", () => {
+    const result = lib.absolute(1);
+    expect(result).toBe(1);
+  });
+
+  it("should return negative number, if input is negative", () => {
+    const result = lib.absolute(-1);
+    expect(result).toBe(1);
+  });
+
+  it("should return 0 if input is 0", () => {
+    const result = lib.absolute(0);
+    expect(result).toBe(0);
+  });
+});
+
+-----------------
+
+Testing Strings:
+
+- When testing strings, make sure that test is not too specific
+
+
+-----------------
+
+Testing Arrays:
+
+- expect(result).toEqual(expect.arrayContaining(["AUD", "USD", "EUR"]));
+
+-----------------
+
+Testing Objects:
+
+- toBe compares references for objects
+- toEqual is better for value comparison
+- toMatchObject only checks for given properties
+  e.g obj {id,name,age,length}.toMatchObject({id,age}) === true
+
+-----------------
+
+Testing Exceptions:
+
+describe("registerUser", () => {
+  it("should throw if username is falsy", () => {
+    //Null | undefined | NaN | '' | 0 | false
+
+    const args = [null, undefined, Nan, "", 0, false];
+
+    args.forEach((v) => {
+      expect(() => {
+        lib.registerUser(v);
+      }).toThrow();
+    });
+  });
+});
+
+- Idea is to have a code block in expect, that may throw via (toThrow())
+
+
+-----------------
+
+Continuously Running Tests:
+
+In Package.json:
+ "scripts": {
+    "test": "jest --watchAll"
+  },
+
+-----------------
+
+Creating Simple Mock Functions:
+
+- Unit test rule: Only test the given function, not the dependencies
+- Create a mock function / object for dependent funtions
+  - e.g: 
+    describe("applyDiscount", () => {
+  it("should apply 10% discount if customer has more than 10 points", () => {
+    db.getCustomerSync = function (customerId) {
+      return { id: customerId, points: 20 };
+    };
+
+    const order = { customerId: 1, totalPrice: 10 };
+    lib.applyDiscount(order);
+    expect(order.totalPrice).toBe(9);
+  });
+});
+
+-----------------
+
+Jest Mock Functions:
+
+
+describe("notifyCustomer", () => {
+  it("should send an email to the customer", () => {
+    db.getCustomerSync = jest.fn().mockReturnValue({ email: "a" });
+
+    mail.send = jest.fn().mockReturnValue(true);
+    lib.notifyCustomers({ customerId: 1 });
+    expect(mail.send).toHaveBeenCalled();
+    expect(mail.send).toHaveBeenCalledWith("a", "Your order has been placed");
+    expect(mail.send.mock.calls[0][0]).toBe("a");
+    expect(mail.send.mock.calls[0][1]).toMatch(/order/);
+  });
+});
+
+
+
+- mockReturnValue
+- mockResolveValue
+- mockRejectedValue
+
+------------------
+
+What to Unit Test:
+
+- Algorithms, with 0 or minimal dependencies
+  - like AuthToken check
+
+------------------
+
+- Create a new folder -> #TestSuite
+- Create a test.json config file as well
+
+wierd code:
+  const payload = {_id: mongoose.Types.ObjectId().toHexString(), isAdmin: true}

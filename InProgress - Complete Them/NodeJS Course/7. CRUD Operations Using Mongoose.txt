@@ -248,3 +248,10 @@ updateFirstCourse("60bdb5e9ad1f1f39872075d4");
 
 Removing Documents:
 
+
+
+--------------
+
+Starting mongodb:
+  - sudo systemctl start mongod
+  - Compass: mongodb-compass

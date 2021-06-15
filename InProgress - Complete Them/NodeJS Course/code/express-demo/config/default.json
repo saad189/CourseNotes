@@ -1,4 +1,5 @@
 {
     "name":"Saad Express JS app",
-    "jwtPrivateKey":""
+    "jwtPrivateKey":"",
+    "db":"mongodb://localhost/playground_boring"
 }
