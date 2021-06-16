@@ -7,12 +7,12 @@ let server;
 
 describe("/api/courses", () => {
   beforeEach(async () => {
-    server = server ? server : require("../../index");
+    server = require("../../index");
     await User.remove({});
   });
   afterEach(async () => {
     await User.remove({});
-    server.close();
+    await server.close();
   });
   describe("GET /", () => {
     it("should return all users", async () => {

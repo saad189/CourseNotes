@@ -11,6 +11,7 @@ module.exports = function auth(req, res, next) {
     req.user = decodedPayload;
     next();
   } catch (ex) {
+    console.log("Exception boi");
     res.status(400).send("Invalid Token.");
   }
 };

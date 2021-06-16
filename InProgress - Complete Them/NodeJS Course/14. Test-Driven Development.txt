@@ -1,0 +1,73 @@
+What is Test-driven Development:
+[Test first as opposed to Code first]
+
+- Write the failing Test
+- Write the simplest code to make the test pass
+- Refactor the code if necessary
+
+Benefits:
+- Testable Source code
+- Full Coverage by tests
+- Simpler Implementation
+
+------------------
+
+Test Cases:
+
+// POST /api/qualification {email}
+
+// Return 401 if client is not logged in
+// Return 400 if email is not provided
+// Return 404 if no qualification is found for this user
+// Return 200 if valid request
+// get the qualification as well
+
+-------------------
+
+Populating the Database:
+- use beforeEach to populate
+
+-------------------
+
+Testing the Authorization:
+
+- You don't actually write the final code:
+    - e.g to check if the token is not given (user has not logged in)
+    - you return res.status(401).send('Unauthorized')
+        as compared to using the isAuthorized middleware
+
+- Testing the Input:
+
+router.post("/qualification", async (req, res) => {
+  if (!req.body.email) return res.status(400).send();
+  return res.status(401).send();
+});
+
+--------------
+
+Refactoring:
+
+- Change validation to add validator middleware or a method
+- add middleware for authorization, and so on.
+
+-------------
+
+Mongoose Static Methods:
+
+- Static methods (class methods)
+
+userSchema.statics.lookup = function (email) {
+  return this.findOne({ email: email });
+};
+
+- Schema.statics.<functioName>
+
+--------------
+
+Refactoring the Domains Logic:
+
+- Any logic dealing with changing the object, must be done by the class
+of the object itself
+
+---------------
+

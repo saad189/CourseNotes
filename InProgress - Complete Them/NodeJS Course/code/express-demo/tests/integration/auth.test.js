@@ -21,13 +21,13 @@ describe("auth middleware", () => {
   };
 
   beforeEach(async () => {
-    server = server ? server : require("../../index");
+    server = require("../../index");
     await User.remove({});
   });
 
   afterEach(async () => {
     await User.remove({});
-    server.close();
+    await server.close();
   });
 
   beforeEach(() => {

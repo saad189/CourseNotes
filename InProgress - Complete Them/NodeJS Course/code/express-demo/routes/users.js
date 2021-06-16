@@ -51,4 +51,19 @@ router.post("/create", isAuthorized, async (req, res) => {
   user = await user.save();
   res.send(user);
 });
+
+router.post("/qualification", isAuthorized, async (req, res) => {
+  const { error } = validate(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+
+  let user = new User(_.pick(req.body), [
+    "name",
+    "email",
+    "password",
+    "qualification",
+  ]);
+  user = await user.save();
+  res.send(user);
+});
+
 module.exports = router;
