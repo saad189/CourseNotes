@@ -1,0 +1,100 @@
+Deployment Options:
+- PaaS
+- Docker
+
+Platform as a Service:
+- Remove of Server management responsibility (proxies, load balancers, etc...)
+- Heroku | GCP | AWS | Azure
+
+Docker: 
+- hehehehe
+- More control over deployment
+- Image of project
+
+---------------
+
+Preparing the App for Production:
+- npm i helmet // Saves for vulenrabilities
+- npm i compression // compresses http
+- 
+
+const helmet = require("helmet");
+const compression = require("compression");
+
+module.exports = function (app) {
+  app.use(helmet());
+  app.use(compression());
+};
+
+- In index.js:
+    require("./startup/prod")(app);
+
+---------------
+
+Getting Started with Heroku:
+
+- heroku cli
+- sudo snap install --classic heroku
+- heroku login
+    - if fails: export HTTP_PROXY=http:/proxy.server.com:1234
+
+---------------
+
+Preparing the App for Heroku:
+- package.json -> 
+"scripts": {
+    "test": "jest --watchAll --verbose --coverage",
+    "start": "node index.js",
+  },
+  "engines": {
+    "node":"v16.2.0"
+  },
+
+---------------
+
+Adding the Code to Git Repo:
+- git init
+- add coverage and node modules in git ignore
+- commit
+
+---------------
+
+Deploying to Heroku:
+
+- heroku create [Local + Remote Repo]
+- git remote -v (to check for repositories)
+- git push heroku master
+
+---------------
+
+Viewing Logs:
+- heroku Logs
+- or dashboard -> heroku and check 
+
+----------------
+
+Setting Environment Variables:
+
+- heroku config:set <key>=<value>
+- check heroku config
+
+- Heroku has Dino (file system)
+- Obviously it wont have a local instance of MongoDB either
+
+---------------
+
+MongoDB Cloud:
+
+- Dashboard -> Resources -> Add-ons -> 
+- mLab MongoDB
+- -_- Credit card  | or mlab.com
+- Follow process
+    - generate db 
+    - Create user -> 
+        mongodb Connection String is generated
+    - Add this string to environment variables
+    - and set that to db configuration
+
+
+THE END!
+---------------

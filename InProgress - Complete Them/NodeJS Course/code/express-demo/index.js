@@ -10,7 +10,7 @@ require("./startup/logging")(DBSTRING, app);
 require("./startup/configuration")();
 require("./startup/routes")(app);
 require("./startup/database")(DBSTRING);
-
+require("./startup/prod")(app);
 //Listen:
 const PORT = process.env.PORT || 4200;
 

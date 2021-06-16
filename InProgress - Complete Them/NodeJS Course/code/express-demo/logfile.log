@@ -235,3 +235,5 @@
 {"message":"Connected to mongodb://localhost/playground_tests...","level":"info"}
 {"message":"Connected to mongodb://localhost/playground_tests...","level":"info"}
 {"message":"Connected to mongodb://localhost/playground_tests...","level":"info"}
+{"message":"Connected to mongodb://localhost/playground_boring...","level":"info"}
+{"message":"Connected to mongodb://localhost/playground_boring...","level":"info"}
