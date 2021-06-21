@@ -1,0 +1,52 @@
+Customize Model:
+
+- e.g: freezeTableName (true -> model name matches table name)
+
+docs.sequelizejs.com -> seach -> freezeTableName and search similar
+options
+
+timestamps (createdAt and updatedAt can be managed)
+
+These options are added in either sequlize Object or Table Definition
+
+1. add define : { } in sequlize
+2. add 3rd param in table
+
+----------------
+
+Attribute Qualifiers:
+
+- Customize attributes before they become columns
+    - primaryKey | defaultValue | NOT NULL
+
+- attribute.validate -> to validate the data of the attribute 
+
+----------------
+
+Attribute Validations:
+
+validator.js | extension | custom-validation 
+
+- check docs -> validations 
+Object : {
+    validate:{
+        args: [],
+        msg: ''
+    }
+}
+
+----------------
+
+Hooks:
+
+Lifecycle events, called before and after events in sequlize are
+executed
+
+[Before Validation, After Validation, Before Creation, After Creation]
+[beforeValidate: () => {},afterValidate: (),beforeCreate: (),afterCreate: ()]
+
+3rd param of Model 
+
+Can be used to hash stuff 
+
+-----------------

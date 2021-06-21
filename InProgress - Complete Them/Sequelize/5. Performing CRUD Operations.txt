@@ -1,0 +1,110 @@
+Generate Sample Data:
+
+- generatedata.com
+- get the requried data
+- include in app
+
+- Checkout docs for bulk-create
+bulkCreate(records,options) | returns promise
+
+   User.bulkCreate(_USERS)
+      .then(() => {
+        console.log("Successfully added bulk");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+--------------------
+
+Create Method:
+
+
+app.post("/post", (req, res) => {
+  const newUser = req.body.user;
+
+  User.create(newUser)
+    .then((user) => {
+      res.json(user);
+    })
+    .catch((error) => {
+      console.log(error);
+      res.status(404).send(error);
+    });
+});
+
+
+-----------------
+
+FindAll:
+- Retrieve all records and Filter using where.
+
+app.get("/findall", (req, res) => {
+  User.findAll()
+    .then((users) => {
+      res.json(users);
+      console.log("success");
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+})
+
+- findAll has options for where (check docks) -> where Opertors
+- To use opeartors:
+
+const Op = Sequelize.Op;
+
+
+  User.findAll({
+    where: {
+      name: {
+        [Op.like]: "F%",
+      },
+    },
+  })
+
+-------------------
+
+findById Query Method:
+
+User.findbyId('_id');
+
+-------------------
+
+Update Row:
+
+app.put("/update", (req, res) => {
+  User.update(
+    {
+      name: "Saad",
+      password: "1234",
+    },
+    {
+      where: { id: 1 },
+    }
+  )
+    .then((rows) => {
+      res.json(rows);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+});
+
+------------------
+
+Delete Row:
+
+app.delete("/remove", (req, res) => {
+  User.destroy({
+    where: {
+      id: 2,
+    },
+  }).then(() => {
+    res.send("user deleted");
+  });
+});
+
+
+-----------------

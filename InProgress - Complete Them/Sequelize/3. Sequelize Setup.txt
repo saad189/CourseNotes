@@ -1,0 +1,108 @@
+Project Setup:
+
+// Donot need to refer:
+mysql2  in app.js
+- npm i --save mysql2
+
+
+-------------
+
+const express = require("express");
+const Sequelize = require("sequelize");
+
+const app = express();
+const PORT = 8001;
+
+const connection = new Sequelize("zameen_cpml", "root", "12345678", {
+  host: "localhost",
+  dialect: "mysql",
+});
+
+connection
+  .authenticate()
+  .then(() => {
+    console.log("Successful Connection");
+  })
+  .catch((err) => {
+    console.log("Unable to connect", err);
+  });
+app.listen(PORT, () => {
+  console.log("Running Server on Port " + PORT);
+});
+
+
+------------------
+
+Model:
+
+User = {
+    name: Sequelize.STRING,
+    bio: Sequelize.STRING
+}
+
+--> will become Users [name,bio] in db
+
+
+connection.define('User',{
+    name:Sequelize.STRING,
+    bio:Sequelize.TEXT
+});
+connection.sync()
+or connection.sync({
+   logging: console.log
+})
+
+Its usage will eliminate the need for authenticate();
+
+--------------
+
+Add an Entry:
+
+.sync().then(()=>{
+  Model.create({
+    name:'saad',bio:'ssss'
+  });
+})
+
+---------------
+
+Data Types:
+
+- String
+- Integer
+- Array
+- Date
+- Boolean
+
+- goto docs -> Data -> DataTypes
+
+- Sequelize Format:
+  - Sequelize.STRING | Sequelize.TEXT | Sequelize.Float
+
+---------------
+
+Primary Keys:
+
+- Unique Identifiers
+- Form Associations
+- Automatically Generated | NOT NULL
+- Sequelize auto-creates
+- We can custom define another primary key
+
+Example 1:
+
+  uid:{
+    type: Sequelize.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  }
+
+Example 2:
+  
+  uuid: {
+    type: Sequelize.UUID,
+    primaryKey: true,
+    defaultValue: Sequelize.UUIDV4,
+  },
+
+---------------

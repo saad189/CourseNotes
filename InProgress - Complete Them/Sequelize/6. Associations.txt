@@ -1,0 +1,118 @@
+Associations: 
+
+Form Relationships between tables (used to create joins)
+
+Joins merge data between two tables
+Will return a combined (joined) data
+
+- Creating Association:
+1. Define association between models
+    Post.belongs(User) -> Automatically adds foreign key
+2. Add include property with value as associated
+
+Post.findById('1',{
+    include: [User]
+}) // to fetch the entire associated object
+
+Post.findById('1',{
+    include: [{
+        model: User
+        attributes: ['name','password']
+    }]
+}) // To fetch certain attributes
+
+
+//
+Post.belongsTo(User); // puts foreign key UserId in Post table
+
+    Post.create({
+      UserId: 1,
+      title: "First Post",
+      content: "post content 1",
+    });
+
+Post.findAll({
+    include: [User],
+  })
+//
+
+---------------
+
+Foreign Keys:
+
+- Auto Generated (PascalCase)
+- If we want to give it our own name:
+    - Post.belongsTo(User, {foreignKey: 'userId'});
+
+---------------
+
+Model Alias:
+
+- Renames the model when used as an association.
+(In response)
+  - Post.belongsTo(User, { as: 'FetchedUser', foreignKey: 'userId'});
+
+  Post.findAll({
+    include: [
+      {
+        model: User,
+        as: "CockRoach", // must match defined alias
+      },
+    ],
+  })
+
+----------------
+
+Types of Associations:
+
+- One-to-One => belongsTo(), hasOne()
+    - Post.belongsTo(User) -> Key in Post | User.haseOne(Post) -> key in users
+    - Single Item received
+- One-to-Many
+    - hasMany() -> User.hasMany(Post) | User has many posts (id in Post)
+- Many-to-Many
+    - belongsToMany() -> User.belongsToMany(Post) + Post.belongsToMany(User)
+    - Will create JoinTable (Intermediate Table)
+
+----------------
+
+One-to-many Association:
+
+Post.hasMany(Comment, {as: 'All_Comments' })
+//foreignKey = PostId in Comments table
+
+-----------------
+
+Many to Many Association:
+
+User.belongsToMany(Project, {as: 'Tasks', through:'UserProject'});
+Project.belongsToMany(User, { as:'Workers, through:'UserProject'});
+
+- through -> new table (Join)
+
+- Getter/Setter for M-to-M 
+    - Methods used to perform CRUD on members of association
+    - set, get, add, remove
+    - set to create -> set<Object>([])
+    - add to single create -> addWorkers()
+    - get to fetch -> getWorkers()
+    - remove -> removeWorkers()
+
+Project.create({
+    name: 'project-1'
+}).then(project)=>{
+    project.setWorkers([1,2]); [Woker as alias for user here]
+}
+
+
+- Can add users to already created project
+
+app.put('/addWorker',(req,res)=>{
+    Project.findById(4).then((project)=>{
+        project.addWorkers(5);
+    })
+})
+
+-----------------------
+
+Example:

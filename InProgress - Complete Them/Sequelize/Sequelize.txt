@@ -1,0 +1,32 @@
+Start:
+
+- npm i --save sequelize
+- Basically an ORM (Object Relational Model)
+
+What is Sequelize:
+- Promise based Object Relational Mapper
+- Object Model <====> Table
+- docs.sequelizejs.com
+
+--------------
+
+Promise:
+
+Represents the eventual completion (or failure) of an
+asynchronous operation and its resulting value
+
+Promise library from : bluebirdjs.com (used by sequelize)
+(then).(catch)
+
+---------------
+
+Benefits of Sequelize:
+
+- Simplifies Code
+- Javascript Code, not SQL
+- Robust API (query + transforming)
+- Security
+- Community
+- CLI tool
+
+--------------
