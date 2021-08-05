@@ -1,0 +1,33 @@
+Unit Testing: [Component Class Only]
+- Testing component in Isolation
+- Component testing without its template [FakeService, FakeRouter]
+
+Integration Test: [Component + Template]
+- Testing component with its template
+- Still FakeService | Opinionated Integration Test
+
+End-to-End Tests:
+- Slow, but run the entire flow of the applcation
+- Fragile, can be broken by a simple change
+- Only write them for the key functions of the app (Happy Tests Only please)
+
+----------------------------
+
+Unit Testing Funadamentals:
+- First Class Citizens -> Write them properly, clean, All programing principles 
+    (<10 lines of code)
+
+---------------------------
+
+Testing:
+
+- USING JASMINE
+
+- describe () // suite
+- it () // Single Test | spec
+
+
+- Testing Methodology:
+1. Arrange
+2. Act
+3. Assert

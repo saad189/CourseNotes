@@ -1,0 +1,1 @@
+https://github.com/jakblak/Sequelize_BookStore.git

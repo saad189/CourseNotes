@@ -1,0 +1,18 @@
+while filtering events:
+
+e.g:
+
+(keyup) = "someMethod($event)"
+
+You can do -> (keyup.enter) to work only with enter
+    Checkout other examples as well
+
+<input #email (keyup.enter)="function(email.value)"/>
+
+Shadow DOM:
+Prevent style bleeding
+
+ViewEncapsulation:
+1. Emulated -> Angular itself ensures ShadowDOM
+2. Native -> New scope, ignores all styles not used in the current component
+3. None -> No encapsulation, leaked styles
