@@ -1,0 +1,35 @@
+Introduction:
+
+Steps:
+1. Domain Name - $13/Year
+2. Hosting - $10/Month
+3. Install Wordpress - Content management System
+4. Create Website - Free
+
+--------
+
+Hostgator | Hostinger for Domain
+For Payment:
+1. WooCommerce Plugin
+2. Payment Gateway Plugin: 
+    (Stripe -> Payoneer)
+    (2Checkout)
+    (Paddle)
+
+    
+Saad Ahmed  12:47 AM
+Notes:
+https://knowledgecenter.2checkout.com/Shopping-cart-integration/Integrate-WooCommerce
+https://wordpress.org/plugins/woocommerce-payment-gateway/#installation
+https://wordpress.com/go/tutorials/3-ways-to-accept-credit-card-payments-online/
+https://wpforms.com/
+
+----------
+
+Website Access:
+websitename/wp-admin
+
+-------
+
+Change hoverlinks:
+Permalinks
