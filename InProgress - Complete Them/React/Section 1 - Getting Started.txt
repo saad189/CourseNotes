@@ -1,0 +1,61 @@
+Introduction:
+
+- React.js -> Client side JavaScript library
+- Reactive user interfaces
+
+-------------
+
+Why React Instead of Just JavaScript:
+- Pure Javascript with HTML is an example of Imperative Approach
+    - Describe each and every action and declaration to be taken
+
+- React will create code blocks -> Components, for specific tasks
+- React: Write code in a Declarative, Component-focused Approach
+
+-------------
+
+Building SPA with React:
+
+- Can be used to control parts of HTML pages or entire pages
+    - Can be used as a widget creater -> Pages and still rendered and server by a backend
+    server
+
+- Control the entire frontend of a Web App
+    - SPA, Server only sends one HTML page, and then react takes its control to alter UI
+
+--------------
+
+Exploring React.js Alternatives (Angular/Vue):
+
+- React: Lean and focused component based UI library
+    - Certain features (like routing) are added via community packages
+
+- Angular: Complete compenent-based UI framework, packed with features.
+    Uses Typescript, overkill for smaller projects
+
+- Vue: Complete component-based UI framework
+    includes most core features.
+
+--------------
+
+Course Outline:
+
+- Basics & Foundation -> Key features
+    = Components & Building UIs
+    = Working with Events & Data: 'props' and 'state'
+    = Styling React Apps & Components
+    = Introduction into "React Hooks"
+
+- Advanced Concepts -> Building for Production
+    = Side Effects, 'Refs' & More React Hooks
+    = React's Context API & Redux
+    = Forms, Http Requests & "Custom Hooks"
+    = Routing, Deployment, NextJS & More
+
+- Summaries & Refreshers-> Optimizing Your Time
+    = JavaScript Refresher
+    = ReactJS Sumary
+
+=> Theory/Small Demos & Examples | Bigger Example Projects | Challenges & Excercises
+
+-------------
