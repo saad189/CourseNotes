@@ -1,0 +1,9 @@
+Let vs Const:
+
+var - variable values + unscoped
+let - variable values + scoped
+const - constant values + scoped
+
+-----------
+
+Arrow Functions:
