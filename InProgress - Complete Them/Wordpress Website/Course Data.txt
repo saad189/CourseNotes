@@ -33,3 +33,16 @@ websitename/wp-admin
 
 Change hoverlinks:
 Permalinks
+
+
+-------------------
+
+Check the Left side menu. All the Pages, comments, Media and posts can be 
+directly managed. Simple
+
+Appearence:
+- Theme : Design and Appearence of your website
+- Its not the content but the appearence, so it can be fun
+
+Plugin:
+- Addon, software/ feature for the website
