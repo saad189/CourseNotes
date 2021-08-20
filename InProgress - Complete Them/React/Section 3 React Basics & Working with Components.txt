@@ -1,0 +1,20 @@
+What are Components? And Why Is React All About Them?:
+
+- For Building User Interfaces
+- Divides code into Components
+    - Reusability
+    - Separation of Concerns
+
+------------------
+
+React Code is Written in a 'Declarative Way'!:
+
+- Declarative Approach: Define the desired target state(s) and let
+    React figure out the actual JavaScript DOM instructions
+    (Oppositely, you would have to define every element and its update code as well)
+
+------------------
+
+Create a new React Project:
+- create-react-app (from Facebook)
+- npx create-react-app <app-name>

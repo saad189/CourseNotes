@@ -7,3 +7,116 @@ const - constant values + scoped
 -----------
 
 Arrow Functions:
+const func = () => {}
+- Resolves 'this' keyword issue
+- Arrow functions resolve the scope issue, and will not raise
+    problems for this keyword usage
+
+example: const multiply = num => num * 2;
+
+
+-----------
+
+Exports and Imports:
+
+const person = {
+    name : 'Max'
+}
+export default person
+
+- default, will set the import to default value 
+e.g :
+    import person from './person.js'
+    import prs from './person.js'
+
+
+destructuring:
+
+utility.js:
+    - export const clean = () => {}
+    - export const baseData = 10;
+
+app.js:
+    - import {baseData} from 'utility.js'
+    - import {clean} from 'utility.js'
+
+import * as name from 'file.js'
+
+---------------
+
+Understanding Classes:
+
+class Person{
+    name = 'Saad';
+    call = () =>{}
+}
+
+class SpecialPerson extends Person{
+    constructor(){
+        super(); // Run parent's constructor
+    }
+    length = 100
+}
+
+--------------
+
+Classes, Properties & Methods:
+
+ES7 -> inside class -> myPropertuy = value
+
+--------------
+
+Spread & Rest Operators:
+
+- ...
+- Spread : Used to split up array elements OR object Properties
+
+e.g: const newArray = [...oldArray, 1,2]
+     const newObject = { ...oldObject, newProp: 5}
+
+     const person = {
+         name: 'Max'
+     }
+     const newPerson = {
+         ...person,
+         age : 25
+     }
+     => [object Object]{
+         age:28,
+         name:'Max'
+     }
+
+
+- Rest : Used to merge a list of function arguments into an array
+    - Function Args are merged into an array.
+e.g: function sortArgs(...args) {
+        return args.sort();
+    }
+
+----------------
+
+Destructuring:
+
+- Easily extract array elements or object properties and store them
+    in variables
+- Array Destructuring => [a,b] = ['Hello','Saad']
+- Object Destructuring => {name} = {name: 'Saad' , age:'28'};
+
+----------------
+
+Reference and Primitive Types Refresher:
+
+- Primitive -> 1, bool, null, undefined, '' 
+    They are immutable
+- Reference -> [] , {}
+    They are muntable, unless we use -> object.freeze();
+
+----------------
+
+Array Functions:
+
+- map(() => action_on_each_element) -> Returns new array of elements after applying the given lambda
+- sort, filter, flatMap, reduce, etc...
+
+----------------
+
