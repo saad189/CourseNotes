@@ -18,3 +18,74 @@ React Code is Written in a 'Declarative Way'!:
 Create a new React Project:
 - create-react-app (from Facebook)
 - npx create-react-app <app-name>
+
+-------------------
+
+Analyzing a Standard React Project:
+
+- start with: npm/yarn start
+- index.js is the first file to be loaded
+- React is basically JavaScript, however there are syntax in React that will
+    not work in pure JS.
+    - e.g: import './index.css';
+            import App from './App';
+
+- Two dependencies to make React Work:
+    - react
+    - react-dom
+
+- Index.html exists in public folder
+
+=> ReactDOM.render(<App />, document.getElementById('root'));
+    Targets: <div id="root"></div> in index.html
+
+- Here <App /> represents a Component
+
+- In App.js -> the HTML like syntax works in JavaScript,
+    due to JSX (syntax developed by React Team)
+
+--------------------
+
+Introduction to JSX:
+
+- Checkout Developer Tools -> Sources (Contains Js files)
+- Each generated code, will contain the entire react package code
+- Checkout the 'App()' function in the 'main.chunk.js'
+
+--------------------
+
+How React Works:
+
+- Build our own Custom HTML Components, #Components
+- Re-usable reactive Components consisting of HTML, JS and css
+    - Declarative Approach -> Define the desired target state(s) and let react
+        figure out the actual JS DOM instructions
+
+- In regular JS:
+    - const para = document.createElement('p);
+    - para.textContent= 'Visible bruv'
+    - document.getElementById('root').append(para);
+
+- In React: <p> Visible bruv </p>
+
+- <App/> custom Component
+
+--------------------
+
+Building a First Custom Component:
+
+- New Components in New files
+- Component Tree -> App -> <A/> - <B/> -> so on
+- File Naming Convention: CapitalStart, Sub-Word also starts with Capital
+* A Component is React is just a JavaScript function (NOT A CLASS)
+
+    function ExpenseItem() {
+        return <h2>Expense Item!</h2>;
+    }
+
+    export default ExpenseItem;
+
+- Import this into the Component you want to add in.
+
+
+
