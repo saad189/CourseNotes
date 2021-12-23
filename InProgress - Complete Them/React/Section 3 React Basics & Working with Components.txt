@@ -62,7 +62,7 @@ How React Works:
         figure out the actual JS DOM instructions
 
 - In regular JS:
-    - const para = document.createElement('p);
+    - const para = document.createElement('p');
     - para.textContent= 'Visible bruv'
     - document.getElementById('root').append(para);
 
@@ -201,4 +201,23 @@ Summary 1:
 - Note that composition components will not show up on `Inspect Element`
     only normal HTML elements will.
     
+-------------------------
 
+A Closer Look at JSX:
+
+- Old projets would `import React from 'react'
+- React.createElement('div',{property},React.createElement('h2',{},Content again),,,,) List of Contents
+- React.createElement(Expenses, {items:expenses});
+- While this is an old approach, but this is still being used under the hood
+
+-------------------------
+
+Organizing Component Files:
+
+- Organize them into subfolders
+
+-------------------------
+
+An Alternative Function Syntax:
+
+- Replace function App() with : const App () => {}
