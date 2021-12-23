@@ -220,4 +220,6 @@ Organizing Component Files:
 
 An Alternative Function Syntax:
 
-- Replace function App() with : const App () => {}
+- Replace function App() with : const App = () => {}
+
+-------------------------
