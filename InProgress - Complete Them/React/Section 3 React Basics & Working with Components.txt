@@ -87,5 +87,118 @@ Building a First Custom Component:
 
 - Import this into the Component you want to add in.
 
+---------------------
 
+Writing More Complex JSX Code:
+
+- One parent element per function/Component
+
+----------------------
+
+Adding Basic CSS Styling:
+
+- To attach a css file to a Component, import it into the given Component
+- class = className XD
+- Note: Its not actual HTML, but JSX
+
+import "./ExpenseItem.css";
+
+function ExpenseItem() {
+  return (
+    <div className="expense-item">
+      <div>December 5th 2021</div>
+      <div className="expense-item__description">
+        <h2>Car Insurance</h2>
+        <div className="expense-item__price">$400</div>
+      </div>
+    </div>
+  );
+}
+
+export default ExpenseItem;
+
+---------------------
+
+Outputting Dynamic Data & Working with expressions in JSX:
+
+- For Separation of Concerns and Reusability #Multiple smaller functions
+
+import "./ExpenseItem.css";
+
+function ExpenseItem() {
+  const date = new Date(2021, 12, 6);
+  const name = "Car Insurance";
+  const price = "$400";
+
+  return (
+    <div className="expense-item">
+      <div>{date.toDateString()}</div>
+      <div className="expense-item__description">
+        <h2>{name}</h2>
+        <div className="expense-item__price">{price}</div>
+      </div>
+    </div>
+  );
+}
+
+export default ExpenseItem;
+
+---------------------
+
+Passing Data via Props:
+
+- Pass data via attributes to the component
+- This concept of custom attributes is called 'props'
+
+   <ExpenseItem
+        title={expenses[0].title}
+        amount={expenses[0].amount}
+        date={expenses[0].date}
+      ></ExpenseItem>
+
+
+function ExpenseItem({ title, amount, date }) 
+
+
+----------------------
+
+Normal JS:
+- Meh
+
+----------------------
+
+Splitting Components into Multiple Components:
+
+ <ExpenseDate date={date} />
+
+ ---------------------
+
+ The Concept of 'Composition' ('children props'):
+
+ - Composition => Creating component from Components | Combining Components
+ - Wrapper Components: 
+
+- props.children is reserve keyword
+
+
+import "./Card.css";
+
+function Card(props) {
+  const classes = "card " + props.className;
+  return <div className={classes}>{props.children}</div>;
+}
+
+export default Card;
+
+
+------------------------
+
+Summary 1:
+- React Core Syntax + JSX
+- Working With Components
+- Working with Data
+
+- Note that composition components will not show up on `Inspect Element`
+    only normal HTML elements will.
+    
 
