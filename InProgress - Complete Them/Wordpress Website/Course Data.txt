@@ -46,3 +46,40 @@ Appearence:
 
 Plugin:
 - Addon, software/ feature for the website
+
+
+---------------------
+
+Pages -> Your Page -> WP Form Builder
+
+- Add Row (Select Type)
+- Addons (We will be using CF <stuff>)
+- e.g:
+    - CF Catagory
+        - Will display option add all catagories created, for example I created 'growth' as a catagory.
+
+
+--------------------
+
+Pages -> New Page, Check Page Templates
+
+----------------------
+
+Appearence -> Widgets to manage individual widget styles
+
+Importing a Page: 
+Edit with WP Forms, Tools, Import JSON
+
+
+NOTES FOR ABROSOM:
+- Some buttons have links, so when you change the names of the URLS, remember to change the links as well
+
+Change Logo-> Customize -> Logo Image
+
+------------
+
+Making Footer:
+- Customize -> Menus -> Create Menu -> Name (Submenu, e.g. SiteFooter)
+    - Add links of Pages
+    - Repeat for All types you want
+    - Goto Widget, Select Bottom<1,2,3> add the created menu, Repeat
