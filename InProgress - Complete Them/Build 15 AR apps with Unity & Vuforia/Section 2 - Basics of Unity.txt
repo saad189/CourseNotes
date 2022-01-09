@@ -1,0 +1,64 @@
+Intro:
+- Moving Objects
+- Adding Texture
+- Some wierd Concept
+- Scripting
+
+---------------
+
+Understanding Different Panels in Unity:
+
+- Left Side: Panel (Hierarchy) shows all the Objects
+    - 3D Objects -> Game Objects
+    - 2D Objects -> Sprites
+    - New Project:
+        - Main Camera + Directional Light are the default Objects created
+
+- Middle:
+    - Scene Panel (Shows the Whole Thing :D)
+    - Game Panel
+        - Preview the Output of a game/application
+    - Asset Store
+        - Assets online
+
+- Right Side: Inspector Panel
+    - View properties of a selected Game Object
+    -
+- Bottom:  Projects Panel
+    - Asset Container 
+    - Contains Scenes
+        - A Scene is like a game level
+        - e.g. 10 Scenes = 10 Game Levels
+        - Pages are also Scenes
+    - Console Panel:
+        - Console
+
+----------------
+
+Moving, Rotating & Scaling GameObjecets in Unity
+- Top Left: Contains A bunch of Tools (Select, Move, Rotate )
+- Top left, + Sign, to create new items
+- Creating A new Object, (3d Cube)
+- Axes:
+    - Red: X-Axis
+    - Blue: Z-Axis
+    - Green: Y-Axis
+
+    - Changing them, changes the Position Properties' Values: X,Y,Z
+    - (0,0,0) = Universal Centre Position
+    - Centre Point = Pivot (Joined by Red, Green, Blue )
+
+- Rotate Tool Works on Rotation Property: (X,Y,Z);
+- Scale Tool Works on Scale Property (More like 3D Scale Tool)
+    - Selecting middle cube -> All Axes will be altered with this
+- Rect Tool (More like 2D Scale Tool)
+    - Will Change to X,Y or Y,Z based on View
+
+:: View: Alt + Left Mouse + Move
+:: Measurement: Unity Unit
+
+- Move, Rotate, Scale Tool -> Full Verstality
+
+-----------------
+
+Game Panel in Unity:
