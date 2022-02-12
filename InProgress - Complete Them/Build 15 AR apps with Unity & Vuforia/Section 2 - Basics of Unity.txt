@@ -36,7 +36,7 @@ Understanding Different Panels in Unity:
 ----------------
 
 Moving, Rotating & Scaling GameObjecets in Unity
-- Top Left: Contains A bunch of Tools (Select, Move, Rotate )
+- Top Left: Contains A bunch of Tools (Select, Move, Rotate)
 - Top left, + Sign, to create new items
 - Creating A new Object, (3d Cube)
 - Axes:
@@ -62,3 +62,139 @@ Moving, Rotating & Scaling GameObjecets in Unity
 -----------------
 
 Game Panel in Unity:
+
+Game Panel: View and Test Output of your Unity Project
+    - Game View will show the Image through the Eye of Camera
+    - Only for Output View
+
+Layout:
+    - Selected from Top Right, Changes the Workspace (e.g. 4-Split)
+        - In 4-Split, Tabs can be added to any space,
+        - Each Space is locked, and can be unlocked from top right of the space (scene view)
+    
+    - To adjust icon size of Camera and Lighting, At Top (Mid-Right) Select Gizmos
+        - Gizmos can be used to adjust size of 3D Icons
+
+-----------------
+
+Physics in Unity:
+
+- Play Button, plays the game
+- Pause, pauses the output
+- Step, plays each frame
+- Objects can be assigned Components (like Audio, Textures, Scripts, etc..)
+- E.g Rigidbody -> Deals with collision, gravity, kinematic?
+
+-----------------
+
+Increasing the Light Intensity:
+Window -> Rendering -> Lighting -> Generate lighting Options
+
+-----------------
+
+Adding Colors to Game Objects:
+- Creating a Material, In Assets Panel
+    - Right Click -> Create -> Material
+
+- .mat
+- Color can be changed in MainMaps (of Inspector)
+- To apply a material to the GameObject, Drag and Drop
+- Every Applied material is dynamic, so when it is attached to an Object
+    the properties will dynamically change for the object too
+
+-----------------
+
+Adding Textures to Game Objects:
+- Texture is just an image (store it in a local folder)
+Method 1:
+- Lock a Material's Inspector
+- Drag the texture image to the Albedo box to apply it
+
+Method 2:
+- Simply drag the texture onto an object, which will auto create
+texture material and apply it to the object
+
+----------------
+
+Parent and Child Game Objects in Unity
+- Place a game object inside another object (from Scene Panel)
+- To catagorize multiple objects into one Container
+    - Create empty game objects
+    - Make these objects the child of Empty Object
+- Changing the Position properties of the empty object will adjust the children's
+    values too
+    - DO NOTE: Children values are now relative to the Parent
+
+----------------
+
+Local/Global and Pivot/Center Tools in Unity:
+
+- Pivot Tool on 'Pivot' will show directional symbol at the original
+    position of the parent object
+- Pivot Tool on 'Center' will calculate the positions of all child objects
+    then display the directional symbol in their collective Center
+
+- Local Tool on 'Local' Setting, will identify original position and rotation of an object
+    and display directional symbols relative to the new rotation
+- Local Tool on 'Global' Setting, will always show the directional symbols according to the scene reference
+
+---------------
+
+Prefabs in Unity:
+
+- An asset which contains a blueprint of gameobject or gameobject family (like a class)
+- But they are created using existing GameObjecets
+- Can be reused again (any where)
+- Simply drag and drop it into assets folder (.prefab is extension)
+- The object in Scene Panel will be blue
+- Changes made to Prefab will be reflected in its created objects
+- "MeshRender" contains the textures applied to an object (or the prefab)
+- When creating a HolderObject, make sure it is located in the middle (as the middle object)
+- You can also just copy the Component Values from Inspector > Transform Tab
+
+----------------
+
+What are Scripts?:
+- Programing File to write some usable code
+- Assets > New Folder (Scripts) > Create 'C# Script'
+- CapitalCase in Naming
+- EveryScript is Inherited from 'MonoBehavior'
+- MonoBehavior contains pre-req unity functions
+
+- https://docs.unity3d.com/ScriptReference/MonoBehaviour.html
+- Start() -> When script loads
+- Update() -> Every frame
+
+---------------
+
+Rotating the Spheres:
+
+- Vector3 , represents 3d vector object
+Rotation Code:
+
+public class RotateSpheres: MonoBehavior
+{
+    Vector3 movement;
+    void Start(){
+        movement = new Vector3(0,30,0);
+    }
+    void Update(){
+        transform.Rotate(movement); // Accesses Transform Properties of an Object
+    }
+}
+
+- Attach the Script (Drag and Drop to Inspector Panel)
+- Run the Game
+- To display variables in Unity (Script Inspector Panel), simply delcare them as public
+- This will allow simple adjustment per object (Rather than new script for every object)
+
+---------------
+
+Revolving the Spheres:
+- Script can also be attached from 'Add Component'
+- To Revolve, either add code for each edge Sphere to change its z value or something similar
+- Simply add script to Holder Object and rotate y :D
+
+
+
+
