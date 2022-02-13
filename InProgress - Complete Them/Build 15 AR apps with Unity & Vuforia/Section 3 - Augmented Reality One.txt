@@ -1,0 +1,62 @@
+Importing Vuforia Package Inside Unity:
+
+- Create a Vuforia account
+- Download the latest Unity SDK for Vuforia
+- Import Package by Opening and Importing or
+    Assets -> Import Package -> Open -> Import
+
+In Package Viewer (Bottom left), Vuforia Packages are now available [Vuforia Engine]
+
+------------
+
+WebCamera output and creating the ARONE License Key:
+
+- Create -> Vuforia Engine -> AR Camera
+- To Change the Camera Device -> Inspector -> Vuforia Configurations -> Device
+- Add License (from Vuforia -> Develop -> Get basic -> Paste key in 'Add License Key' in Configurations)
+
+------------
+
+Capturing an Image:
+
+- Image Targets are Markers in AR
+- Create and store an image to be used as a Marker
+
+-------------
+
+Creating a Vuforia Database and Uploading Image Targets:
+- Vuforia -> Develop -> Targets Manager -> Add Database -> Add Target as Device (to be Stored in Device)
+- Download Database for Unity Editor
+- Import
+
+-------------
+
+Projecting Barbarian 3D Model on Image Target:
+
+- ImageTarget (in Objects) , Source -> From Database, Select DB -> Image
+- Add the Object you want to be tracked by Marker, as ImageTarget's Child
+- Download Barbarian Model from Unity Asset Store (A STORE WITH TONS OF ASSETS)
+- Make it Child of Image Target
+- Adding Animations:
+    - Inspector -> Select -> Rig -> Legacy
+    - Animaions -> Choose Animation -> Wrap Model
+    - Object -> Choose the Animation
+
+--------------
+
+Testing the output on an Android SmartPhone:
+
+- File -> Build Settings
+- Choose Android
+- Player Settings for Setting MetaData, Logo, Rendering and so on
+- For now: Remove Vulkan Engine from Rendering, and Set Orientation to Landscape left
+- Set API Levels, etc.
+- Build
+- and Use the app in mobile :D
+
+--------------
+
+
+
+
+
