@@ -1,0 +1,154 @@
+Sketching the Images of ARBook:
+
+- Sketch out Images
+- Add A lot of Text
+- Use Dark Colors (Sketch Pens)
+- Add lot of edges and unique points
+
+---------
+
+Importing the License Key:
+
+- Package Registry Location:
+    Project -> Packages -> manifest.json
+    This contains the dependencies
+
+- To update
+    Window -> Package Manager
+
+- Adding License Key:
+    - Select AR Camera
+    - Open Vuforia Enginer Configuration (Inspector Panel)
+    - Reuse ARONE License Key
+
+------------------
+
+Upload Images to Vuforia Database:
+- Create Database
+- Upload Images
+
+------------------
+
+Customising the Sun Target Image:
+
+- Download Images that have `labelled for reuse` or `labelled for
+    reuse with modification
+- Every material is Shader, by default it is Dark tint
+- For this, Texture -> Unlit -> Texture
+
+Creating Heatwave:
+- UnityAssets -> Unity Particle Pack -> Download & Import
+- Assets - Effectxamples > Smoke & Steam Effects > Prefabs > GroudFog
+- Set Scale to 0.5
+- Set Start Color to #FDB813
+
+----------------
+
+Customising the House Image Target:
+
+- Using House Image Target
+- Downloaded LowPoly Holiday House Texture
+- Downloaded Five Seamless Grass Textures
+- Setup the Building | Add Cylinder, apply grass texture accordingly, add trees
+
+----------------
+
+Customising the Car Image Target:
+- use car model
+
+----------------
+
+Customising the Ship Image Taget:
+- Download: https://assetstore.unity.com/packages/vfx/shaders/water-shaders-v2-x-149916
+- Use Prefabs to adjust for day/night
+- After applying the prefab, inspect its shaders
+    - Change Texture Tiling and reduce it (e.g 3)
+    - This is because such a small scale should show fewer wave tiles (to appear natural)
+
+- Import Boat asset: https://assetstore.unity.com/packages/3d/lowpoly-paper-boat-61369
+- Rotate with empty object
+
+---------------
+
+Customising the Arrowplane Image Target:
+- Download : https://assetstore.unity.com/packages/3d/vehicles/air/super-spitfire-53217
+- TIP: Minus Scale will invert the object
+- The Aeroplane object is a combination of multiple objects (e.g wings, propeller, etc...)
+- Add Rotate Script to propeller, Y = 1000
+
+- Add Translate Script to the Aeroplane, transform.Translate(moveObject * Time.deltaTime);
+
+----------------
+
+Adding and Moving the Cloud objects
+- Download: https://assetstore.unity.com/packages/3d/environments/awesome-low-poly-fantasy-clouds-97654
+- Add Cloud Models (as much as you like)
+- Set reverse Translate Script
+- Attach to Aeroplane Image Target
+
+----------------
+
+Understanding the Problem behind Aeroplane Image Target:
+- As all Image Targets are activated at once, there is a possibility that by the Time
+    the user reaches this IT, the plan and the clouds have already disappeared
+- ImageTarget Has Script Functions attached to it:
+    - On Target Found()
+    - On Target Lost()
+
+- Both work like this:
+    - '+' -> Attach Object, Add Function
+    - e.g: Attach Super_Spitfire, GameObject.SetActive -> True (for Target Found())
+
+----------------
+
+Resetting the Position of AeroPlane Model:
+
+- A wall will be used for collision detection
+- The Collider and Collidee both must be 'RigidBody'
+- Attach Box Collider (Note there are more collider types available) to the Aeroplane
+    - Adjust it (Size + Center)
+- Add a TAG to the Cube (Wall), 'AEROPLANEWALL' and set its tag as such
+    - for detecting what kind of collision happened
+
+-     NewScript:
+Start:
+    originalPosition = transform.localPosition;
+        // The localPosition of the object, Since it is done at start, 
+        the starting position will be grabbed.
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("AEROPLANEWALL"))
+        {
+            transform.localPosition = originalPosition;
+        }
+    }
+- Basically, When triggered (the collision that is), check for the relevant tag
+    (DID THE TRIGGER HAPPEN DUE TO THIS TAG?)
+- To make the wall opaque, Create Material
+    - Rendering Mode: Fade
+    - Color: A = 0;
+
+
+--------------
+
+Customising the AR Book Cover Image Target:
+
+- Create Prefab of the Entire House Object
+- Prefab 'Orignal Prefab' of Car Model, Cloud Objects, AeroPlane
+- You can unpack a prefab as well
+
+--------------
+
+Integrating a 3D Text:
+
+- Add 3D text from 3D Objects
+- Set Anchor to Middle Center
+- You can Download Fonts (as zip) from fonts.google.com
+- Add to Project and Drag and Drop to the Font Tab
+
+---------------
+
+Building the AR Book App:
+- Adjust Player Settings, and Build
+
