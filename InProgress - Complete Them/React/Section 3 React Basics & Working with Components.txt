@@ -1,0 +1,225 @@
+What are Components? And Why Is React All About Them?:
+
+- For Building User Interfaces
+- Divides code into Components
+    - Reusability
+    - Separation of Concerns
+
+------------------
+
+React Code is Written in a 'Declarative Way'!:
+
+- Declarative Approach: Define the desired target state(s) and let
+    React figure out the actual JavaScript DOM instructions
+    (Oppositely, you would have to define every element and its update code as well)
+
+------------------
+
+Create a new React Project:
+- create-react-app (from Facebook)
+- npx create-react-app <app-name>
+
+-------------------
+
+Analyzing a Standard React Project:
+
+- start with: npm/yarn start
+- index.js is the first file to be loaded
+- React is basically JavaScript, however there are syntax in React that will
+    not work in pure JS.
+    - e.g: import './index.css';
+            import App from './App';
+
+- Two dependencies to make React Work:
+    - react
+    - react-dom
+
+- Index.html exists in public folder
+
+=> ReactDOM.render(<App />, document.getElementById('root'));
+    Targets: <div id="root"></div> in index.html
+
+- Here <App /> represents a Component
+
+- In App.js -> the HTML like syntax works in JavaScript,
+    due to JSX (syntax developed by React Team)
+
+--------------------
+
+Introduction to JSX:
+
+- Checkout Developer Tools -> Sources (Contains Js files)
+- Each generated code, will contain the entire react package code
+- Checkout the 'App()' function in the 'main.chunk.js'
+
+--------------------
+
+How React Works:
+
+- Build our own Custom HTML Components, #Components
+- Re-usable reactive Components consisting of HTML, JS and css
+    - Declarative Approach -> Define the desired target state(s) and let react
+        figure out the actual JS DOM instructions
+
+- In regular JS:
+    - const para = document.createElement('p');
+    - para.textContent= 'Visible bruv'
+    - document.getElementById('root').append(para);
+
+- In React: <p> Visible bruv </p>
+
+- <App/> custom Component
+
+--------------------
+
+Building a First Custom Component:
+
+- New Components in New files
+- Component Tree -> App -> <A/> - <B/> -> so on
+- File Naming Convention: CapitalStart, Sub-Word also starts with Capital
+* A Component is React is just a JavaScript function (NOT A CLASS)
+
+    function ExpenseItem() {
+        return <h2>Expense Item!</h2>;
+    }
+
+    export default ExpenseItem;
+
+- Import this into the Component you want to add in.
+
+---------------------
+
+Writing More Complex JSX Code:
+
+- One parent element per function/Component
+
+----------------------
+
+Adding Basic CSS Styling:
+
+- To attach a css file to a Component, import it into the given Component
+- class = className XD
+- Note: Its not actual HTML, but JSX
+
+import "./ExpenseItem.css";
+
+function ExpenseItem() {
+  return (
+    <div className="expense-item">
+      <div>December 5th 2021</div>
+      <div className="expense-item__description">
+        <h2>Car Insurance</h2>
+        <div className="expense-item__price">$400</div>
+      </div>
+    </div>
+  );
+}
+
+export default ExpenseItem;
+
+---------------------
+
+Outputting Dynamic Data & Working with expressions in JSX:
+
+- For Separation of Concerns and Reusability #Multiple smaller functions
+
+import "./ExpenseItem.css";
+
+function ExpenseItem() {
+  const date = new Date(2021, 12, 6);
+  const name = "Car Insurance";
+  const price = "$400";
+
+  return (
+    <div className="expense-item">
+      <div>{date.toDateString()}</div>
+      <div className="expense-item__description">
+        <h2>{name}</h2>
+        <div className="expense-item__price">{price}</div>
+      </div>
+    </div>
+  );
+}
+
+export default ExpenseItem;
+
+---------------------
+
+Passing Data via Props:
+
+- Pass data via attributes to the component
+- This concept of custom attributes is called 'props'
+
+   <ExpenseItem
+        title={expenses[0].title}
+        amount={expenses[0].amount}
+        date={expenses[0].date}
+      ></ExpenseItem>
+
+
+function ExpenseItem({ title, amount, date }) 
+
+
+----------------------
+
+Normal JS:
+- Meh
+
+----------------------
+
+Splitting Components into Multiple Components:
+
+ <ExpenseDate date={date} />
+
+ ---------------------
+
+ The Concept of 'Composition' ('children props'):
+
+ - Composition => Creating component from Components | Combining Components
+ - Wrapper Components: 
+
+- props.children is reserve keyword
+
+
+import "./Card.css";
+
+function Card(props) {
+  const classes = "card " + props.className;
+  return <div className={classes}>{props.children}</div>;
+}
+
+export default Card;
+
+
+------------------------
+
+Summary 1:
+- React Core Syntax + JSX
+- Working With Components
+- Working with Data
+
+- Note that composition components will not show up on `Inspect Element`
+    only normal HTML elements will.
+    
+-------------------------
+
+A Closer Look at JSX:
+
+- Old projets would `import React from 'react'
+- React.createElement('div',{property},React.createElement('h2',{},Content again),,,,) List of Contents
+- React.createElement(Expenses, {items:expenses});
+- While this is an old approach, but this is still being used under the hood
+
+-------------------------
+
+Organizing Component Files:
+
+- Organize them into subfolders
+
+-------------------------
+
+An Alternative Function Syntax:
+
+- Replace function App() with : const App = () => {}
+
+-------------------------

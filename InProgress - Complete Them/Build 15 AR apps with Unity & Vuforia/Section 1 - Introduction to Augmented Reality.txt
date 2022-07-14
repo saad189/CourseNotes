@@ -1,0 +1,50 @@
+What is Augmented Reality:
+Technology that superimposes Computer generated images on the user's view of the real world
+(Mixed View (Tech + Reality))
+
+Basically -> Adding Computer generated images/objects, added into the real world
+
+Devices: Meta 2 | Microsoft Holo-lens
+
+Example: Pokemon GO
+
+Requirements of the Mobile:
+- Camera
+- Compass
+- GPS (Global Positioning Sensor)
+- Accelerometer
+
+Types of AR:
+1. Markerbased AR  #ImageRecognitionAR
+2. Markerless AR
+3. Projection based AR
+4. Superimposition based AR
+
+Markerbased AR:
+- A marker is needed to project the 3D object (QR Code, 2D Image)
+
+Markerless AR:
+- Recognizes Real life surfaces to project
+
+Projection Based AR:
+- Projects light to create object 
+
+Superimposition based AR:
+- A real object is copied/replaced with the 3D Object
+
+--------------------
+
+VR vs AR:
+
+- Virtual Reality is replacement of real world with a virtual world
+- Devices: Occulus Rift, Google Cardboard Box, etc...
+- Lens use 3D image trick
+- Sensors in VR:
+    - Magnetometer -> Compass for North Recognition
+    - Accelerometer -> Change in Position | Landscope
+    - Gyroscope Sensor -> Position of the phone (Accuracy) | Very Important for Head tracking
+
+Comparison:
+- VR is complete replacement | AR is Addition of new reality to real world
+- VR doesnt need Camera | AR is dependent of Camera
+- 

@@ -1,0 +1,33 @@
+Yarn Benefits:
+- Fast | Deterministic | Secure?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- Yarn pulls in parallel, NpM will pull in linear fashion
+
+Deterministic:
+- For same input, the output will always be the same
+- npm is not Deterministic
+    - can be made deterministic:
+        - npm shrinkwrap
+        - must be updated with npm update
+
+- yarn is deterministic
+
+- Security -> using SHA-1 (will be less secure now)

@@ -1,0 +1,21 @@
+Git Merge:
+
+In master :
+
+git merge feature-branch 
+    - will evolve the project to merge with master, but will keep the tree structure
+
+git merge --squash feature-branch
+    - packs all the commits of the feature branch into just one commit and adds it 
+        to the master (or merging) branch
+
+Note: will have to follow it up, with another commit that solidifies the merge operation
+
+
+Git Rebase:
+- Better tracking? 
+
+In feature-branch:
+    git rebase master
+
+    m1 - m2 - m3 - f1 - f2 
