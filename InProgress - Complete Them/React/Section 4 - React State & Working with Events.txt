@@ -1,0 +1,63 @@
+Listening to Events and Working with Event Handlers:
+
+- HTML Button Element -> Mozilla article on Button
+    [HTMLButtonElement -> HTMLElement -> Element -> Node -> EventTarget]
+
+- All Events have a Prop Equivalent in React
+- As opposed to document.getElementById('#id').addEventListener(()=> {});
+
+-       <button onClick={clickFunction}>Change Title</button>
+-       <button onClick={()=> {console.log('Clicked!')}}>Change Title</button>
+- For Defined functions, only point to the function (eg. -> functionName and not functionName())
+- using (), would call the function when JSX is being parsed.
+
+- Function Convention: 'prop'Handler [clickHandler]
+
+----------------------------------
+
+How Component Functions are Executed:
+
+React JSX parsing:
+- Component is a function that returns JSX
+- Function processing is done at render, and only once
+- Since rendering is only done once, the view cannot be changed
+- For that the concept of 'State' is introduced.
+
+-----------------------------------
+
+Working with a STATE:
+- One of the React Hook [use'Hook']
+- Can only be called in the main Component Function (except one)
+- import React, { useState } from 'react';
+- Allows values as states, allowing for re-rendering of said value
+
+- let [variable,function] = useState(defaultValue);
+- returns array with variable and update function.
+
+//
+  let [newTitle, setTitle] = useState(title); // Default Value of useState Hook
+
+  const clickHandler = () => {
+    setTitle("Updated");
+  };
+//
+
+- State Update function will update the entire Component, not just the variable
+- Calling setTitle() will delay the change of the variable. (old value will take some time to be updated)
+
+-------------------------------------
+
+A Closer Look at the useState Hook:
+
+- useState registers some variable for a component Instance
+- update (via useState) -> re-render -> get the latest value
+- First Value (default value) is only considered on intial render
+
+-------------------------------------
+
+Multiple ways to Update the State:
+- setTimeOut()
+- HttpRespense
+- etc...
+
+-------------------------------------

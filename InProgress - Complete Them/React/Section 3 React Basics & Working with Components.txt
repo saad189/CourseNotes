@@ -178,7 +178,7 @@ Splitting Components into Multiple Components:
  - Composition => Creating component from Components | Combining Components
  - Wrapper Components: 
 
-- props.children is reserve keyword
+- props.children is reserved keyword
 
 
 import "./Card.css";
