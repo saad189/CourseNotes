@@ -61,3 +61,153 @@ Multiple ways to Update the State:
 - etc...
 
 -------------------------------------
+
+Adding Form Inputs:
+
+- Created New Component
+- Added <form> and relvant Input tags
+
+//
+const ExpenseForm = () => {
+  return (
+    <form>
+      <div className="new-expense__controls">
+        <div className="new-expense__control">
+          <label>Title</label>
+          <input type="text" />
+        </div>
+
+        <div className="new-expense__control">
+          <label>Amount</label>
+          <input type="number" min="0.01" step="0.01" />
+        </div>
+
+        <div className="new-expense__control">
+          <label>Date</label>
+          <input type="date" min="2022-01-01" max="2024-12-31" />
+        </div>
+      </div>
+
+      <div className="new-expense__actions">
+        <button type="submit">Add Expense</button>
+      </div>
+    </form>
+  );
+};
+//
+
+---------------------------------------
+
+
+Listening to User Input:
+- Need to add listeners to the elements (e.g for Input)
+- Fetching Value from Input:
+  - event.target.value
+  -  <input type="text" onChange={titleChangeHandler} />
+
+const titleChangeHandler = (event) => {
+    console.log("Title Changed", event.target.value);
+};
+
+
+---------------------------------------
+
+Working with Multiple States:
+
+- Just useState multiple times for each input instance
+
+---------------------------------------
+
+Using One State Instead (What's Better):
+
+- Approach Preference is personal
+- 
+
+  //   const [enteredTitle, setEnteredTitle] = useState("");
+  //   const [enteredAmount, setEnteredAmount] = useState(0.01);
+  //   const [enteredDate, setEnteredDate] = useState("2022-01-01");
+
+vs
+
+
+  const [userInput, setUserInput] = useState({
+    enteredTitle: "",
+    enteredAmount: "",
+    enteredDate: "",
+  });
+
+   setUserInput({
+      enteredTitle: event.target.value,
+      ...userInput,
+    });
+
+----------------------------------------
+
+Updating State That Depends On The Previous State:
+
+- The Problem with single state:
+  - constant copying of other properties
+- When updating a state, and you depend on a previous state, then use:
+  function, rather than spread copying:
+
+- Note: React Schedules updates, (async) not at once, so use:
+  //
+    setUserInput((prevState) => {
+      return {
+        ...prevState,
+        enteredTitle: event.target.value,
+      };
+    });
+  //
+- Function call is sync safe, as it will ensure latest state snapshot of the values
+
+----------------------------------------
+
+Handling Form Submission:
+
+- If button of type 'submit' is present in a 'form', then the form will emit the event
+- Form Also Submits to the server, need to disable the default behavior (this reloads the page)
+
+//
+  const submitHandler = (event) => {
+    console.log("LOL");
+
+    event.preventDefault();
+  };
+//
+
+- Then build the Data Object:
+      const expenseData = {
+      title: enteredTitle,
+      amount: enteredAmount,
+      date: new Date(enteredDate),
+    };
+
+--------------------------------------
+
+Two-Way Binding:
+- One way of state persistance is using global variables
+- Two-Way binding is basically reading and writing a property attached to an element
+
+//
+  <input
+    type="text"
+    value={enteredTitle}
+    onChange={titleChangeHandler}
+  />
+//
+
+- Reset Form after Submission
+  const resetForm = () => {
+    setEnteredTitle(defaultValue);
+    setEnteredAmount(defaultValue);
+    setEnteredDate(defaultValue);
+  };
+
+---------------------------------------
+
+
+
+
+
+
