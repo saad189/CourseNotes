@@ -1,0 +1,38 @@
+Introduction to SEM:
+
+- Trends can also be used with SEM
+- Ads, Paid
+- Actively looking for Converted Customers
+
+----------------------
+
+The SEM auction:
+
+- Cost Per Click (Max) = bid, so watch for constant update of business's MAX CPC
+- Quality Score: Closely related to the Search Query
+    Higher the better (Relevance)
+- Position = QS * CPC
+
+
+----------------------
+
+What makes a good keyword:
+- Word or Phrase
+- Relevance, Traffic, Competition
+- Keep it short and relevant
+
+- Use keyword research tools and Use trial and error
+- Check what Competition is using
+- Use Long Tail Keywords
+    - Do add high comp as well, but better to bid on long tail
+
+- Use constant monitoring
+
+
+----------------------
+
+Make your ads stand out:
+
+- Match Ad headlines with relevant Keywords
+- Unique timing and offer
+- Add Call to Action in the Ad [research backed]

@@ -1,0 +1,47 @@
+Making your web pages search friendly:
+- Make each page as good as possible
+- Meta Tags and Titles to improve SEO
+
+Meta Tags:
+    - Embedded Messages, 
+Titles:
+    - Main Content to be Read First
+
+Use headings and Page copies
+
+
+-------------------------
+
+How other websites can work for you:
+
+- OffSite and OnSite Influence
+- BackLinks -> Links from other sites to yours
+    - Good for SEO
+    - Use Social Media
+    - Improve Quality (Not quantity)
+- Create good content
+    - Encourage others to write about U
+    - #ContentMarketing
+    - Top10, 5 good, etc...
+
+- Use Social media to promote not improve seo (followers dont improve seo)
+
+-------------------------
+
+Cross borders with SEO:
+
+- Language, Localization, Country to Target
+- Language: Better to Use Different Pages for Different Languages
+    - Dont mix languages
+    - Dont use automated services [Use real life person]
+        - Use language annotations
+Country:
+    - Time
+    - Units of measurements
+    - Local Addresses
+
+CCTLD: google.co.uk [Hosting, IP, Info]
+
+Use Country Targeting tools (found in google console)
+
+
