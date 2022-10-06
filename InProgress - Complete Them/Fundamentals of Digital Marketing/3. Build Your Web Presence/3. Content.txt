@@ -1,0 +1,83 @@
+Choosing your online presence:
+- Website used to be brochures
+- Now they are interactive and a lot more
+
+- Google My Business, Bing Places for Business | Local Listings
+- Social Media can also be Used
+- Mobile Access, via Apps for the Company | GPS, Connecting, Phone, Order Placements, Offers, #LoyaltyTools, etc...
+
+- Goal: what you want your customers to do
+
+-----------------------------
+
+How Websites Work:
+- Rent space on the server -> Hosting
+- Address, IP Address, location
+- Domain Name: Name of the Website
+
+Process: Domain Name translation -> Get the specific server -> Get the content
+
+------------------------------
+
+Key Website Ingredients:
+- Domain Name: Available, Easy to Undersand and Find
+- Use Domain Registrar from a hosting website
+- People should be able to remember it easily
+- .com, .org, .net
+
+- Home Page: Shop Window
+    - Navigation Options for Every Other Page on the Website
+- Simple Website Templates to Decide Content on Each Page
+- Functions: Images, Orders, Contact Details, Hyperlinks, etc...
+- Digital Store Front
+
+-------------------------------
+
+Websites and your business goals:
+- Think like a customer and focus on your goals
+- Highligth Phone Number, Enhance Contact Page, Mobile -> One click Phone
+- Add Maps
+- Add Qualifications, Testimonials
+- Avoid Tech Jargons, Show you can solve problems not self-promotion
+- Confident but not Intimidating
+- Add Review Sections
+- Proper UX, good for quick scanning
+
+----------------------------------
+
+Make your Website Easy to Use:
+- Improve Usability
+- Simple and Clear Navigation | Consistent Layout
+- Navigation:
+    - Sensible
+    - Sections to contain same types of items
+    - Add SearchBar
+    - Logo -> HomePage
+
+- Style and Feels (UI and UX):
+    - Consistent and Same fonts
+    - Subtle Themes not bold
+    - Don't make too much Scrolling
+    - Headers and Headlines should be good enough for the Page
+    - Add Call to Action [Call Now, Get Directions, Buy Now]
+
+---------------------------------
+
+Website design do's and don'ts:
+- General Accessibility and Speed
+- Ensure Fast loading, via Hosting Solutions and Tech Stacks
+    - Resize Images
+    - Simplify Design (Less Downloadbles) -> Same background Images,
+    - Minimal Scripts
+    - Test and Verify
+    - Ensure Mobile Friendliness -> Responsive Design
+        - Google Mobile Fiendly Test Tool
+        - Use Widely Used Icons
+        - Add Call button -> one click
+        - Android, Apple, Microsoft, etc...
+
+- Website should also Solve, not just sell
+    - Add Information that helps consumers out
+    - Add Testimonials and Reviews to Ease customer's minds
+
+--------------------------------

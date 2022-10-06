@@ -1,0 +1,140 @@
+import flutter material package
+package:flutter/material.dart
+
+
+- Flutter is like a Tree like Structure
+
+- main() {
+runApp(--Widget--) // bootstrap
+}
+
+- Stateless Widget is the base class
+    - it has a build method, returns a Widget
+    - MaterialApp is the base widget
+        - home: Scaffold(
+            appBar: AppBar(Ctrl + Spacebar)(
+                backgroundColor: Colors.Something
+                title: const Text ('Flutter is Fun')
+            )
+
+- Layout:
+    property: Container(
+        child: Something like Text
+        otherProperties like:
+        margin: const EdgeInsets.all(100)
+        padding
+        color
+        height
+        width
+    )
+
+Quick Building:
+    - Ctrl + . on the widget and select an option for visual fixes
+
+Flex Layout:
+- Unlike Container Widget, Column Widget will take an array of Children
+    body: Column(
+        children: const [
+            Icons(Icons.backpack),
+            Icons(Icons.leaderboard)
+        ]
+    )
+- Similarly we have Row (), both can be put as children of each other
+cross -> vertical
+    crossAxisAlignment : CrossAxisAlignment.end
+main -> horizontal
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly
+
+
+Floating Widget: Stack
+- Put items on top of each other
+body: Stack(
+    children: [
+
+    ]
+)
+
+PositionedWidget:
+    for forcing items to occupy a certain position on the Layout
+AlignWidget:
+    relative to parent
+
+ActionButtons:
+
+    floatingActionButton: FloatingActionButton ( // The fun button
+        child: Icon(Icons.add),
+        onPressed: () {
+            print('Hello')
+        }
+    )
+
+    bottomNavigationBar: BottomNavigationBar(
+        itesm: const [
+            individual buttonItem
+        ]
+    )
+
+
+DrawerWidget (Menu):
+    drawer: Drawer(
+        child: Text('Yo')
+    )
+
+ListView:
+    Scrollable
+
+    body: ListView(
+        scrollDirection: Axis.horizontal,
+        children: [
+            Container(),
+            Container(),
+            Container()
+        ]
+    )
+
+DynamicBuilding: (LazyLoading)
+    body: ListView.builder(
+        itemBuilder: (_,index) {
+            return Conainer(
+                color:randomColor(),
+                width: 500,
+                height: 500
+            )
+        }
+    )
+
+
+----------------
+
+State: Changed Data
+
+StatelessWidget does not have any saved state;
+Refactor it to a StatefulWidget
+    - Will convert the original to two classes
+    - Immutabe class
+    - Mutable Old class
+
+    then add your own variables
+
+    and display like this:
+
+    body: Center(
+        child: Text('$count')
+    )
+
+
+To initialize data:
+    @override
+    void initState() {
+        super.initState();
+        // Add code to fetch initial data from db
+    }
+
+    same for dispose
+
+------------------------------
+
+Navigation:
+    - Two different widgets
+    
+

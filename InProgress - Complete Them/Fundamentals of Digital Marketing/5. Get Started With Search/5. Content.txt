@@ -1,0 +1,72 @@
+Search Engines Online:
+- Archie Oldes SE
+- Google, Bing, Yahoo, Ask.com, Don't Care
+- Massive Webpage Search
+    - Search Query is Compared and Best mathes are shown on the search result page
+    - Words should match your services, so target with keywords
+    - Plan should Include Social Media, Email Marketing and Ads
+
+
+----------------------
+
+How Search Engines Work:
+
+- Search Engines Perform:
+    - Examine the Content (Crawling)
+    - Catagorize (Indexing)
+    - Usefulness (Ranking)
+
+    Write your own description of the content
+    Ranking -> Freshness, Relevance, Usefulness
+
+----------------------
+
+How Search Engines See the Web:
+Pages make into index one SE has found them (indexed them)
+
+- Improving Visibility (Optimize):
+    - You can use Content Management System (Auto-Code)
+    - Improve HTML tagging to Improve SEO
+    - Use relevant terms, because they are being used to search
+    - Improve Image tag, use proper names of the image as well, add alt text
+
+----------------------
+
+Organic Search Explained:
+- Best matched search query, not similar to paid Ads (so no cost)
+- Quality is required -> Search Engine Optimization
+    - Good Relevant Content
+    - Focus on the How and Where, and Delivery Details, Specific
+
+-----------------------
+
+Paid Search Explained:
+- Search Engine Marketing
+    - Here businesses compete for the Ads
+    - Adverts seem similar to the Organic results
+        - Even the ads are based on Relevance to the search query
+
+Options:
+    - Search text
+Bids:
+    - the amount of money charged per click (not display)
+- Bids + Quality will generate more clicks
+
+-----------------------
+
+Google Search Console:
+- Gives feedback on the Search Results and Your Performance
+- Also shows how your website is seen by Google
+- Search Analytics Report:
+    - Demographics Attracted
+    - Other Wesbites Linked to you
+    - Searches Leading to You
+- Irrelevant search means, website needs to be updated
+- Ensure matching words with searches being made
+- Checkout User Mobility Report
+- Crawl Report
+    - If google can access your page
+- Google Index Report
+    - Info recorded by google for your page
+
+google.com/webmasters - Register your website
