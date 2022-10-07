@@ -1,0 +1,51 @@
+Achieve Relevance with good Structure:
+- Should relevant to the keyword
+- Landing Page should also be relevant
+
+Structure:
+- Consider upside-down tree
+- Accounts -> Campaigns -> Ad Groups (Collection of Keywords)
+
+- Photographer (Account)
+    - Events (Speciality)
+        - Specific Event (Campaigns)
+            - Specific Ad Group (Ad Groups)
+        
+
+------------------
+
+Get the most from your keywords:
+
+- Use Search Tools offered by Search Engines
+    - Google Keywords Planner
+        - Tool will show relevant keywords to your keyword
+        - Number of Searches
+    - Use Negative Keywords to Ensure the Context is not Lost
+        - Prevents Non-relevant keyword Searches
+
+------------------
+
+Fine-tune with keyword match types:
+
+Which Searches trigger your ads
+
+- Ensure Exact Match
+- Broad Matching -> Variations of Keywords also show your ads
+
+Keyword Match Types:
+- More Specific Keywords
+- Add Match Type
+    - Phrase Match (Add Quotes) "Word" [words can be included before and after the phrase]
+    - Exact Match [Exact Words] (any other word will not trigger your ad), only minor Variations may trigger it
+    - Broad Match is by default
+
+- will low traffic, but will increase effectiveness
+
+------------------
+
+
+How to know what's working and what isn't:
+- Tracking Conversions
+    - Choose Conversions to Track: [Order Placement, Enqueries, Downloads, Email List]
+    - Add code to certain actions, e.g Post Order Page | Thankyou Pages
+    - 
