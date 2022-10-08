@@ -1,0 +1,27 @@
+The evolution of mobile devices:
+
+- Dramatic evolution
+- Have now become Convenient
+- Avg 2h 26 m daily in UK
+- Used more than Laptops and Desktop
+- Numerous Opportunity for Businesses
+
+
+----------------------
+
+Understanding mobile web and mobile apps:
+
+- Websites should be mobile friendly
+- Mobile design should allow actions to be completed
+- Google's mobile friendly test
+
+----------------------
+
+Understanding mobile apps:
+- Mobile Sites: Simpler version of the main Websites
+- Apps: Specific Features, allow usage of GPS, Camera and so on
+    - Unique Catering
+    - Push Notifications
+        - Reminders
+    - Loyalty Program (Points, Gamification)
+    - Simplified Actions

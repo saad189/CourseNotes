@@ -1,0 +1,72 @@
+Introduction for advertising on mobile:
+
+- Ads -> more downloads, more enquiries, more engagement
+- Click to Call ads
+- Focus on Shorter Phrases
+    - Not same as computers
+    - "Plumber Near Me" vs "Need a plumber in my area"
+- You can use review websites as well (like Yelp)
+- Mobile Ads + Mobile Friendly websites
+- Ad Extensions: Extra Features (e.g Calling, Directions etc..) offered
+    via Ads
+
+------------------------
+
+Search campaigns for mobile:
+- Different Environment than a Computer
+- Loading should be super fast
+- website should work and look best
+- Easy action buttons
+- Clear Navigation
+- Easy Search Availability
+
+- Campaigns:
+    - Checkout Search Terms:
+        Google Keyword Planner (Percentage of Mobile Keywords)
+    - Specific Tasks, Users actually need help
+        - Show Ad Specific to that keyword
+            - leaky bathtub -> Fix Leaky Bathtubs (or AdGroup)
+    
+    - Avoid mobile ads to be shown on Desktops | Google provided Feature
+        to prevent cross boundary
+    
+Bid Adjustment:
+    - If a campaign is not working well, lower its bid
+        and increase the one which is working (e.g PC is going good
+            but mobile is not, so increase PC, decrease mobile)
+            #ConversionRatio
+
+------------------------
+
+Display campaigns for mobile:
+
+- Specific ad for Specific device (One size does not fit all)
+    - Different for Tabs, Mobiles, Desktops
+- Apps can also be used as AdSpace, can work similar to Interests
+
+
+------------------------
+
+Social media campaigns for mobile:
+
+- Decide which Social media you need to use
+    - Objective of the Network
+    - Audience that uses it
+    [Twitter, LinkedIn, Facebook]
+
+- Create Ads with Mobile in Mind
+- Meaningful Targetting
+- Use image based ads
+
+
+------------------------
+
+Video for mobile:
+
+- Keep it Relevant
+- Short
+- Clear Call to Action
+- Keep it localised
+- Keyword based, Website based Targetting
+- Video on youtube which is relevant to your business
+

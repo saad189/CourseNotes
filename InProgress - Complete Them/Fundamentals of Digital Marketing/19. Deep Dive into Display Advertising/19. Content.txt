@@ -1,0 +1,36 @@
+Making display ads meet your goals:
+
+- Understand the customer funnel
+- Target ads with different goals in the funnel
+    1. Awareness: Reach a broad target audience
+        - Focus on your competitive advantage 
+    2. Potential Customers (Considering Using a Service)
+        - People are aware of you, need to attract them now
+    3. Conversion: Offers and Incetives
+        - Retargetting: Show ads after people have visited you
+            - Entice them back to the website and make that purchase
+
+-----------------------
+
+Understanding ad networks:
+
+- Handle buying a selling of the ads, linking your ads to the websites
+- Like a marketplace, bringing businesses and websites together
+- Websites can set prices of Ad spaces
+    - bidding process
+- Allow specific targetting
+    - Topics of the website where the ad appears
+    - General Info about the people viewing the content
+- Money management
+- Analytics 
+    -> Reach Tracking
+    -> Conversion
+
+-----------------------
+
+How retargeting works:
+- Get the customers who leave at the final step
+- Define Target Audience:
+    - People who didnt finish the subscription form (almost there) | 
+    call to action 
+- New retargeting list for subscribed customers

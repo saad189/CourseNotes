@@ -1,0 +1,41 @@
+What is display advertising:
+
+- Digital version of a billboard
+- Specific webpages or Specific group of people (How to Show Ads)
+    - Target Specific groups even if websites doesnt have to anything
+        with your ad
+- Engagement and Traffic to Your websites
+
+-------------------------
+
+Search advertising vs display advertising:
+
+- Search Engine Marketing
+    - Reach customers who are actively looking for the product/service
+        - Definitely a potential customers
+- Display Advertising
+    - Customers are not necessarily searching for you
+    - Just to build interests
+    - Raise awareness
+    - Creative options, different designs and so on
+
+- Make them work together -> Raise interest -> SEM for the actual click
+
+-------------------------
+
+The ins and outs of display advertising:
+
+- Display advertising network
+    - A system of managing ad space, group targets and timings
+
+- Targeting Options:
+    - Specific websites, Pages, page locations [#Placements]
+    - Target websites catagory
+    - Targeting Location | Interests | Demographics
+
+- Ad Campaigns:
+    - Display campaigns for specific group (Segment) | specifc timings,
+        locations, Demographics (or multiple)
+    - Tone, Style and so on
+
+-------------------------

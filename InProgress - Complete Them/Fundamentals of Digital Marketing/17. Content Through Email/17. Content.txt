@@ -1,0 +1,93 @@
+Email marketing basics:
+
+- builds customer loyality and engagement without breaking the bank
+    - works on mobile as well
+- builds relationship with customers
+
+Setup goals first
+    - Business results?
+    - Engagement
+
+- Offer discounts and offers to people who add their email 
+    addresses with u
+- Start with Intro email
+    - Move ahead with products
+    - Ask their interests
+    - Send Specific emails to specific segments
+- Keep a record of what the customer group is saying
+- Build lasting relationships
+    - Anticipate their needs, what might they need in the future
+        based on their past purchases
+    - Request feedback and respond directly
+    - Adjust accordingly
+
+--------------------
+
+Your email marketing options:
+
+Common features:
+    - Contact Database [Email, Name, Mailing Address, Other Info]
+        - Build it up
+        - Attach it to Sign Up list on the website
+
+- Group customers into their interests
+    - Send offers accordingly
+
+- Make Templates and Reuse them
+- Schedule Emails and Preview them
+- Some tools allow tracking of behavior
+    - When they read your email
+    - Do they click on the links and use your Site
+        - What actions do they perform
+- Personalized emails for each group | Subsection in the email
+    tailored to the segment
+
+--------------------
+
+Crafting great marketing emails:
+
+- They will see [Business Name and Subject Line]
+    - People open emails they can trust
+    - Keep subject under 10 words
+    - Keep [specials,money symbols, percent off, free, reminder] out
+        of subject line as they can trigger spam filters
+    - Keep it concise and focus on a single idea
+    - Keep it casual | Add Call to Action | Add Offers (Bold Cute Design)
+    - Add links at bottom to update their preferences (Unsub and so on)
+
+--------------------
+
+Managing successful email campaigns:
+
+- A/B Testing: Send One group version A of the email
+    - Send Another Group version B of the email
+    - See what works better
+- Try different week timings
+    - Maybe switch to monthly digest
+- Try out new Landing Pages (Email -> Link opened by the user)
+    - Send them directly to the page they want to see
+    - Landing Pages should be responsive
+
+Measure:
+    - analytics tools
+        - Open rates, Subject lines are more compelling
+        - Click through rates, People approaching the landing page
+
+--------------------
+
+Measuring success in email marketing:
+
+- Open rates:
+    - effectiveness of the subject line
+    - DO they want insights or offers
+- Clicks through rate (CTR):
+    - Link / open rate
+- Conversion Rate:
+    - Email sent over and users registered
+
+- Bounce backs:
+    - Soft Bounce: Emails rejected because of inbox being full
+    - Hard Bounces: Bad email addresses
+- Purchase decisions
+    - How many conversions through email marketing
+    
