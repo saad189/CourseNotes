@@ -1,0 +1,48 @@
+Creating a smooth e-commerce experience:
+
+- Use analytics to analyze the Customer Journey
+    - Check where cutsomers stop, Heatmaps and so on
+- Check Inventory Mangament
+    - Which catagories and sub-catagories are working or not
+- Include Search function
+- Add photo gallery or video, add descriptions and measurements
+    - To enable customers to click that buy button
+
+- Encourage cutsomers to create account
+    - Their preferences
+    - Orders (Cart)
+    - Payment Info
+    - So they can easily buy
+
+- Advanced:
+    - Pattern Mangament (Past purchases, Similar Purchases and so on)
+- Custom Offers and so on | Loyalty Programs
+
+---------------------
+
+Product promotion and merchandising:
+
+- Add Featured Products
+- Product merchandising
+    - Shift Old Inventory
+    - Best Selling Items
+- Predict Preferences (Based on Collected Data)
+- Promote Related Products
+(Magento, Vollusion, Shopify)
+
+---------------------
+
+Retargeting for e-commerce:
+
+- Customer Journey breaks at Checkout
+    - Retarget them with ads and Reminders of the given prodcut
+    - Collect Info -> Customer wanted to buy item, but didn't so
+        use retarget tools
+- Add custom parameters to show retarget ads
+    - Specific and Dynamic Ads
+
+- Don't discount immediately
+    - Limit the Number of Ads to same person and number of times
+
+- Tracking and Measuring Retargetting with Tools
+

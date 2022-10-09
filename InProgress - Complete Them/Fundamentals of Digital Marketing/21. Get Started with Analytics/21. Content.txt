@@ -1,0 +1,36 @@
+What is web analytics:
+
+- Objectivity is provided by analytics
+- Provides Data:
+    - Metrics
+        - Time Spent on something
+        - Clicks
+        - Coversion Rate [Based on devices, Where they are coming from]
+    - Dimensions
+        - Describing any tracking mechanism
+        - Device Type
+        - Geolocation
+        - Browser
+    
+    - Metric + Dimensions -> Insights into customer behavior
+    - Configurable
+
+Track and Measure what users do on the website
+
+---------------------
+
+Making web analytics work for you:
+
+- Track and Measure the entire User journey
+- View their movements, home -> Gallery -> Sign Up , etc...
+- It can even track if users are becoming advocates
+
+---------------------
+
+Tracking specific goals with web analytics:
+
+- Coversion -> When User completes a Goal
+- Understand your goals and keep them in mind
+    when tracking via Analytics
+- Business Value as locus
+- Configure actions as conversions

@@ -1,0 +1,33 @@
+Web analytics and organic search:
+
+- Check traffic sources
+    - keywords used to get to your website
+- Keep website relevant
+    - Rewrite content to match the business better that you offer
+
+- Features of your Prodcut should be written on the website
+
+
+---------------------
+
+Tools to measure SEM:
+
+- Tools will help you understand the impact of the ads being run
+    - Will inform you how much you should bid for a keyword
+    - Cost per click etc...
+    - It maybe better to be higher or lower in the search result
+        - So check before you bid either way
+    
+
+---------------------
+
+Breaking down your data for insights:
+
+- Segmentation:
+    - Breaks down data into chunks
+    - Geographics | Demographics | Interests | Devices Used
+        - You can break down a group into a subgroup to focus on specific
+            segment
+    - insights that can result in a useful action to improve
+
+

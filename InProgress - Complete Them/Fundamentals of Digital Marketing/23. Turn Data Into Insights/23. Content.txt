@@ -1,0 +1,53 @@
+Using data to understand audiences:
+
+- Quantitive and Qualitative Data
+
+Qualitative -> Reviews, Survey, etc...
+
+Quantitive -> From Analytics (Google and Social Media)
+
+- Use them Together to build a better experience
+
+
+---------------------
+
+Understanding the Data Cycle:
+
+- Action, Inform your business decisions online
+    1. Plan -> Identify Goals and Plan how to achieve [Identify goals of the campaign]
+    2. Do   -> Design Ads and Launch Campaign [Collect Relevant Data]
+    3. Check -> Assess the Campaigns and Analyse [Review Data]
+    4. Act -> Use findings to improve future campaigns [Test the hypothesis]
+
+- Capture only relevant data
+    - Review at Periodic Intervals
+    - Time, Action, Reviews and so on
+
+---------------------
+
+Creating actionable insights from your data:
+
+- Insigths: Why something has happened
+    - Define your goal
+    - Collect the data
+    - Interpret the data
+    - Develop recommendations
+    - Take action [Action plan and test findings]
+    - Review Outcomes
+
+---------------------
+
+Managing numbers using spreadsheets:
+
+- Information can be presented in different ways
+- Currency, dates, percentages and so on
+- Custom Formulaes
+
+---------------------
+
+Presenting data effectively:
+
+- Graphs vs Numbers | Know the audience and the data they would
+    want to see
+- Don't overwhelm the audience with too much data
+- Visual Format -> to tell a story

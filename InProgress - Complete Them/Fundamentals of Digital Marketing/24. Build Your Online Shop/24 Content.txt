@@ -1,0 +1,24 @@
+Using e-commerce to sell:
+
+- Add Payment Services
+- Use off-the-shelf service like Wordpress
+- Good -> Shopify and Magento [Product Search, Checkout, Customer Accounts
+    , Order Management, etc]
+- Detailed Descriptions, Videos, Reviews, Images for the prodcuts
+
+- Add your product to other sites [Amazon, Daraz, Ebay]
+
+---------------------
+
+Taking payments and managing orders:
+
+- U can use 3rd party payment systems
+- U can also integrate the system in your own websites
+- Extra promotion | Custom Thankyou page
+- Track customer journey
+- Custom solutions offer all this
+    - Some offer full online store features
+        - Accounts, Offers, Customer Management
+        - Inventory Management
+        - Shipping
+        - Financial Management
