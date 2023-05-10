@@ -48,4 +48,3 @@ How to know what's working and what isn't:
 - Tracking Conversions
     - Choose Conversions to Track: [Order Placement, Enqueries, Downloads, Email List]
     - Add code to certain actions, e.g Post Order Page | Thankyou Pages
-    - 

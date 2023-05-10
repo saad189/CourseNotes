@@ -1,7 +1,6 @@
 import flutter material package
 package:flutter/material.dart
 
-
 - Flutter is like a Tree like Structure
 
 - main() {

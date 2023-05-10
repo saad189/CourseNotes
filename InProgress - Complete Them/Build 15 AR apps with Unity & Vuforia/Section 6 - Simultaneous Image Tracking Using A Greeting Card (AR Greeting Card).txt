@@ -1,0 +1,23 @@
+Greeting Card of your choice.
+
+-------------------------
+
+Importing the Vuforia package and adding the License Key:
+
+- Create New Project
+- Download Vuforia package
+- Import Package
+- + -> Vuforia Engine -> AR Camera
+- AR Camera -> Inspecetor -> Open Vuforia Configuration
+- Add License -> Previously Created License from Vuforia Develop (ARONE)
+    - Copy and Paste its Key
+
+--------------------------
+
+Creating Image Target within Unity:
+
+New Technique:
+- Just Add image into a folder,
+- Drag and Drop on Image Selection
+- To change size -> Advanced -> Width (currently : 5)
+- DrawBack: U dont know stars rating
